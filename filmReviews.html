@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spooktastic Home: Your Source for All Your Horror News</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class="parent-container">
+        <header>
+            <!--Attribution: tip for making CSS background-img accessible 
+                https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
+            <!-- include the img tag but visually hide it with .screenreader-only -->
+            <img class="screenreader-only" alt="Background photograph of dark greyscale forest" src="./Assets/forestVanillaFilter.jpg">
+            <nav id="main-navbar">
+                <ul id="accessibility-options">
+                    <li>
+                        <span id="text-size-options">
+                            <button id="large-text">
+                                <b>A</b>
+                            </button>
+                            <button id="medium-text">
+                                <b>a</b>
+                            </button>
+                            <button id="small-text">
+                                <b>a</b>
+                            </button>
+                            <button id="extra-small-text">
+                                <b>a</b>
+                            </button>
+                        </span>
+                    </li>
+                    <li>
+                        <button id="dark-mode">
+                            Dark Mode
+                        </button>
+                    </li>
+                </ul>
+                 <ol id="main-navbar-list">
+                    <li>
+                        <a id="main-nav-home-link" href="index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-films-link"  href="filmReviews.html">MOVIES</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-music-link"  href="index.html">MUSIC</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-travel-link"  href="travel.html">TRAVEL</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-events-link"  href="events.html">EVENTS</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-about-link"  href="index.html">ABOUT</a>
+                    </li>
+                    <li>
+                        <a id="main-nav-write-link"  href="index.html">SUBMIT REVIEWS</a>
+                    </li>
+                </ol>
+            </nav>    
+            <div class="header-headings-area">
+                <h1 id="main-heading">
+                    SPOOKTASTIC
+                </h1>
+                <div id="main-subheading-and-dropdown-container">
+                    <h2 id="main-subheading">
+                        Your Go-To Site for Horror News and Reviews
+                    </h2>
+                    <div class="dropdown-container">
+                        <button id="menu-button">
+                            &#9776;
+                        </button>
+                        <div id="dropdown" class="dropdown-menu">
+                            <div class="dropdown-link-div">
+                                <a href="index.html">Home</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="bookReviews.html">Book Reviews</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="travel.html">Travel Suggestions</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="#">Link 1</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main-reviews-container">
+                <section class="reviews">
+                    <h3 class="reviews-title">Film Reviews</h3>
+                    <div class="reviews-content">
+                        <a href="review.html" class="review-link">
+                        <article class="review-box">
+                            <img class="media-icon" src="Assets/itBook.jpg">
+                            <h5 class="media-title">Book Title</h5>
+                            <p class="media-caption">Ophelia Lavey</p>
+                        </article class="review-box">
+                        </a>
+                        <a href="review.html" class="review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/itBook.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                        </a>
+                        <a href="review.html" class="review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/itBook.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                            </a>
+                        <a href="review.html" class="review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/itBook.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                            </a>
+                        <a href="review.html" class="review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/itBook.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                        </a>
+                            <a href="review.html" class="review-link">
+                                <article class="review-box">
+                                    <img class="media-icon" src="Assets/itBook.jpg">
+                                    <h5 class="media-title">Book Title</h5>
+                                    <p class="media-caption">Ophelia Lavey</p>
+                                </article class="review-box">
+                            </a>
+                    </div>
+                    <div class="reviews-expand">
+                        <button id="load-more">Load More...</button>
+                        <a id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                    </div>
+                </section>
+                <aside class="aside-reviews">
+                    <h4>Other 'Horrifying' Content...</h4>
+                    <ul>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                    </ul>
+                </aside>   
+            </div>
+        </main>
+        <footer>
+            <div id="copyright">
+                Ophelia Lavey 2022
+            </div>
+            <div id="contact">
+                <h4>Contact:</h4>
+                <h5>Email Address:</h5>
+                <email id="footer-email-contact">
+                    ophelia.lavey2@gmail.com
+                </email>
+                <h5>Snail Mail:</h5>
+                <address id="footer-address-contact">
+                    23 Will-O-the-Wisp Road 
+                    Salem
+                    DV6 666
+                    UK
+                </address>
+            </div>
+        <nav id="site-map">
+                <ol>
+                    <li>
+                        <a id="footer-nav-home-link" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="bookReviews.html">Book Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="filmReviews.html">Film Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="index.html">Music Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="travel.html">Spooky Travel</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="events.html">Mysterious Events</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="index.html">About</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-home-link" href="index.html">Write For Us!</a>
+                    </li>
+                </ol>
+            </nav>
+        </footer>
+    </div>
+    <script src="./Scripts/script.js"></script>
+  </body>
+</html>

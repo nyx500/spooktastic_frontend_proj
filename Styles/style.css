@@ -1,0 +1,1105 @@
+@font-face {
+    font-family: "Oxygen Regular";
+    src: url(../Fonts/Oxygen/Oxygen-Regular.ttf)
+}
+
+@font-face {
+    font-family: "Oxygen Bold";
+    src: url(../Fonts/Oxygen/Oxygen-Bold.ttf)
+}
+
+@font-face {
+    font-family: "Oxygen Light";
+    src: url(../Fonts/Oxygen/Oxygen-Light.ttf)
+}
+
+
+:root {
+    /* Make black a bit lighter and white not pure-white to make it less tiring for eyes */
+    --off-black: #101010ed;
+    --off-white: #F8F0E3;
+    --this-red: #ff0000;
+    --this-dark-red: #650000;
+    --this-mid-grey: #404040;
+    --this-light-grey: #ABABAB;
+}
+
+
+html {
+    font-family: "Oxygen Regular", Verdana, Tahoma, sans-serif;
+    font-size: 22px;
+    scrollbar-color: var(--this-red) var(--this-mid-grey);
+    scrollbar-width: auto;
+    overflow-x: hidden;
+}
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+/*Appearance of scrollbar in Chrome a bit different but still same color scheme and works*/
+/*Attribution: https://css-tricks.com/custom-scrollbars-in-webkit/*/
+::-webkit-scrollbar {
+    width: 1rem;
+    background: var(--this-mid-grey);
+  }
+
+  ::-webkit-scrollbar-track {
+    /* For mozilla browser compatibility */
+    -webkit-box-shadow: inset 0 0 6px var(--off-black); 
+    /* Other browsers */
+    box-shadow: inset 0 0 6px var(--off-black);
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    /* For mozilla browser compatibility */
+    -webkit-box-shadow: inset 4px 4px 6px var(--off-black); 
+    /* Other browsers */
+    box-shadow: inset 4px 4px 6px var(--off-black); 
+    background: var(--this-red);
+}
+
+.parent-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: minmax(15rem, auto) minmax(40rem, auto) minmax(10rem, auto);
+    grid-template-areas: "hd hd hd hd hd hd hd hd hd"
+                         "mn mn mn mn mn mn mn mn mn"
+                         "ft ft ft ft ft ft ft ft ft";
+}
+
+/******************************GENERAL LAYOUT***************************************************/
+header {
+    color: var(--off-white);
+    background-image: url("../Assets/forestVanillaFilter.jpg");
+    grid-area: hd;
+    display: grid;
+    /* grid-template-columns: repeat(1fr, 9); */
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-template-areas: "nav nav nav nav nav nav nav nav nav"
+                          "hds hds hds hds hds hds hds hds hds"
+                          ". . . . . . . . .";
+}
+
+/*Attribution: https://www.w3schools.com/howto/howto_js_sticky_header.asp */
+/*Sticky formatting for main navbar*/
+.sticky1 {
+    position: fixed;    
+    background-color: var(--this-light-grey);
+    color: var(--off-black)!important;
+    padding: 0;
+    width: 100vw;
+    z-index: 200;
+}
+
+@media only screen and (max-device-width: 768px)
+{   
+    #main-heading{
+        font-size: 3.5rem;
+    }
+    
+}
+/*************************************Elements in the Header********************************/
+
+
+#main-navbar
+{   
+    color: var(--off-white);
+    grid-area: nav;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "accessibility accessibility mainlist mainlist mainlist";
+    row-gap: 0px;
+}
+
+#accessibility-options
+{   
+    list-style-type: none;
+    grid-area: accessibility;
+    z-index: 2;
+    align-self: start;
+    display: grid;
+    grid-template-columns: "1fr 1fr 1fr";
+    grid-template-rows: 1fr;
+    grid-template-areas: "logo darkbutton textsizes";
+    grid-gap: 10px;
+    align-content: start;
+    align-items: center;
+    justify-content: start;
+    justify-items: start;
+}
+
+#accessibility-options li {
+    padding-top: 0.7rem;
+    display: inline-block;
+}
+#text-size-options
+{   
+    grid-area: textsizes;
+    width: fit-content;
+    display: inline-block;
+}
+#text-size-options > button
+{
+    background-color: Transparent;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    color: var(--off-white);
+}
+
+#large-text
+{   
+    font-size: 1.8rem;
+}
+
+#medium-text
+{
+    font-size: 1.4rem;
+}
+
+#small-text
+{
+    font-size: 1.0rem;
+}
+
+
+#extra-small-text
+{
+    font-size: 0.6rem;
+}
+
+#dark-mode
+{   
+    margin-top: 10px;
+    grid-area: darkbutton;
+    height: fit-content;
+    padding: 10px;
+    width: 8rem;
+    /* Max-width so does not overflow off the web page on very small screens */
+    max-width: 50vw;
+    color: var(--off-white);
+    border: 2px solid var(--off-white);
+    border-radius: 8px;
+    background-image: linear-gradient(var(--this-light-grey), var(--off-black), var(--this-light-grey));
+    cursor: pointer;
+}
+
+
+#navbar-logo-text
+{   
+    grid-area: logo;
+    margin: 0;
+    padding:0;
+    text-align: start;
+    margin-right: 2rem;
+}
+
+#main-navbar #main-navbar-list {
+    list-style-type: none;
+    grid-area: mainlist;
+    justify-self: end;
+    align-self: start;
+    z-index: 2;
+    margin: 10px;  
+}
+
+#main-navbar #main-navbar-list li {
+    display: inline;
+    font-size: 0.8rem;
+    margin-bottom: 200px;
+    padding-left: 14px;
+    color: var(--off-white);
+    font-weight: bolder;
+}
+
+#main-navbar #main-navbar-list li a:link
+{
+    color: var(--this-red);
+}
+
+#main-navbar #main-navbar-list li a:visited
+{
+    color: var(--off-white);
+}
+#main-navbar #main-navbar-list li a:hover
+{
+    color: var(--this-red);
+}
+
+@media only screen and (max-device-width: 1565px) and (min-device-width: 1200px)
+{   
+    #accessibility-options{ 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "logo darkbutton"
+                            "logo textsize";
+    }
+}
+
+
+@media only screen and (max-device-width: 1200px) and (min-device-width: 768px)
+{
+    #accessibility-options
+    {   
+        list-style-type: none;
+        grid-area: accessibility;
+        z-index: 2;
+        align-self: start;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "logo"
+                            "darkbutton"
+                            "textsizes";
+        align-content: start;
+        align-items: center;
+        justify-content: start;
+        justify-items: start;
+    }
+
+    #main-heading{
+        font-size: 3.2rem;
+    }
+
+}
+
+@media only screen and (max-device-width: 768px)
+{
+    #main-navbar-list {
+        display: none;
+    }
+    #navbar-logo-text
+    {
+        display: none;
+    }
+    #main-navbar
+    {
+        grid-area: nav;
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "accessibility accessibility accessibility accessibility accessibility";
+        row-gap: 0px;
+    }
+
+}
+
+
+header .header-headings-area {
+    grid-area: hds;
+
+}
+
+#main-heading{
+    text-align: center;
+    font-size: 4rem;
+}
+
+#main-subheading-and-dropdown-container
+{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: "dropdown sbhd .";
+
+}
+
+#dropdown{
+    display: none;
+}
+
+.dropdown-container
+{   
+    grid-area: dropdown;
+    align-self: end;
+    position: relative;
+    margin: 20px;
+}
+
+.dropdown-menu
+{
+    position: left;
+    padding: 10px;
+    width: 50vw;
+    background-color:var(--this-light-grey);
+    color: var(--off-black);
+    border-radius: 4px;
+    border: 4px solid black;
+    z-index: 1000;
+}
+
+.dropdown-menu div
+{
+    margin-top: 5px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "droplink";
+    justify-content: start;
+    justify-items: start;
+    align-items: center;
+}
+.dropdown-menu div a
+{   
+    grid-area: droplink;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+.dropdown-menu div a:link
+{
+    color: var(--off-black);
+}
+.dropdown-menu div a:visited
+{
+    color: var(--this-dark-red);
+}
+.dropdown-menu div a:hover
+{
+    color: var(--this-red);
+}
+
+#main-subheading{
+    grid-area: sbhd;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 50px;
+    justify-self: center;
+}
+
+#menu-button{
+    width: fit-content;
+    height: fit-content;
+    background: linear-gradient(var(--off-white), var(--this-light-grey), var(--off-white));
+    color: var(--off-black);
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/************************************ELEMENTS IN THE INDEX MAIN CONTAINER****************************************/
+
+main {
+    grid-area: mn;
+    background-color:var(--off-white);
+    color: 	var(--off-black);
+}
+
+#welcome-content
+{   
+    padding-top: 50px;
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: 15% minmax(30%, 70%) 15%;
+    grid-template-rows: repeat(1fr, 4);
+    grid-template-areas: ". header1 ."
+                        ". header2 ."
+                        ". welcominfo ."
+                        ". welcomeinfo .";
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: space-around;
+    text-align: center;
+    gap: 0.8rem;    
+}
+
+#welcome-content h2
+{
+    font-size: 1.6rem;
+    grid-area: header1;
+    align-self: start;
+}
+
+#welcome-content h3
+{
+    font-size: 1.4rem;
+    grid-area: header2;
+    align-self: start;
+}
+
+#welcome-info
+{
+    grid-area: welcomeinfo;
+    align-self: end;
+}
+
+#welcome-info > p
+{
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#welcome-list
+{
+    list-style-type: none;
+}
+
+#welcome-list li
+{   
+    font-size: 0.9rem;
+    padding-top: 2.2rem;
+}
+
+
+/* Media queries for header and index page */
+@media only screen and (min-device-width: 768px)
+{
+    .dropdown{
+        display:none;
+    }
+    #main-heading{
+        font-size: 7rem;
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+    #main-subheading
+    {
+        font-size: 1.5rem;
+        padding-top: 0;
+    }
+    
+}
+
+@media only screen and (max-device-width: 600px)
+{   
+    
+    #main-heading{
+        font-size: 2.9rem;
+    }
+    
+    #main-subheading
+    {
+        font-size: calc(100vw / 20);
+    }
+    #welcome-info-content
+    {
+        font-size: calc(100vw / 40);
+    }
+    #welcome-list
+    {
+        font-size: calc(100vw / 30);
+        justify-self: start!important;
+        margin-left: -2.4rem;
+    }
+}
+
+@media only screen and (max-device-width: 400px)
+{
+    #menu-button
+    {
+        font-size: 10px;
+    }
+    
+    #main-heading{
+        font-size: 1.9rem;
+    }
+    #main-subheading{
+        font-size: 1rem;
+    }
+    #accessibility-options
+    {   
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+                            "darkbutton"
+                            "textsizes";
+    }
+    #accessibility-options li {
+        padding-top: 0.7rem;
+        display: block;
+    }
+}
+
+/************************************ELEMENTS IN THE FOOTER****************************************/
+
+footer
+{
+    grid-area: ft;
+    background-color: var(--this-light-grey);
+    color: 	var(--off-black);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(1fr, 9);
+    grid-template-areas: ". .  map"
+                         ". .  map"
+                         ". contact map"
+                         ". contact map"
+                         ". contact map"
+                         ". contact map"
+                         ". . map"
+                         ". .  map"
+                         "copyright  . map "           
+
+}
+
+#copyright
+{
+    grid-area: copyright;
+    font-size: 0.8rem;
+    margin-left: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+#contact
+{
+    grid-area: contact;
+    font-size: 1rem;
+    text-align: center;
+    align-self: center;
+}
+
+#site-map
+{
+    grid-area: map;
+    font-size: 0.9rem;
+    align-self: start;
+    justify-self: center;
+    padding: 1.2rem;
+}
+
+
+#site-map > ol > li
+{
+    padding: 0.5rem;
+}
+
+#site-map > ol > li > a:link
+{
+    color: var(--off-black);
+}
+
+#site-map > ol > li > a:visited
+{
+    color: var(--off-black);
+}
+
+#site-map > ol > li > a:hover
+{
+    color: var(--this-red);
+}
+
+#site-map > ol
+{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* Large phones and smaller screen size*/
+@media only screen and (max-device-width: 768px)
+{   
+    /* Puts the footer's sitemap links into two columns instead of one long one */
+    #site-map ol
+    {   
+        grid-template-columns: 1fr 1fr;
+        align-content: start;
+        align-items: start;
+    }
+}
+
+/* Small phones size */
+@media only screen and (max-device-width: 375px)
+{   
+    /* Footer sections (contact, site links, copyright) are stacked in one column
+    instead of 3 columns side by side */
+    footer{
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 4fr 1fr;
+    grid-template-areas: "contact"
+                         "map"
+                         "copyright";
+    justify-content: center;
+    justify-items: center;
+    align-self: start;
+    align-items: start;    
+    }
+}
+
+
+
+/* img just there for screen reader text purposes */
+.screenreader-only {
+    display: none;
+}
+
+/****************************ELEMENTS IN BOOK/FILM REVIEWS PAGE******************************************************/
+.main-reviews-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto;
+    grid-template-areas: "reviews asidereviews";
+}
+
+.reviews { 
+    height: 100%;
+    grid-area: reviews;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "reviewstitle reviewstitle reviewstitle"
+                         "reviewscontent reviewscontent reviewscontent"
+                         "reviewsexpand reviewsexpand reviewsexpand";
+    grid-auto-rows: auto;
+    justify-content: start;
+    justify-items: center;
+    align-content: start;
+    align-items: start;
+    
+}
+
+.reviews-title
+{   
+    grid-area: reviewstitle;
+    color: var(--white-color);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.reviews-content
+{   
+    grid-area: reviewscontent;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: start;
+    align-content: start;
+    justify-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+.review-link
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    scroll-margin-top: 200px;
+}
+
+.reviews-content > .review-link
+{   
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 0.5fr 0.5fr;
+    grid-template-areas: "media-icon"
+                         "media-icon"
+                         "media-icon"
+                         "media-icon"
+                         "media-icon"
+                         "media-title"
+                         "media-caption";  
+    justify-items: center;  
+    text-align: center; 
+}
+
+
+.media-icon
+{
+    grid-area: media-icon;
+    width: 10rem;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid grey;
+}
+
+.media-title
+{   
+    grid-area: media-title;
+    color: var(--white-color);
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    font-size: 1rem;
+}
+
+.media-caption
+{
+    grid-area: media-caption;
+    font-size: 0.6rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: var(--white-color);
+    text-align: center;
+}
+
+
+.reviews-expand
+{
+    grid-area: reviewsexpand;
+}
+
+.reviews-expand, .travel-events-expand
+{
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    margin-bottom: 20px;;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr;
+    grid-template-areas: ". loadbutton uparrow"
+                         ". loadbutton uparrow";
+    align-self: center;
+    align-items: center;
+}
+
+#load-more, #read-more
+{   
+    grid-area: loadbutton;
+    font-size: 1.2rem;
+    height: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* padding-top: 40px; */
+    margin-right: 40px;
+    background-image: linear-gradient(var(--this-mid-grey), var(--off-black), var(--this-mid-grey));
+    color: var(--off-white);
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#scroll-up-arrow
+{   
+    grid-area: uparrow;
+    cursor: pointer;
+    justify-self: center;
+    margin-right: 2rem;
+}
+
+#scroll-up-arrow > img
+{
+    height: 6rem;
+}
+
+.aside-reviews
+{
+    grid-area: asidereviews;
+    border-radius: 4px;
+    background-color: var(--this-light-grey);
+    border: 2px solid var(--this-mid-grey);
+    align-self: stretch;
+    margin-right: 1rem;
+    color: var(--white-color);
+    height: fit-content;
+    margin-top: 50px;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    margin-bottom: 5rem;
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.aside-reviews > h4
+{   
+    margin: 10px;
+    font-size: 1.8rem;
+}
+
+.aside-reviews > ul
+{
+    display: grid;
+    align-items: space-between;
+    margin-top: 2rem;
+}
+
+.aside-reviews > ul > li
+{   
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+
+
+/* For small laptop screens and smaller - reviews page */
+@media only screen and (max-device-width: 1200px)
+{   
+    .sticky1{
+        display: none;
+    }
+    /* Makes aside section go underneath the main content instead of next to it */
+    .main-reviews-container {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+        grid-template-areas: "reviews"
+                             "asidereviews";
+        justify-content: center;
+    }
+    /* Reformats aside menu to new dimensions, so it takes up less space */
+    .aside-reviews
+    {   
+        justify-self: center;
+        width: 100%;
+        align-self: stretch;
+        margin-right: 0;
+        margin-top: 50px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+        grid-template-rows: 1fr 2fr;
+    }
+    .aside-reviews > h4
+    {
+        margin-left: 2rem;
+    }
+    .aside-reviews > ul
+    {
+        text-align: center;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: start;
+    }
+    .aside-reviews > ul > li
+    {
+        display: inline-block;
+        padding: 0.5rem;
+    }
+    .reviews-title
+    {   
+        font-size: 2.5rem;
+        margin-left: 0px;
+        padding:10px;
+    }
+    .reviews-content
+    {   
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0rem;
+        margin-bottom: 0px;
+    }
+    .media-icon
+    {
+        width: 20rem;
+    }
+}
+
+/* Book icon size of 20rem was too large for tablet-size screens */
+@media only screen and (max-device-width: 966px)
+{
+    .media-icon
+    {
+        width: 12rem;
+    }
+}
+
+@media only screen and (max-device-width: 768px)
+{
+    .media-icon
+    {
+        width: 10rem;
+    }
+    .reviews-title
+    {   
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-device-width: 425px)
+{
+    .media-icon
+    {
+        width: 10rem;
+    }
+}
+
+/* For very small screens - reviews page */
+@media only screen and (max-device-width: 425px)
+{
+    .reviews-content
+    {   
+        grid-template-columns: 1fr;
+        row-gap: 0rem;
+    }
+    .media-icon
+    {
+        width: 10rem;
+    }
+    .reviews-title
+    {   
+        font-size: 1.5rem;
+    }
+    #scroll-up-arrow
+    {   
+        justify-self: start;
+        margin-right: 0rem;
+    }
+    /* Decreases the relative size of the 'scroll to top' arrow */
+    #scroll-up-arrow > img
+    {
+        height: 4rem;
+    }
+    /* Makes the list of links in the aside organized into 2 columns */
+    .aside-reviews > ul
+    {
+        text-align: center;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+
+}
+
+
+/****************************ELEMENTS IN TRAVEL/EVENTS REVIEW PAGE*************************************************/
+.main-travel-events-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "travel-events-title"
+                         "travel-events-content"
+                         "travel-events-expand";
+    justify-content: center;
+    justify-items: center;
+}
+
+.travel-events-title
+{
+    grid-area: travel-events-title;
+    color: var(--white-color);
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 100px;
+
+}
+.travel-events-content
+{
+    grid-area: travel-events-content;
+    width: 97%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    justify-items: center;
+    align-items: start;
+    align-self: start;
+    background: var(--white-color);
+    row-gap: 40px;
+    padding-top: 40px;
+}
+
+
+.travel-location-content-container
+{   
+    width: 90%;
+    background: var(--white-color);
+    height: fit-content;
+
+}
+
+.travel-event-title
+{
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.travel-location-image
+{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 45%;
+    border: 6px solid black;
+}
+
+.travel-location-caption
+{
+    margin-left: 10%;
+    font-size: 0.8rem;
+}
+
+.travel-location-description
+{
+    text-align: center;
+}
+
+.travel-events-expand
+{
+    grid-area: travel-events-expand;
+    padding-top: 10px;
+}
+
+@media only screen and (max-device-width: 768px)
+{
+    .travel-events-content{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/****************************ELEMENTS IN SINGLE REVIEW PAGE*************************************************/
+
+.main-review-container
+{   
+    display: grid;
+    padding-top: 0rem;
+    margin-left: 1.2rem; 
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: "review asidereviews";
+    grid-gap: 2rem;
+    align-content: start;
+    justify-content: center;
+}
+
+
+.review 
+{
+    grid-area: review;
+    color: var(--white-color);
+    align-self: start;
+    padding-top: 2rem;
+    margin-left: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-areas: "reviewtitle"
+                         "article-body"
+                         "reviewsexpand";
+    grid-gap: 0.5rem;
+    align-items: center;
+}
+
+.main-review-container h3
+{   
+    font-size: 1.8rem;
+    grid-area: reviewtitle;
+    justify-self: start;
+    margin-left: 6rem;
+}
+
+.article-body
+{
+    grid-area: article-body;
+    color: var(--white-color);
+    width: 80%;
+    justify-self: start;
+    margin-left: 2rem;
+}
+.article-body section 
+{
+    margin-bottom: 2rem;
+}
