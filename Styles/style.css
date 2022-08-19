@@ -199,6 +199,7 @@ header {
 #navbar-logo-text
 {   
     grid-area: logo;
+    color: var(--off-white);
     margin: 0;
     padding:0;
     text-align: start;
@@ -210,7 +211,6 @@ header {
     grid-area: mainlist;
     justify-self: end;
     align-self: start;
-    z-index: 2;
     margin: 10px;  
 }
 
@@ -221,6 +221,11 @@ header {
     padding-left: 14px;
     color: var(--off-white);
     font-weight: bolder;
+}
+
+
+#main-navbar #main-navbar-list li {
+    z-index: 1000;
 }
 
 #main-navbar #main-navbar-list li a:link
@@ -353,6 +358,7 @@ header .header-headings-area {
     justify-items: start;
     align-items: center;
 }
+
 .dropdown-menu div a
 {   
     grid-area: droplink;
@@ -360,7 +366,7 @@ header .header-headings-area {
     font-size: 1.2rem;
     font-weight: bolder;
 }
-.dropdown-menu div a:link
+.dropdown-menu div a
 {
     color: var(--off-black);
 }
@@ -580,14 +586,14 @@ footer
     padding: 0.5rem;
 }
 
-#site-map > ol > li > a:link
+#site-map > ol > li > a
 {
     color: var(--off-black);
 }
 
 #site-map > ol > li > a:visited
 {
-    color: var(--off-black);
+    color: var(--this-mid-grey);
 }
 
 #site-map > ol > li > a:hover
@@ -666,7 +672,6 @@ footer
 .reviews-title
 {   
     grid-area: reviewstitle;
-    color: var(--white-color);
     font-size: 3rem;
     text-align: center;
 }
@@ -728,7 +733,6 @@ footer
 .media-title
 {   
     grid-area: media-title;
-    color: var(--white-color);
     padding: 0;
     margin: 0;
     padding-top: 5px;
@@ -738,11 +742,9 @@ footer
 .media-caption
 {
     grid-area: media-caption;
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     margin: 0;
     padding: 0;
-    text-align: center;
-    color: var(--white-color);
     text-align: center;
 }
 
@@ -979,7 +981,6 @@ footer
 .travel-events-title
 {
     grid-area: travel-events-title;
-    color: var(--white-color);
     font-size: 3rem;
     text-align: center;
     padding-top: 100px;
@@ -1068,7 +1069,6 @@ footer
 .review 
 {
     grid-area: review;
-    color: var(--white-color);
     align-self: start;
     padding-top: 2rem;
     margin-left: 10px;
@@ -1094,7 +1094,6 @@ footer
 .article-body
 {
     grid-area: article-body;
-    color: var(--white-color);
     width: 80%;
     justify-self: start;
     margin-left: 2rem;

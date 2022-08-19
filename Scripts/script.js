@@ -2,6 +2,160 @@ var myDropdown = document.getElementById('dropdown');
 var myBlack = 'var(--off-black)';
 var myWhite = 'var(--off-white)';
 var myRed = 'var(--this-red)';
+var myLightGrey = 'var(--this-light-grey)';
+// FREQUENTLY USED (FOR DARK/LIGHT MODE) HTML ELEMENTS THAT MUST CHANGE COLOR
+// Links and buttons on the left of the navbar
+var leftHandMenuLinks = [
+  document.getElementById('large-text'),
+  document.getElementById('medium-text'),
+  document.getElementById('small-text'),
+  document.getElementById('extra-small-text'),
+  document.getElementById('navbar-logo-text')
+]
+// Link list on the right of the navbar
+var rightHandMenuLinks = [
+  document.getElementById('main-nav-home-link'),
+  document.getElementById('main-nav-books-link'),
+  document.getElementById('main-nav-films-link'),
+  document.getElementById('main-nav-music-link'),
+  document.getElementById('main-nav-travel-link'),
+  document.getElementById('main-nav-events-link'),
+  document.getElementById('main-nav-about-link'),
+  document.getElementById('main-nav-write-link')
+]
+// Links on the right of the footer
+var footerLinks = [
+  document.getElementById('footer-nav-home-link'),
+  document.getElementById('footer-nav-books-link'),
+  document.getElementById('footer-nav-films-link'),
+  document.getElementById('footer-nav-music-link'),
+  document.getElementById('footer-nav-travel-link'),
+  document.getElementById('footer-nav-events-link'),
+  document.getElementById('footer-nav-about-link'),
+  document.getElementById('footer-nav-write-link')
+]
+
+
+
+function lightColorSettings()
+{
+  var stickyNav = document.getElementsByClassName('sticky1')[0];
+
+  document.getElementsByTagName('main')[0].style.backgroundColor = myWhite;
+  document.getElementsByTagName('main')[0].style.color = myBlack;
+  document.getElementsByTagName('footer')[0].style.backgroundColor = myLightGrey;
+  document.getElementsByTagName('footer')[0].style.color = myBlack;
+
+  for (var i = 0; i < footerLinks.length; i++)
+  {
+    footerLinks[i].style.color = myBlack;
+  }
+
+  if (stickyNav != undefined)
+  {
+    stickyNav.style.backgroundColor = myLightGrey;
+    stickyNav.style.color = myBlack;
+
+    for(var i = 0; i < leftHandMenuLinks.length; i++)
+    {
+      leftHandMenuLinks[i].style.color = myBlack;
+    }
+
+    for(var i = 0; i < rightHandMenuLinks.length; i++)
+    {
+      rightHandMenuLinks[i].style.color = myBlack;
+    }
+  }
+  else
+  {
+    for(var i = 0; i < leftHandMenuLinks.length; i++)
+    {
+      leftHandMenuLinks[i].style.color = myWhite;
+    }
+  }
+}
+
+function darkColorSettings() {
+  var stickyNav = document.getElementsByClassName('sticky1')[0];
+  document.getElementsByTagName('main')[0].style.backgroundColor = myBlack;
+  document.getElementsByTagName('main')[0].style.color = myWhite;
+
+  document.getElementsByTagName('footer')[0].style.backgroundColor = 'black';
+  document.getElementsByTagName('footer')[0].style.color = myWhite;
+
+  for (var i = 0; i < footerLinks.length; i++)
+  {
+    footerLinks[i].style.color = myWhite;
+  }
+
+  if (stickyNav != undefined)
+  {
+    stickyNav.style.backgroundColor = myBlack;
+    stickyNav.style.color = myWhite;
+
+    for(var i = 0; i < leftHandMenuLinks.length; i++)
+    {
+      leftHandMenuLinks[i].style.color = myWhite;
+    }
+    for(var i = 0; i < rightHandMenuLinks.length; i++)
+    {
+      rightHandMenuLinks[i].style.color = myWhite;
+    }
+  }
+  else
+  {
+    for(var i = 0; i < leftHandMenuLinks.length; i++)
+    {
+      leftHandMenuLinks[i].style.color = myWhite;
+    }
+  }
+}
+
+function changeColorMode(){
+  if (localStorage.getItem('colorMode') == 'light')
+  {
+    darkColorSettings();
+    localStorage.setItem('colorMode', 'dark');
+  }
+  else
+  {
+    lightColorSettings();
+    localStorage.setItem('colorMode', 'light');
+  }
+}
+
+// toggles from dark to light mode
+function darkLightToggle()
+{
+  var darkLightButton = document.getElementById('dark-mode');
+
+  darkLightButton.addEventListener('click', function() {
+
+    if (!localStorage.getItem('colorMode'))
+    {
+      localStorage.setItem('colorMode', 'light');
+    }
+    changeColorMode();
+  }) 
+}
+
+window.onload = function(){
+  document.getElementsByTagName('html')[0].style.fontSize = localStorage.getItem('textSize');
+  
+  var colorMode = localStorage.getItem('colorMode');
+
+  /* If color settings exist, make sure they are applied for 
+  every other page on the web site, so not lost when navigate to other page */
+  if (!colorMode || colorMode == 'light')
+  {
+    lightColorSettings();
+  }
+  else{
+    darkColorSettings();
+  }
+
+  darkLightToggle();
+}
 
 // Closes dropdown menu on outside click
 document.addEventListener("click", function(event){
@@ -25,7 +179,6 @@ window.addEventListener("scroll", function() {
 });
 
 function changeColor(elem, newColor) {
-  console.log(e);
   elem.style.color = newColor;
 }
 
@@ -50,32 +203,72 @@ function makeSticky() {
     {
       nav.classList.add("sticky1");
 
+      var logo = document.getElementById('navbar-logo-text');
+
+      if (localStorage.getItem('colorMode') == 'light')
+      {
+        logo.style.color = myBlack;
+        nav.style.backgroundColor = myLightGrey;
+      }
+      else
+      {
+        logo.style.color = myWhite;
+        nav.style.backgroundColor = myBlack;
+      }
+
       textSizeOptions.forEach(button => {
-        button.style.color = myBlack;
+        // The color of the links for accessibility depends on
+        // whether the color mode is set to dark or light mode
+        if (localStorage.getItem('colorMode') == 'light')
+        {
+          button.style.color = myBlack;
+        }
+        else
+        {
+          button.style.color = myWhite;
+        }
       })
 
       // Gets the anchor tag elem in every li elem and changes its color
       navLinks.forEach(link => {
-        link.children[0].style.color = myBlack;
+        if (localStorage.getItem('colorMode') == 'light')
+        { 
+          link.children[0].style.color = myBlack;
+          
+          link.children[0].addEventListener('mouseout', () => {
+          link.children[0].style.color = myBlack;
+          });
+        }
+        else
+        {
+          link.children[0].style.color = myWhite;
+          link.children[0].addEventListener('mouseout', () => {
+            link.children[0].style.color = myWhite;
+            });
+        }
         link.children[0].addEventListener('mouseover', () => {
           link.children[0].style.color = myRed;
         });
-        link.children[0].addEventListener('mouseout', () => {
-          link.children[0].style.color = myBlack;
-        });
-    })}
+    })
+  }
     else
-    {
+    { 
+      nav.style.background = 'none';
       nav.classList.remove("sticky1");
       textSizeOptions.forEach(button => {
         button.style.color = myWhite;
       })
+      
       navLinks.forEach(link => {
         link.children[0].style.color = myWhite;
+        link.children[0].addEventListener('mouseover', () => {
+          link.children[0].style.color = myRed;
+        });
         link.children[0].addEventListener('mouseout', () => {
           link.children[0].style.color = myWhite;
         })
       })
+      document.getElementById('navbar-logo-text').style.color = myWhite;
     }
 }
 
@@ -156,10 +349,6 @@ for (var i = 0; i < text_choice_buttons.length; i++)
     }
 }
 
-window.onload = function() {
-  document.getElementsByTagName('html')[0].style.fontSize = localStorage.getItem('textSize');
-}
-
 if (document.getElementById('scroll-up-arrow') != null)
 {
   document.getElementById('scroll-up-arrow').onclick = function(){
@@ -194,6 +383,3 @@ function closeDropdownOnOutsideClick()
     }
   )
 }
-
-
-

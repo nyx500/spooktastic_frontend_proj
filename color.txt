@@ -1,0 +1,127 @@
+:root {
+    /* Make black a bit lighter and white not pure-white to make it less tiring for eyes */
+    --off-black: #101010ed;
+    --off-white: #F8F0E3;
+    --this-red: #ff0000;
+    --this-dark-red: #650000;
+    --this-mid-grey: #404040;
+    --this-light-grey: #ABABAB;
+}
+
+
+/*Attribution: https://www.w3schools.com/howto/howto_js_sticky_header.asp */
+/*Sticky formatting for main navbar*/
+.sticky1 {
+    position: fixed;    
+    background-color: var(--this-light-grey);
+    color: var(--off-black)!important;
+    padding: 0;
+    width: 100vw;
+    z-index: 200;
+} DONE
+
+
+.dropdown-menu
+{
+    position: left;
+    padding: 10px;
+    width: 50vw;
+    background-color:var(--this-light-grey);
+    color: var(--off-black);
+    border-radius: 4px;
+    border: 4px solid black;
+    z-index: 1000;
+}
+
+.dropdown-menu div a:link
+{
+    color: var(--off-black);
+}
+.dropdown-menu div a:visited
+{
+    color: var(--this-dark-red);
+}
+.dropdown-menu div a:hover
+{
+    color: var(--this-red);
+}
+
+main {
+    grid-area: mn;
+    background-color:var(--off-white);
+    color: 	var(--off-black);
+}
+
+footer
+{
+    grid-area: ft;
+    background-color: var(--this-light-grey);
+    color: 	var(--off-black);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(1fr, 9);
+    grid-template-areas: ". .  map"
+                         ". .  map"
+                         ". contact map"
+                         ". contact map"
+                         ". contact map"
+                         ". contact map"
+                         ". . map"
+                         ". .  map"
+                         "copyright  . map "           
+
+}
+
+.reviews-title
+{   
+    grid-area: reviewstitle;
+    color: var(--white-color);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.media-title
+{   
+    grid-area: media-title;
+    color: var(--white-color);
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    font-size: 1rem;
+}
+
+#load-more, #read-more
+{   
+    grid-area: loadbutton;
+    font-size: 1.2rem;
+    height: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* padding-top: 40px; */
+    margin-right: 40px;
+    background-image: linear-gradient(var(--this-mid-grey), var(--off-black), var(--this-mid-grey));
+    color: var(--off-white);
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.aside-reviews
+{
+    grid-area: asidereviews;
+    border-radius: 4px;
+    background-color: var(--this-light-grey);
+    border: 2px solid var(--this-mid-grey);
+    align-self: stretch;
+    margin-right: 1rem;
+    color: var(--white-color);
+    height: fit-content;
+    margin-top: 50px;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    margin-bottom: 5rem;
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: 100%;
+}
