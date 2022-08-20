@@ -27,7 +27,7 @@
 
 html {
     font-family: "Oxygen Regular", Verdana, Tahoma, sans-serif;
-    font-size: 22px;
+    font-size: 16px;
     scrollbar-color: var(--this-red) var(--this-mid-grey);
     scrollbar-width: auto;
     overflow-x: hidden;
@@ -99,13 +99,6 @@ header {
     z-index: 200;
 }
 
-@media only screen and (max-device-width: 768px)
-{   
-    #main-heading{
-        font-size: 3.5rem;
-    }
-    
-}
 /*************************************Elements in the Header********************************/
 
 
@@ -273,10 +266,6 @@ header {
         justify-items: start;
     }
 
-    #main-heading{
-        font-size: 3.2rem;
-    }
-
 }
 
 @media only screen and (max-device-width: 768px)
@@ -310,7 +299,9 @@ header .header-headings-area {
 
 #main-heading{
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem; 
+    margin-bottom:0;
+    padding-bottom:0;
 }
 
 #main-subheading-and-dropdown-container
@@ -366,17 +357,15 @@ header .header-headings-area {
     font-size: 1.2rem;
     font-weight: bolder;
 }
-.dropdown-menu div a
-{
-    color: var(--off-black);
-}
+
 .dropdown-menu div a:visited
 {
-    color: var(--this-dark-red);
+    color: var(--this-red);
 }
+
 .dropdown-menu div a:hover
 {
-    color: var(--this-red);
+    color: var(--this-dark-red);
 }
 
 #main-subheading{
@@ -471,25 +460,11 @@ main {
     .dropdown{
         display:none;
     }
-    #main-heading{
-        font-size: 7rem;
-        margin-bottom:0;
-        padding-bottom:0;
-    }
-    #main-subheading
-    {
-        font-size: 1.5rem;
-        padding-top: 0;
-    }
-    
+ 
 }
 
 @media only screen and (max-device-width: 600px)
 {   
-    
-    #main-heading{
-        font-size: 2.9rem;
-    }
     
     #main-subheading
     {
@@ -512,10 +487,6 @@ main {
     #menu-button
     {
         font-size: 10px;
-    }
-    
-    #main-heading{
-        font-size: 1.9rem;
     }
     #main-subheading{
         font-size: 1rem;
@@ -664,8 +635,6 @@ footer
     grid-auto-rows: auto;
     justify-content: start;
     justify-items: center;
-    align-content: start;
-    align-items: start;
     
 }
 
@@ -674,6 +643,7 @@ footer
     grid-area: reviewstitle;
     font-size: 3rem;
     text-align: center;
+    align-self: start;
 }
 
 .reviews-content
@@ -684,27 +654,16 @@ footer
     grid-template-rows: auto;
     column-gap: 2rem;
     justify-content: center;
-    align-items: start;
-    align-content: start;
+    align-items: center;
+    align-content: center;
     justify-items: center;
     width: 100%;
-    margin-bottom: 40px;
+    align-self: start;
 }
 
 
-.review-link
+.books-not-hidden, .films-not-hidden
 {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    justify-content: center;
-    justify-items: center;
-    width: 100%;
-    scroll-margin-top: 200px;
-}
-
-.reviews-content > .review-link
-{   
     border-radius: 3px;
     display: grid;
     grid-template-columns: 1fr;
@@ -720,12 +679,16 @@ footer
     text-align: center; 
 }
 
+.hidden
+{   
+    display: none;
+}
 
 .media-icon
 {
     grid-area: media-icon;
-    width: 10rem;
     height: auto;
+    width: 10rem;
     border-radius: 10px;
     border: 2px solid grey;
 }
@@ -759,18 +722,19 @@ footer
     width: 100%;
     height: fit-content;
     border-radius: 10px;
-    margin-bottom: 20px;;
+    margin-bottom: 10px;;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 2fr;
     grid-template-areas: ". loadbutton uparrow"
                          ". loadbutton uparrow";
-    align-self: center;
-    align-items: center;
+    align-self: end;
+    align-items: end;
 }
 
-#load-more, #read-more
+#load-more-books, #load-more-films, #load-more-travel, #load-more-events,
+#read-more
 {   
     grid-area: loadbutton;
     font-size: 1.2rem;
@@ -800,7 +764,7 @@ footer
     height: 6rem;
 }
 
-.aside-reviews
+#aside-reviews
 {
     grid-area: asidereviews;
     border-radius: 4px;
@@ -819,23 +783,23 @@ footer
     grid-template-columns: 100%;
 }
 
-.aside-reviews > h4
+#aside-reviews > h4
 {   
     margin: 10px;
     font-size: 1.8rem;
 }
 
-.aside-reviews > ul
+#aside-reviews > ul
 {
     display: grid;
     align-items: space-between;
     margin-top: 2rem;
 }
 
-.aside-reviews > ul > li
+#aside-reviews > ul > li
 {   
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     
 }
 
@@ -855,29 +819,29 @@ footer
         justify-content: center;
     }
     /* Reformats aside menu to new dimensions, so it takes up less space */
-    .aside-reviews
+    #aside-reviews
     {   
         justify-self: center;
-        width: 100%;
+        width: 98%;
         align-self: stretch;
         margin-right: 0;
         margin-top: 50px;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        margin-bottom: 0;
+        margin-bottom: 10px;
         grid-template-rows: 1fr 2fr;
     }
-    .aside-reviews > h4
+    #aside-reviews > h4
     {
         margin-left: 2rem;
     }
-    .aside-reviews > ul
+    #aside-reviews > ul
     {
         text-align: center;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         align-items: start;
     }
-    .aside-reviews > ul > li
+    #aside-reviews > ul > li
     {
         display: inline-block;
         padding: 0.5rem;
@@ -956,7 +920,7 @@ footer
         height: 4rem;
     }
     /* Makes the list of links in the aside organized into 2 columns */
-    .aside-reviews > ul
+    #aside-reviews > ul
     {
         text-align: center;
         grid-template-columns: 1fr 1fr;
@@ -1002,14 +966,14 @@ footer
     padding-top: 40px;
 }
 
-
-.travel-location-content-container
-{   
+.travel-not-hidden, .event-not-hidden
+{
+    display: inline-block;
     width: 90%;
     background: var(--white-color);
     height: fit-content;
-
 }
+
 
 .travel-event-title
 {

@@ -3,6 +3,8 @@ var myBlack = 'var(--off-black)';
 var myWhite = 'var(--off-white)';
 var myRed = 'var(--this-red)';
 var myLightGrey = 'var(--this-light-grey)';
+var linearGradientLight = 'linear-gradient(var(--this-mid-grey), var(--off-black), var(--this-mid-grey))';
+var linearGradientDark = 'linear-gradient(var(--this-light-grey), var(--off-white), var(--this-light-grey))';
 // FREQUENTLY USED (FOR DARK/LIGHT MODE) HTML ELEMENTS THAT MUST CHANGE COLOR
 // Links and buttons on the left of the navbar
 var leftHandMenuLinks = [
@@ -36,7 +38,7 @@ var footerLinks = [
 ]
 
 
-
+// SETS COLOR OF HTML ELEMENTS WHEN NOT IN "DARK MODE"
 function lightColorSettings()
 {
   var stickyNav = document.getElementsByClassName('sticky1')[0];
@@ -45,6 +47,29 @@ function lightColorSettings()
   document.getElementsByTagName('main')[0].style.color = myBlack;
   document.getElementsByTagName('footer')[0].style.backgroundColor = myLightGrey;
   document.getElementsByTagName('footer')[0].style.color = myBlack;
+  if (document.getElementsByClassName('load-more'))
+  { 
+    var loadMoreButtons = document.getElementsByClassName('load-more');
+    for (var i = 0; i < loadMoreButtons; i++)
+    {
+      loadMoreButtons[i].style.backgroundImage = linearGradientLight;
+      loadMoreButtons[i].style.color = myWhite;
+    }
+  }
+  if (document.getElementById('read-more'))
+  {
+    document.getElementById('read-more').style.backgroundImage = linearGradientLight;
+    document.getElementById('read-more').style.color = myWhite;
+  }
+
+  if (document.getElementById('aside-reviews'))
+  {
+    document.getElementById('aside-reviews').style.backgroundColor = myLightGrey;
+    document.getElementById('aside-reviews').style.color = myBlack;
+  }
+
+  document.getElementById('dropdown').style.backgroundColor = myLightGrey;
+  document.getElementById('dropdown').style.color = myBlack;
 
   for (var i = 0; i < footerLinks.length; i++)
   {
@@ -75,6 +100,7 @@ function lightColorSettings()
   }
 }
 
+// SETS COLOR OF HTML ELEMENTS IN "DARK MODE"
 function darkColorSettings() {
   var stickyNav = document.getElementsByClassName('sticky1')[0];
   document.getElementsByTagName('main')[0].style.backgroundColor = myBlack;
@@ -82,6 +108,32 @@ function darkColorSettings() {
 
   document.getElementsByTagName('footer')[0].style.backgroundColor = 'black';
   document.getElementsByTagName('footer')[0].style.color = myWhite;
+
+  if (document.getElementsByClassName('load-more'))
+  { 
+    var loadMoreButtons = document.getElementsByClassName('load-more');
+    for (var i = 0; i < loadMoreButtons; i++)
+    {
+      loadMoreButtons[i].style.backgroundImage = linearGradientDark;
+      loadMoreButtons[i].style.color = myBlack;
+    }
+  }
+
+  if (document.getElementById('read-more'))
+  {
+    document.getElementById('read-more').style.backgroundImage = linearGradientDark;
+    document.getElementById('read-more').style.color = myBlack;
+  }
+
+  if (document.getElementById('aside-reviews'))
+  {
+    document.getElementById('aside-reviews').style.backgroundColor = myBlack;
+    document.getElementById('aside-reviews').style.color = myWhite;
+
+  }
+
+  document.getElementById('dropdown').style.backgroundColor = myBlack;
+  document.getElementById('dropdown').style.color = myWhite;
 
   for (var i = 0; i < footerLinks.length; i++)
   {
@@ -111,20 +163,24 @@ function darkColorSettings() {
   }
 }
 
+// SETS LOCAL STORAGE FOR DARK AND LIGHT MODE
 function changeColorMode(){
+  var darkLightButton = document.getElementById('dark-mode');
   if (localStorage.getItem('colorMode') == 'light')
   {
     darkColorSettings();
+    darkLightButton.innerHTML = 'Light Mode';
     localStorage.setItem('colorMode', 'dark');
   }
   else
   {
     lightColorSettings();
+    darkLightButton.innerHTML = 'Dark Mode';
     localStorage.setItem('colorMode', 'light');
   }
 }
 
-// toggles from dark to light mode
+// CHANGES COLOR MODE WHEN COLOR MODE BUTTON IS PRESSED
 function darkLightToggle()
 {
   var darkLightButton = document.getElementById('dark-mode');
@@ -139,11 +195,312 @@ function darkLightToggle()
   }) 
 }
 
-window.onload = function(){
-  document.getElementsByTagName('html')[0].style.fontSize = localStorage.getItem('textSize');
-  
-  var colorMode = localStorage.getItem('colorMode');
+// FUNCTIONS FOR HIDING AND EXPANDING CONTENT ON THE PAGE
+/* Takes 3 args: the element whose children are to be
+displayed/hidden, the maximum number of columns these children
+take up on the screen, the class name of these child elements
+when they are NOT hidden */
+function hideItems(element, maxColumnNum, notHiddenClassName)
+{ 
+  var articles = element.children;
+  if (maxColumnNum == 3)
+  {
+    if (window.innerWidth > 1200)
+    {
+      for (var i = 3; i < articles.length; i++)
+      {
+        articles[i].classList.remove(notHiddenClassName);
+        articles[i].classList.add('hidden');
+      }
+    }
+    else
+    {
+      for (var i = 4; i < articles.length; i++)
+      {
+        articles[i].classList.remove(notHiddenClassName);
+        articles[i].classList.add('hidden');
+      }
+    }
+  }
+  else if (maxColumnNum == 2)
+  { 
+    for (var i = 4; i < articles.length; i++)
+    { 
+      articles[i].classList.remove(notHiddenClassName);
+      articles[i].classList.add('hidden');
+    }
+  }
+}
 
+function showItems(element, notHiddenClassName)
+{ 
+  var articles = element.children;
+  for (var i = 0; i < articles.length; i++)
+    {
+      if (articles[i].classList.contains('hidden'))
+      {
+        articles[i].classList.remove('hidden');
+        articles[i].classList.add(notHiddenClassName);
+      }
+    }
+}
+// Attribution: https://stackoverflow.com/questions/52570291/scrollintoview-20px-above-element
+// SCROLL JUST ABOVE SELECTED ELEMENT
+function scrollToJustAboveElement (element, marginAbove){
+  var dimensions = element.getBoundingClientRect();
+  window.scrollTo(window.scrollX, dimensions.top - marginAbove + window.scrollY);
+}
+
+// Creates an event listener on click of the show/hide more button
+/* Takes 6 args: the button to add the event listener to,
+ the variable name in localStorage to store whether the page's
+ items are hidden or displayed, the element whose children
+ are to be shown or hidden, the element to scroll to
+ after the items are hidden (usually at top of main part of page),
+ the maximum number of columns of items (for the
+ largest screen size) on the respective page, e.g. book reviews
+ have 3 columns on large screens, travel and events have 2,
+ and finally the class name of the elements to-be-hidden
+ when they are NOT being hidden (so that this class name 
+ can be toggled)*/
+function createEventListenerForShowMoreButton(
+  targetButton, storageName, targetElement, scrollElement, maxColNum,
+  notHiddenClassName
+  )
+{ 
+  // Checks if the target button exists
+  if (targetButton)
+  { 
+    // Event listener - when click on the "load more/hide" button
+    targetButton.addEventListener('click', function() {
+      // If items hidden, then show them
+      if (localStorage.getItem(storageName) == 'hidden')
+      { 
+        showItems(targetElement, notHiddenClassName);
+        localStorage.setItem(storageName, 'visible');
+        targetButton.innerHTML = 'Hide';
+      }
+      else
+      {
+        // If items shown, then hide them
+        hideItems(targetElement, maxColNum, notHiddenClassName);
+        localStorage.setItem(storageName, 'hidden');
+        scrollToJustAboveElement(scrollElement, 200);
+        targetButton.innerHTML = 'Load More...';
+      }
+    })
+  }
+}
+
+// Adds event listeners for all the buttons that show/hide various pages' content
+function addShowExtraItemsListeners(){
+
+  // Books reviews page load more button
+  if (document.getElementById('load-more-books'))
+  { 
+    createEventListenerForShowMoreButton(
+      document.getElementById('load-more-books'),
+      'bottom_books_elements',
+      document.getElementById('review-articles-books'),
+      document.getElementsByClassName('reviews-title')[0],
+      3,
+      'not-hidden'
+    )
+  }
+
+  
+  // Films page load more button
+  if (document.getElementById('load-more-films'))
+  { 
+    createEventListenerForShowMoreButton(
+      document.getElementById('load-more-films'),
+      'bottom_films_elements',
+      document.getElementById('review-articles-films'),
+      document.getElementsByClassName('reviews-title')[0],
+      3,
+      'travel-not-hidden'
+    )
+  }
+
+  // Travel page load more button
+  if (document.getElementById('load-more-travel'))
+  { 
+    createEventListenerForShowMoreButton(
+      document.getElementById('load-more-travel'),
+      'bottom_travel_elements',
+      document.getElementById('travel-content'),
+      document.getElementById('travel-content'),
+      2,
+      'travel-not-hidden'
+    )
+  }
+
+  // Events page load more button
+  if (document.getElementById('load-more-events'))
+  { 
+    createEventListenerForShowMoreButton(
+      document.getElementById('load-more-events'),
+      'bottom_events_elements',
+      document.getElementById('events-content'),
+      document.getElementById('events-content'),
+      2,
+      'event-not-hidden'
+    )
+  }
+
+  
+
+}
+
+// FUNCTIONS FOR CHANGING TEXT SIZE
+
+// CHANGE SIZE OF ICONS ON REVIEW PAGES
+function changeReviewIconSize(newSizeInPixels)
+{
+  var reviewIcons = document.getElementsByClassName('media-icon');
+  if (reviewIcons.length != 0)
+  {
+    for (var j = 0; j < reviewIcons.length; j++)
+    {
+      {
+        reviewIcons[j].style.width = newSizeInPixels;
+      }
+    }
+  }
+}
+
+// FUNCTION TO CHANGE SIZE OF JUST THE MAIN HEADING (SPOOKTASTIC)
+function changeMainHeadingSize(newSize)
+{
+  let mainHeading = document.getElementById('main-heading');
+  mainHeading.style.fontSize = newSize;
+}
+
+// FUNCTION TO CHANGE TEXT SIZE OF WHOLE PAGE
+function changeTextSize(pixels) {
+
+  // Sets local storage with text size in pixels
+  localStorage.setItem('textSize', pixels);
+
+  // Change the text size of the whole page (html element) in general
+  document.getElementsByTagName('html')[0].style.fontSize = pixels;
+
+  // LARGE TEXT SIZE
+  if (pixels == '22px')
+  { 
+    // Change main heading size for large screens
+    if (window.innerWidth > 768)
+    {
+      changeMainHeadingSize('5.2rem');
+    }
+    // Change main heading size for small screens
+    else
+    {
+      changeMainHeadingSize('12vw');
+    }
+    // Change size of images on Book/Film review pages
+    // Avoids overflow over pages
+    changeReviewIconSize('11rem');
+  }
+  // MEDIUM TEXT SIZE
+  else if (pixels == '18px')
+  { 
+    if (window.innerWidth > 768)
+    {
+      changeMainHeadingSize('4.8rem');
+    }
+    else
+    {
+      changeMainHeadingSize('11vw');
+    }
+    changeReviewIconSize('10rem');
+  }
+  // SMALL TEXT SIZE
+  else if (pixels == '14px')
+  { 
+    if (window.innerWidth > 768)
+    {
+      changeMainHeadingSize('4.3rem');
+    }
+    else
+    {
+      changeMainHeadingSize('10vw');
+    }
+    changeReviewIconSize('16rem');
+  }
+  // EXTRA SMALL TEXT SIZE
+  else
+  { 
+    if (window.innerWidth > 768)
+    {
+      changeMainHeadingSize('4.2rem');
+    }
+    else
+    {
+      mainHeading.style.fontSize = '10vw';
+    }
+    changeMainHeadingSize('18rem');
+  }
+}
+
+// ADD EVENT LISTENERS FOR CLICKS ON DIFFERENT TEXTSIZE BUTTONS
+// ACCESSIBILITY MENU
+function textSizeListeners() {
+  // Gets a list of buttons for changing the text size
+  var text_options = document.getElementById("text-size-options");
+  var text_choice_buttons = text_options.getElementsByTagName("button");
+
+  /* Iterates through the buttons and changes the text-size of the
+  HTML page respectively to the selected size */
+  for (var i = 0; i < text_choice_buttons.length; i++)
+  { 
+    if (text_choice_buttons[i].id == "large-text")
+      { 
+        text_choice_buttons[i].addEventListener('click', function()
+        {
+          changeTextSize('22px');
+        })
+      }
+      else if (text_choice_buttons[i].id == "medium-text")
+      { 
+        text_choice_buttons[i].addEventListener('click', function()
+        {
+          changeTextSize('18px');
+        })
+      }
+      else if (text_choice_buttons[i].id == "small-text")
+      { 
+        text_choice_buttons[i].addEventListener('click', function()
+        {
+          changeTextSize('14px');
+        })
+      }
+      else if (text_choice_buttons[i].id == "extra-small-text")
+      { 
+        text_choice_buttons[i].addEventListener('click', function()
+        {
+          changeTextSize('12px');
+        })
+      }
+  }
+} 
+
+
+// WAIT UNTIL WINDOW LOADS TO ADD ALL EVENT LISTENERS AND SET LOCAL STORAGE VALUES
+window.onload = function(){
+
+  if (localStorage.getItem('textSize') == null)
+  {
+    localStorage.setItem('textSize', '18px');
+  }
+  else
+  { 
+    let textSize = localStorage.getItem('textSize');
+    changeTextSize(textSize);
+  }
+
+
+  var colorMode = localStorage.getItem('colorMode');
   /* If color settings exist, make sure they are applied for 
   every other page on the web site, so not lost when navigate to other page */
   if (!colorMode || colorMode == 'light')
@@ -153,8 +510,43 @@ window.onload = function(){
   else{
     darkColorSettings();
   }
-
   darkLightToggle();
+
+  var repeatedElementsContainer;
+
+  if (document.getElementById('review-articles-books'))
+  {
+    repeatedElementsContainer = document.getElementById('review-articles-books');
+    hideItems(repeatedElementsContainer, 3, 'books-not-hidden');
+    localStorage.setItem('bottom_books_elements', 'hidden');
+  }
+
+  if (document.getElementById('review-articles-films'))
+  {
+    repeatedElementsContainer = document.getElementById('review-articles-films');
+    hideItems(repeatedElementsContainer, 3, 'films-not-hidden');
+    localStorage.setItem('bottom_films_elements', 'hidden');
+  }
+
+  if (document.getElementById('travel-content'))
+  { 
+    repeatedElementsContainer = document.getElementsById('travel-content');
+    hideItems(repeatedElementsContainer, 2, 'travel-not-hidden');
+    localStorage.setItem('bottom_travel_elements', 'hidden');
+  }
+
+  if (document.getElementById('events-content'))
+  { 
+    repeatedElementsContainer = document.getElementById('events-content');
+    hideItems(repeatedElementsContainer, 2, 'event-not-hidden');
+    localStorage.setItem('bottom_events_elements', 'hidden');
+  }
+
+
+  addShowExtraItemsListeners();
+
+  textSizeListeners();
+
 }
 
 // Closes dropdown menu on outside click
@@ -272,82 +664,7 @@ function makeSticky() {
     }
 }
 
-function changeImageSize(newSizeString)
-{
-  var reviewIcons = document.getElementsByClassName('media-icon');
-  if (reviewIcons.length != 0)
-  {
-    for (var j = 0; j < reviewIcons.length; j++)
-    {
-      {
-        reviewIcons[j].style.width = newSizeString;
-      }
-    }
-  }
-}
 
-
-// functionality for choosing text size
-var text_options = document.getElementById("text-size-options");
-
-var text_choice_buttons = text_options.getElementsByTagName("button");
-
-for (var i = 0; i < text_choice_buttons.length; i++)
-{
-  if (text_choice_buttons[i].id == "large-text")
-    { 
-      text_choice_buttons[i].addEventListener('click', function()
-      {
-        localStorage.setItem('textSize', '22px');
-        document.getElementsByTagName('html')[0].style.fontSize = "22px";
-        
-         // Tablets screen
-         /* If large text option is selected, then decrease image size
-         for book/film icons if on the reviews listing page */
-        if (window.innerWidth <= 900 && window.innerWidth >= 600)
-        { 
-          changeImageSize('14rem');
-        }
-        /* For smaller computer screens, make the accessibility menu one column
-        with a few rows of options, instead of them all in one long row --> because when
-        all buttons are in one long row, there is no space for the text-size buttons
-        to be all in one line, so the different 'A' letters become vertically spread out
-        and are not all together in one section.
-        */
-        // if (window.innerWidth >= 1200 && window.innerWidth <= 1565)
-        // { 
-        //   var accessibilityMenu = document.getElementById('accessibility-options');
-        //   accessibilityMenu.style.gridTemplateColumns = '1fr';
-        //   accessibilityMenu.style.gridTemplateRows = '1fr 1 fr';
-        //   accessibilityMenu.style.gridTemplateAreas = '"darkbutton""textsizes"';
-        // }
-      })
-    }
-    else if (text_choice_buttons[i].id == "medium-text")
-    { 
-      text_choice_buttons[i].addEventListener('click', function()
-      {
-        localStorage.setItem('textSize', '16px');
-        document.getElementsByTagName('html')[0].style.fontSize = "16px";
-      })
-    }
-    else if (text_choice_buttons[i].id == "small-text")
-    { 
-      text_choice_buttons[i].addEventListener('click', function()
-      {
-        localStorage.setItem('textSize', '14px');
-        document.getElementsByTagName('html')[0].style.fontSize = "14px";
-      })
-    }
-    else if (text_choice_buttons[i].id == "extra-small-text")
-    { 
-      text_choice_buttons[i].addEventListener('click', function()
-      {
-        localStorage.setItem('textSize', '12px');
-        document.getElementsByTagName('html')[0].style.fontSize = "12px";
-      })
-    }
-}
 
 if (document.getElementById('scroll-up-arrow') != null)
 {
