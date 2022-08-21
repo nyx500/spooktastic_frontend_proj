@@ -66,6 +66,15 @@ function lightColorSettings()
   {
     document.getElementById('aside-reviews').style.backgroundColor = myLightGrey;
     document.getElementById('aside-reviews').style.color = myBlack;
+    document.getElementById('aside-reviews').style.color = '4px solid var(--this-mid-grey)';
+  }
+
+  
+  if (document.getElementById('aside-single-review'))
+  {
+    document.getElementById('aside-single-review').style.backgroundColor = myLightGrey;
+    document.getElementById('aside-single-review').style.color = myBlack;
+    document.getElementById('aside-single-review').style.color = '4px solid var(--this-mid-grey)';
   }
 
   document.getElementById('dropdown').style.backgroundColor = myLightGrey;
@@ -129,7 +138,15 @@ function darkColorSettings() {
   {
     document.getElementById('aside-reviews').style.backgroundColor = myBlack;
     document.getElementById('aside-reviews').style.color = myWhite;
+    document.getElementById('aside-reviews').style.border = '4px solid var(--this-dark-red)';
+  }
 
+
+  if (document.getElementById('aside-single-review'))
+  {
+    document.getElementById('aside-single-review').style.backgroundColor = myBlack;
+    document.getElementById('aside-single-review').style.color = myWhite;
+    document.getElementById('aside-single-review').style.border = '4px solid var(--this-dark-red)';
   }
 
   document.getElementById('dropdown').style.backgroundColor = myBlack;
@@ -347,9 +364,20 @@ function addShowExtraItemsListeners(){
       'event-not-hidden'
     )
   }
+}
 
-  
-
+//EVENT LISTENER TO TOGGLE HIDDEN ELEMENTS - USED FOR THE ARTICLE/REVIEW PAGE
+function toggleHidden(buttonElem, containerElem, notHiddenClassName)
+{ 
+  var containerChildren = containerElem.children;
+  buttonElem.addEventListener('click', function() {
+    // Toggle the sections on and off after the first 2 sections
+    for (var i = 2; i < containerChildren.length; i++)
+    { 
+      containerChildren[i].classList.toggle(notHiddenClassName);
+      containerChildren[i].classList.toggle('hidden');
+    }
+  })
 }
 
 // FUNCTIONS FOR CHANGING TEXT SIZE
@@ -437,9 +465,9 @@ function changeTextSize(pixels) {
     }
     else
     {
-      mainHeading.style.fontSize = '10vw';
+      changeMainHeadingSize('9vw');
     }
-    changeMainHeadingSize('18rem');
+    changeReviewIconSize('18rem');
   }
 }
 
@@ -542,6 +570,11 @@ window.onload = function(){
     localStorage.setItem('bottom_events_elements', 'hidden');
   }
 
+  if (document.getElementById('article-text'))
+  {
+    toggleHidden(document.getElementById('read-more'),
+    document.getElementById('article-text'), 'review-article-section');
+  }
 
   addShowExtraItemsListeners();
 
