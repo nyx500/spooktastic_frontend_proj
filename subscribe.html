@@ -115,129 +115,67 @@
             </div>
         </header>
 
-        <main>
-            <div class="main-travel-events-container">
-                <h3 id="travel-title" class="travel-events-title">Top Spooky Travel Locations</h3>
-                <div id="travel-content" class="travel-events-content">
-                    <div class="travel-not-hidden">
-                        <a class="travel-event-title" href="review.html">
-                            <h4>Title of Location/Event</h4>
-                        </a>
-                        <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
-                        </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
-                        <p class="travel-location-description" id="travel-location-description-1">
-                            "Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
-                        </p>
+        <main class="main-home">
+            <div id="subscribe-form-container">
+                <h2 id="subscribe-form-heading">Subscribe to Our Newsletter!</h2>
+                <form id="subscribe-form">
+                    <div id="first-name-input-container" class="form-row">
+                        <label class="form-text-label" for="first-name">
+                            First Name:
+                        </label>
+                        <input type="text" id="first-name" class="form-text-input" name="first-name" placeholder="Your first name...">
                     </div>
-                    <div class="travel-not-hidden">
-                        <a class="travel-event-title" href="review.html">
-                            <h4>Title of Location/Event</h4>
-                        </a>
-                        <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
-                        </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
-                        <p class="travel-location-description" id="travel-location-description-2">
-                            "Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
-                        </p>
+                    <div id="last-name-input-container" class="form-row">
+                        <label class="form-text-label" for="last-name">
+                            Last Name:
+                        </label>
+                        <input type="text" id="last-name" class="form-text-input"  name="last-name" placeholder="Your last name...">
                     </div>
-                    <div class="travel-not-hidden">
-                        <a class="travel-event-title" href="review.html">
-                            <h4>Title of Location/Event</h4>
-                        </a>
-                        <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
-                        </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
-                        <p class="travel-location-description" id="travel-location-description-3">
-                            "Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
-                        </p>
+                    <div id="email-input-container" class="form-row">
+                        <label class="form-text-label" for="email">
+                            Email address:
+                        </label>
+                        <input type="email" id="email" class="form-text-input" name="email" placeholder="Email address...">
                     </div>
-                    <div class="travel-not-hidden">
-                        <a class="travel-event-title" href="review.html">
-                            <h4>Title of Location/Event</h4>
-                        </a>
-                        <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
-                        </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
-                        <p class="travel-location-description" id="travel-location-description-4">
-                            "Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
-                        </p>
+                    <div id="checkbox-interest-options" class="checkbox-interest-options">
+                        <h4>Please tick which news you're most interested in!</h4>
+                        <div id="checkbox-container-1" class="form-row checkbox-container">
+                            <input class="form-checkbox" type="checkbox" id="interest-1" name="interest-1" value="Books">
+                            <label class="form-checkbox-label" for="interest-1">Spooky literature</label>
+                        </div>
+                        <div id="checkbox-container-2" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-2" name="interest-2" value="Film">
+                                <label class="form-checkbox-label" for="interest-2">Horror Film and TV</label>
+                        </div>
+                        <div id="checkbox-container-3" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-3" name="interest-3" value="Music">
+                                <label class="form-checkbox-label" for="interest-3">Metal/Goth Music and Gigs</label>
+                        </div>
+                        <div id="checkbox-container-4" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-4" name="interest-4" value="Travel">
+                                <label class="form-checkbox-label" for="interest-4">Travel Suggestions</label>
+                        </div>
+                        <div id="checkbox-container-5" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-5" name="interest-5" value="Events">
+                                <label class="form-checkbox-label" for="interest-5">Spooky Conventions and Happenings</label>
+                        </div>
+                        <div id="checkbox-container-6" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-6" name="interest-6" value="Tarot">
+                                <label class="form-checkbox-label" for="interest-6">Tarot, Astrology, Divination</label>
+                        </div>
+                        <div id="checkbox-container-7" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-7" name="interest-7" value="Folklore">
+                                <label class="form-checkbox-label" for="interest-7">Folklore and Myths</label>
+                        </div>
+                        <div id="checkbox-container-8" class="form-row checkbox-container">
+                                <input class="form-checkbox" type="checkbox" id="interest-8" name="interest-8" value="Folklore">
+                                <label class="form-checkbox-label" for="interest-8">Herbology and Alternative Medicine</label>
+                        </div>
                     </div>
-                    <div class="travel-not-hidden">
-                        <a class="travel-event-title" href="review.html">
-                            <h4>Title of Location/Event</h4>
-                        </a>
-                        <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
-                        </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
-                        <p class="travel-location-description" id="travel-location-description-5">
-                            "Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
-                        </p>
+                    <div class="form-row">
+                        <input id="form-submit" type="submit" value="Submit">
                     </div>
-                    <div class="travel-not-hidden">
-                        <a class="travel-event-title" href="review.html">
-                            <h4>Title of Location/Event</h4>
-                        </a>
-                        <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
-                        </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
-                        <p class="travel-location-description" id="travel-location-description-6">
-                            Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
-                        </p>
-                    </div>
-                </div>
-                <div class="travel-events-expand">
-                    <button id="load-more-travel" class="load-more">Load More...</button>
-                    <a id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
-                </div>
+                </form>
             </div>
         </main>
         <footer>

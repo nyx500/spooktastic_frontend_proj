@@ -423,6 +423,7 @@ main {
     align-self: start;
 }
 
+
 #welcome-content h3
 {
     font-size: 1.4rem;
@@ -747,6 +748,7 @@ footer
     font-weight: bolder;
     text-align: center;
     cursor: pointer;
+    border: 2px solid var(--off-black);
     border-radius: 8px;
 }
 
@@ -806,8 +808,9 @@ footer
 /* For small laptop screens and smaller - reviews page */
 @media only screen and (max-device-width: 1200px)
 {   
+    /* Only make the header sticky on large laptop and PC screens */
     .sticky1{
-        display: none;
+        display: none!important;
     }
     /* Makes aside section go underneath the main content instead of next to it */
     .main-reviews-container {
@@ -1124,13 +1127,9 @@ footer
     #aside-single-review
     {   
         justify-self: center;
-        width: 98%;
         align-self: end;
-        margin-right: 0;
-        margin-top: 50px;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        margin-bottom: 10px;
+        padding: 2rem;
+        margin-bottom: 50px;
         grid-template-rows: 1fr 2fr;
     }
     #aside-single-review > h4
@@ -1155,5 +1154,102 @@ footer
     #aside-single-review > ul {
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
+    }
+}
+
+@media only screen and (max-device-width: 300px)
+{
+    #aside-single-review > ul {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+    }
+}
+
+/* SUBSCRIBE PAGE STYLING */
+
+#subscribe-form-container
+{
+    display: grid;
+    grid-template-columns: 95%;
+    grid-template-rows: auto;
+    grid-template-areas: "form-title"
+                         "form";
+    justify-content: center;
+}
+
+#subscribe-form-heading
+{
+    font-size: 1.6rem;
+    grid-area: form-title;
+    text-align: center;
+    justify-self: center;
+    align-self: start;
+    padding: 10px;
+}
+
+#subscribe-form
+{   
+    padding: 20px;
+    grid-area: form;
+    justify-self: center;
+    align-self: center;
+    
+}
+
+
+.form-row
+{
+    margin: 1rem;
+}
+
+#first-name-input-container, #last-name-input-container, #email-input-container
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-text-label
+{   
+    display: inline-block;
+}
+
+.form-text-input
+{   
+    display: inline-block;
+    padding: 7px;
+    border: 2px solid black;
+}
+
+
+#form-submit
+{
+    background-color: grey;
+    padding: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    width: 6rem;
+}
+
+#thank-you-message
+{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    font-size: 1.8rem;
+}
+
+@media only screen and (max-device-width: 768px)  
+{
+    .form-text-label, .form-text-input
+    {
+        display: block;
+    }
+    .form-text-input
+    {
+        padding: 10px;
+    }
+    #first-name-input-container, #last-name-input-container, #email-input-container
+    {
+        grid-template-columns: 1fr;
     }
 }

@@ -47,19 +47,12 @@ function lightColorSettings()
   document.getElementsByTagName('main')[0].style.color = myBlack;
   document.getElementsByTagName('footer')[0].style.backgroundColor = myLightGrey;
   document.getElementsByTagName('footer')[0].style.color = myBlack;
-  if (document.getElementsByClassName('load-more'))
+  if (document.getElementsByClassName('load-more')[0])
   { 
-    var loadMoreButtons = document.getElementsByClassName('load-more');
-    for (var i = 0; i < loadMoreButtons; i++)
-    {
-      loadMoreButtons[i].style.backgroundImage = linearGradientLight;
-      loadMoreButtons[i].style.color = myWhite;
-    }
-  }
-  if (document.getElementById('read-more'))
-  {
-    document.getElementById('read-more').style.backgroundImage = linearGradientLight;
-    document.getElementById('read-more').style.color = myWhite;
+    var loadMoreButton = document.getElementsByClassName('load-more')[0];
+    loadMoreButton.style.backgroundImage = linearGradientLight;
+    loadMoreButton.style.color = myWhite;
+    loadMoreButton.style.border = '2px solid var(--off-black)';
   }
 
   if (document.getElementById('aside-reviews'))
@@ -118,20 +111,12 @@ function darkColorSettings() {
   document.getElementsByTagName('footer')[0].style.backgroundColor = 'black';
   document.getElementsByTagName('footer')[0].style.color = myWhite;
 
-  if (document.getElementsByClassName('load-more'))
-  { 
-    var loadMoreButtons = document.getElementsByClassName('load-more');
-    for (var i = 0; i < loadMoreButtons; i++)
-    {
-      loadMoreButtons[i].style.backgroundImage = linearGradientDark;
-      loadMoreButtons[i].style.color = myBlack;
-    }
-  }
-
-  if (document.getElementById('read-more'))
-  {
-    document.getElementById('read-more').style.backgroundImage = linearGradientDark;
-    document.getElementById('read-more').style.color = myBlack;
+  if (document.getElementsByClassName('load-more')[0])
+  {  
+    var loadMoreButton = document.getElementsByClassName('load-more')[0];
+      loadMoreButton.style.backgroundImage = linearGradientDark;
+      loadMoreButton.style.color = myBlack;
+      loadMoreButton.style.border = '2px solid var(--this-red)';
   }
 
   if (document.getElementById('aside-reviews'))
@@ -377,6 +362,19 @@ function toggleHidden(buttonElem, containerElem, notHiddenClassName)
       containerChildren[i].classList.toggle(notHiddenClassName);
       containerChildren[i].classList.toggle('hidden');
     }
+    /* Toggles the text in the expansion button between 'Hide'
+    and 'Load'/'Read' more items by setting a local storage variable
+    for the HTML content of the button when it is NOT set to
+    'Hide' */
+    if (buttonElem.innerHTML != 'Hide')
+    {
+      localStorage.setItem('buttonHTML', buttonElem.innerHTML);
+      buttonElem.innerHTML = 'Hide';
+    }
+    else
+    {
+      buttonElem.innerHTML = localStorage.getItem('buttonHTML');
+    }
   })
 }
 
@@ -513,6 +511,57 @@ function textSizeListeners() {
   }
 } 
 
+//SELECT FORM EVENT LISTENERS
+function selectFormEventListeners()
+{
+  if  (document.getElementById('subscribe-form'))
+  {
+    var form = document.getElementById('subscribe-form');
+    var formTextInputs = document.getElementsByClassName('form-text-input');
+    formTextInputs = Array.from(formTextInputs);
+    formTextInputs.forEach((input) => {
+      input.addEventListener('focus', function() {
+        // Attribution:
+        //  https://stackoverflow.com/questions/61992025/google-chrome-showing-black-border-on-focus-state-for-button-user-agent-styles
+        input.style.outline = 'none';
+        input.style.border = '2px solid var(--this-red)';
+      })
+      input.addEventListener('focusout', function() {
+        input.style.border = '2px solid var(--off-black)';
+      })
+    })
+
+    var formCheckboxContainers = document.getElementsByClassName('checkbox-container');
+    formCheckBoxContainers = Array.from(formCheckboxContainers);
+    formCheckBoxContainers.forEach((container) => {
+      // Making the container a variable makes it accessible in eventListener
+      var container = container;
+      let checkbox = container.getElementsByTagName('input')[0];
+      let label = container.getElementsByTagName('label')[0];
+      // Attribution:
+      // https://stackoverflow.com/questions/9887360/how-can-i-check-if-a-checkbox-is-checked
+      checkbox.addEventListener('change', e => {
+        if(e.target.checked === true) {
+          label.style.fontWeight = 'bolder';
+        }
+        else {
+          label.style.fontWeight = 'normal';
+        }
+    })
+  })
+
+  var submitButton = document.getElementById('form-submit');
+  submitButton.addEventListener('click', (e) => {
+    // Prevents automatic reload of page
+    e.preventDefault();
+
+    var formTitle = document.getElementById('subscribe-form-heading');
+    formTitle.style.display = 'none';
+    form.innerHTML = '<div id="thank-you-message"><h4>Thank you for signing up!</h4></div>';
+    scrollToJustAboveElement (document.getElementById('thank-you-message'), 400);
+  })
+}
+}
 
 // WAIT UNTIL WINDOW LOADS TO ADD ALL EVENT LISTENERS AND SET LOCAL STORAGE VALUES
 window.onload = function(){
@@ -558,7 +607,7 @@ window.onload = function(){
 
   if (document.getElementById('travel-content'))
   { 
-    repeatedElementsContainer = document.getElementsById('travel-content');
+    repeatedElementsContainer = document.getElementById('travel-content');
     hideItems(repeatedElementsContainer, 2, 'travel-not-hidden');
     localStorage.setItem('bottom_travel_elements', 'hidden');
   }
@@ -579,7 +628,7 @@ window.onload = function(){
   addShowExtraItemsListeners();
 
   textSizeListeners();
-
+  selectFormEventListeners();  
 }
 
 // Closes dropdown menu on outside click
