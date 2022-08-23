@@ -865,12 +865,12 @@ footer
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "loadbutton loadbutton uparrow";
-    align-self: center;
-    align-items: center;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "loadbutton loadbutton uparrow"
+                        "loadbutton loadbutton uparrow";
     margin-left: 2rem;
 }
+
 
 .load-more
 {   
@@ -897,7 +897,8 @@ footer
 {   
     grid-area: uparrow;
     cursor: pointer;
-    justify-self: start;
+    justify-self: center;
+    align-self: start;
 }
 
 #scroll-up-arrow > img
@@ -935,6 +936,27 @@ footer
     }
     
 }
+
+
+@media only screen and (max-device-width: 600px)
+{
+    .reviews-expand, .travel-events-expand
+    {   
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "loadbutton" 
+            "uparrow";
+    }
+    .load-more
+    {
+        justify-self: center;
+    }
+    #scroll-up-arrow
+    {
+        justify-self: start;
+    }
+}
+
 
 #aside-reviews > h4
 {   
