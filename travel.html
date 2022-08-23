@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spooktastic Home: Your Source for All Your Horror News</title>
+    <title>Spooktastic: Travel Suggestions</title>
     <link rel="stylesheet" href="./Styles/style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/assets/star.svg">
   </head>
   <body>
     <div class="parent-container">
+        <div class="loader"></div>
         <header>
             <!--Attribution: tip for making CSS background-img accessible 
                 https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
@@ -46,30 +47,54 @@
                 </ul>
                 
                  <ol id="main-navbar-list">
-                    <li>
-                        <a id="main-nav-home-link" href="index.html">HOME</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-films-link"  href="filmReviews.html">MOVIES</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-music-link"  href="index.html">MUSIC</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-travel-link"  href="travel.html">TRAVEL</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-events-link"  href="events.html">EVENTS</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-about-link"  href="index.html">ABOUT</a>
-                    </li>
-                    <li>
-                        <a id="main-nav-write-link"  href="subscribe.html">SUBSCRIBE</a>
-                    </li>
+                    <ol id="links-to-this-site">
+                        <li>
+                            <a class="main-nav-link" id="main-nav-home-link" href="index.html">HOME</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-films-link"  href="filmReviews.html">MOVIES</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-music-link"  href="music.html">MUSIC</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-travel-link"  href="travel.html">TRAVEL</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-events-link"  href="events.html">EVENTS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-about-link"  href="index.html">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-write-link"  href="subscribe.html">SUBSCRIBE</a>
+                        </li>
+                    </ol>
+                    <ol id="social-links">
+                        <li>
+                            <a class="social-media-link" href="https://www.facebook.com">
+                                <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-media-link" href="https://www.twitter.com">
+                                <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li >
+                            <a class="social-media-link" href="https://www.instagram.com">
+                                <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px" height="auto">
+                            </a>
+                        </li>   
+                        <li>
+                            <a class="social-media-link" href="https://www.pinterest.com">
+                                <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px" height="auto">
+                            </a>
+                        </li>
+                    </ol>
                 </ol>
             </nav>    
             <div class="header-headings-area">
@@ -114,9 +139,30 @@
                 </div>
             </div>
         </header>
-
         <main>
-            <div class="main-travel-events-container">
+            <ul id="main-container-media-links">
+                <li>
+                    <a class="social-media-link" href="https://www.facebook.com">
+                        <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a class="social-media-link" href="https://www.twitter.com">
+                        <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a class="social-media-link" href="https://www.instagram.com">
+                        <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>   
+                <li>
+                    <a class="social-media-link" href="https://www.pinterest.com">
+                        <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+            </ul>
+            <div class="main-part-of-page main-travel-events-container">
                 <h3 id="travel-title" class="travel-events-title">Top Spooky Travel Locations</h3>
                 <div id="travel-content" class="travel-events-content">
                     <div class="travel-not-hidden">
@@ -270,7 +316,7 @@
                         <a id="footer-nav-films-link" href="filmReviews.html">Film Reviews</a>
                     </li>
                     <li>
-                        <a id="footer-nav-music-link" href="index.html">Music Reviews</a>
+                        <a id="footer-nav-music-link" href="music.html">Music Reviews</a>
                     </li>
                     <li>
                         <a id="footer-nav-travel-link" href="travel.html">Spooky Travel</a>
