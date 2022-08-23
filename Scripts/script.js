@@ -448,7 +448,7 @@ function changeTextSize(pixels) {
       changeMainHeadingSize('5.2rem');
       // Change size of images on Book/Film review pages
       // Avoids overflow over pages
-      changeReviewIconSize('12rem');
+      changeReviewIconSize('10rem');
     }
     else
     {
@@ -481,7 +481,7 @@ function changeTextSize(pixels) {
   { 
     if (window.innerWidth > 768)
     {
-      changeMainHeadingSize('4.8rem');
+      changeMainHeadingSize('5rem');
     }
     else
     {
@@ -494,7 +494,7 @@ function changeTextSize(pixels) {
   { 
     if (window.innerWidth > 768)
     {
-      changeMainHeadingSize('4.3rem');
+      changeMainHeadingSize('5.8rem');
     }
     else
     {
@@ -678,12 +678,19 @@ function selectFormEventListeners()
 }
 }
 
+function makeHeadingClickable() {
+  document.getElementById('main-heading').addEventListener('click', function() {
+    console.log('clicked');
+    window.location.href = "index.html";s
+  })
+}
+
 // WAIT UNTIL WINDOW LOADS TO ADD ALL EVENT LISTENERS AND SET LOCAL STORAGE VALUES
 window.onload = function(){
 
   if (localStorage.getItem('textSize') == null)
   {
-    localStorage.setItem('textSize', '18px');
+    localStorage.setItem('textSize', '16px');
   }
   else
   { 
@@ -768,6 +775,8 @@ document.onreadystatechange = () => {
   {
     loader.style.display = 'block';
   }
+
+  makeHeadingClickable();
 };
 
 // Closes dropdown menu on outside click
