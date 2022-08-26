@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spooktastic</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/star.svg">
+</head>
+
+<body>
+    <div class="parent-container">
+        <div class="loader"></div>
+        <header>
+            <!--Attribution: tip for making CSS background-img accessible 
+                https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
+            <!-- include the img tag but visually hide it with .screenreader-only -->
+            <img class="screenreader-only" alt="Background photograph of dark greyscale forest"
+                src="./Assets/forestVanillaFilter.jpg">
+            <nav id="main-navbar">
+                <ul id="accessibility-options">
+                    <li>
+                        <h2 id="navbar-logo-text">
+                            <a href="index.html">SPOOKTASTIC</a>
+                        </h2>
+                    </li>
+                    <li>
+                        <button id="dark-mode">
+                            Dark Mode
+                        </button>
+                    </li>
+                    <li>
+                        <span id="text-size-options">
+                            <button id="large-text">
+                                <b>A</b>
+                            </button>
+                            <button id="medium-text">
+                                <b>a</b>
+                            </button>
+                            <button id="small-text">
+                                <b>a</b>
+                            </button>
+                            <button id="extra-small-text">
+                                <b>a</b>
+                            </button>
+                        </span>
+                    </li>
+
+                </ul>
+
+                <ol id="main-navbar-list">
+                    <ol id="links-to-this-site">
+                        <li>
+                            <a class="main-nav-link" id="main-nav-home-link" href="index.html">HOME</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-films-link" href="filmReviews.html">MOVIES</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-music-link" href="music.html">MUSIC</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-travel-link" href="travel.html">TRAVEL</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-events-link" href="events.html">EVENTS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-about-link" href="index.html">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-write-link" href="subscribe.html">SUBSCRIBE</a>
+                        </li>
+                    </ol>
+                    <ol id="social-links">
+                        <li>
+                            <a class="social-media-link" href="https://www.facebook.com">
+                                <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px"
+                                    height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-media-link" href="https://www.twitter.com">
+                                <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px"
+                                    height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-media-link" href="https://www.instagram.com">
+                                <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px"
+                                    height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="social-media-link" href="https://www.pinterest.com">
+                                <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px"
+                                    height="auto">
+                            </a>
+                        </li>
+                    </ol>
+                </ol>
+            </nav>
+            <div class="header-headings-area">
+                <h1 id="main-heading">
+                    SPOOKTASTIC
+                </h1>
+                <div id="main-subheading-and-dropdown-container">
+                    <h2 id="main-subheading">
+                        Your Go-To Site for Horror News and Reviews
+                    </h2>
+                    <div class="dropdown-container">
+                        <button id="menu-button">
+                            &#9776;
+                        </button>
+                        <div id="dropdown" class="dropdown-menu">
+                            <div class="dropdown-link-div">
+                                <a href="index.html">Home</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="bookReviews.html">Book Reviews</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="filmReviews.html">Film Reviews</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="travel.html">Travel Suggestions</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="events.html">Events</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="subscribe.html">Subscribe</a>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <ul id="main-container-media-links">
+                <li>
+                    <a class="social-media-link" href="https://www.facebook.com">
+                        <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a class="social-media-link" href="https://www.twitter.com">
+                        <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a class="social-media-link" href="https://www.instagram.com">
+                        <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a class="social-media-link" href="https://www.pinterest.com">
+                        <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px" height="auto">
+                    </a>
+                </li>
+            </ul>
+            <div class="main-review-container">
+                <article class="review">
+                    <h3>5 Spooky Locations in Washington State, USA</h3>
+                    <div id="article-text" class="article-body">
+                        <section class="review-article-section" id="review-section-1">
+                            <p>Many, many fabulous tales and artworks in the horror,
+                                sci-fi and fantasy genre have been spawned in this luscious,
+                                green, densely forested state – including Robin Hobb’s famous
+                                Realm of the Elderings fantasy series, which is,
+                                in my opinion, one of the most psychologically astute
+                                and best-written works of fantasy fiction out there.
+                                For those unfamiliarised with Terry Miles’ TANIS and RABBITS,
+                                or Radiotopia’s Polybius horror podcasts,
+                                these audio dramas have basically created a
+                                whole mythos of the area. This is alongside Seattle’s
+                                notoriety for producing excellent grunge music in the
+                                1990s and still being host to a panoply of cool,
+                                alternative venues that veer away from the mainstream.
+                            </p>
+                        </section>
+                        <section class="review-article-section" id="review-section-2">
+                            <h4>1. The Hoh National Rainforest </h4>
+                            <p>
+                                The Hoh National Rainforest is only one of many sublime and magical
+                                national parks and forests in the Washington State area. However,
+                                it is one of the greenest and the most lush, with creeping, hanging moss,
+                                enormous ferns, and cold, fast flowing rivers. It is definitely somewhere
+                                to put on your bucket list if you’re a nature lover.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-3">
+                            <div class="img-gallery">
+                                <div class="gallery-img-container">
+                                    <img class="gallery-img" src="./Assets/WashingtonArticle/hoh1.jpg" alt="
+                                Bridges and Waterfalls in Hoh National Rainforest">
+                                    <div class="gallery-img-text-white">Hoh Rainforest Walk</div>
+                                </div>
+                                <div class="gallery-img-container">
+                                    <img class="gallery-img" src="./Assets/WashingtonArticle/hoh2.jpg" alt="
+                                Hanging moss on trees in Hoh Rainforest">
+                                    <div class="gallery-img-text-white">Hanging moss in Hoh Rainforest</div>
+                                </div>
+                                <div class="gallery-img-container">
+                                    <img class="gallery-img" src="./Assets/WashingtonArticle/hoh3.jpg" alt="
+                                A pond surrounded by trees in Hoh Rainforest">
+                                    <div class="gallery-img-text-white">Deep, magical pool...</div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-4">
+                            <h4>
+                                2. MoPOP Museum
+                            </h4>
+                            <div class="review-single-image-container">
+                                <img alt="MoPOP in Seattle" src="/Assets/WashingtonArticle/mopop1.jpg"
+                                    class="review-single-image">
+                            </div>
+                            <div class="review-img-caption">Wonderful museum</div>
+                            <p>
+                                Seattle’s museum of pop culture, designed by the architectural legend
+                                who is Frank Gehry, is kind of a Mecca for anyone interested in
+                                the fantasy or horror genres, rock music, or indie games.
+                                There are current exhibitions called ‘Fantasy: Worlds of Myth and
+                                Magic’, where you can see props and costumes from movies such as The
+                                Princess Bride or The Wizard of Oz, and an extensive display called Scared to Death:
+                                The Thrill of the Horror Film, that promises to be an immersive and inspiring experience
+                                for any horror fan.
+                                The Indie Games exhibit is also not to be missed.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-5">
+                            <h4>
+                                3. Underground Seattle
+                            </h4>
+                            <div class="review-single-image-container">
+                                <img alt="Underground tunnels in Seattle"
+                                    src="/Assets/WashingtonArticle/seattleUnderground.jpg" class="review-single-image">
+                            </div>
+                            <div class="review-img-caption">Gloomy and horrifying tunnels</div>
+                            <p>
+                                Most of Seattle was destroyed in the 19th century during a great fire, and the city as
+                                we know it was built atop the ruins. There are still many underground passages and
+                                abandoned rooms which you can explore fully as a tourist attraction.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-6">
+                            <h4>
+                                4. For David Lynch fans: Snoqualmie Falls
+                            </h4>
+                            <div class="review-single-image-container">
+                                <img alt="Snoqualmie waterfalls" src="/Assets/WashingtonArticle/snoqualmie.jpeg"
+                                    class="review-single-image">
+                            </div>
+                            <div class="review-img-caption">Majestic and sublime waterfall</div>
+                            <p>Snoqualmie Falls was where Twin Peaks was set. Under an hour drive from Seattle, you can
+                                visit the Twede’s Café that was features in the series and immerse yourself in the
+                                atmosphere of this spooky town surrounded by the dense pinewood forest.</p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-7">
+                            <h4>
+                                5. Blake Island and Tillicum Village
+                            </h4>
+                            <div class="review-img-caption">Lluc Monastery</div>
+                            <p>One of the things that fascinates me most about the Pacific Northwest in the USA is the
+                                rich history and culture of the American indigenous First Peoples and the traditions of
+                                the native tribes. You can take a ferry to this island from the city of Seattle, where
+                                Tillicum Village has preserved the customs and traditions of the native peoples. You can
+                                explore the totems and the art of these tribes and learn about their cultural
+                                significance, to get a complete feel of what America was like before the European’s
+                                arrival, an important acknowledgment of the indigenous’ peoples’ civilisation. </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-8">
+                            <h4>
+                                6. The Owl 'n' Thistle
+                            </h4>
+                            <p>With its fitting gothic-inspired name, the Owl ‘n’ Thistle is a dark-academia-themed
+                                Irish pub complete with hearty stews and pints of dark Guiness. It is an excellent place
+                                to see lots of local bands play gigs. </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-9">
+                            <h4>
+                                7. The Haunted Moore Theatre
+                            </h4>
+                            <p>Sitting atop Seattle’s oldest cemetery, this theatre is rich in history and lore that
+                                would lure every aspiring paranormal investigator. Apparently, the abandoned theatre
+                                often still smells like cigar smoke, while the basement is a popular site for
+                                ghosthunters – there have been many reports of hearing mysterious voices there. It has
+                                also been frequently used by horror filmmakers due to its spooky appearance. </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-10">
+                            <h4>
+                                8. Ye Olde Curiosity Shop
+                            </h4>
+                            <p>This combination of a shop and a museum is host to many of the oddities and aberrations
+                                found in nature and culture, including pigs with three tails and shrunken heads. There
+                                are weird creatures preserved in jars of formaldehyde and all kinds of mummified beings.
+                                There will always be so many interesting things to look at or buy here, including
+                                Pacific Northwest Native Americans’ hand crafted art and jewelry made out of insects and
+                                plants. </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-11">
+                            <div class="img-gallery">
+                                <div class="gallery-img-container">
+                                    <img class="gallery-img" src="./Assets/WashingtonArticle/tillicum2.jpg" alt="
+                                Native American Tillicum Museum in Washington State, USA">
+                                    <div class="gallery-img-text-white">Tillicum Village</div>
+                                </div>
+                                <div class="gallery-img-container">
+                                    <img class="gallery-img" src="./Assets/WashingtonArticle/yeOldCuriosity.jpg" alt="
+                                Seattle Ye Olde Curiosity Shop">
+                                    <div class="gallery-img-text-white">Ye Olde Curiosity Shop</div>
+                                </div>
+                                <div class="gallery-img-container">
+                                    <img class="gallery-img" src="./Assets/WashingtonArticle/owlnthistle.png" alt="
+                                Owl 'n' Thistle Seattle pub">
+                                    <div class="gallery-img-text-white">The Owl 'n' Thistle</div>
+                                </div>
+                        </section>
+                        <h5 id="close-message">
+                            Click again to close image.
+                        </h5>
+                    </div>
+                    <div class="reviews-expand">
+                        <button id="read-more" class="load-more">Read More...</button>
+                        <a id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                    </div>
+                </article>
+                <aside id="aside-single-review">
+                    <h4>Other 'Horrifying' Content...</h4>
+                    <ul>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            <div id="copyright">
+                Ophelia Lavey 2022
+            </div>
+            <div id="contact">
+                <h4>Contact:</h4>
+                <h5>Email Address:</h5>
+                <email id="footer-email-contact">
+                    ophelia.lavey2@gmail.com
+                </email>
+                <h5>Snail Mail:</h5>
+                <address id="footer-address-contact">
+                    23 Will-O-the-Wisp Road
+                    Salem
+                    DV6 666
+                    UK
+                </address>
+            </div>
+            <nav id="site-map">
+                <ol>
+                    <li>
+                        <a id="footer-nav-home-link" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-books-link" href="bookReviews.html">Book Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-films-link" href="filmReviews.html">Film Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-music-link" href="music.html">Music Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-travel-link" href="travel.html">Spooky Travel</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-events-link" href="events.html">Mysterious Events</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-about-link" href="index.html">About</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-write-link" href="subscribe.html">Subscribe to Newsletter!</a>
+                    </li>
+                </ol>
+            </nav>
+        </footer>
+    </div>
+    <script src="./Scripts/script.js"></script>
+</body>
+
+</html>

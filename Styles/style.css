@@ -121,9 +121,8 @@ header {
     position: fixed;    
     background-color: var(--this-light-grey);
     color: var(--off-black)!important;
-    padding: 0;
     width: 100vw;
-    z-index: 200;
+    z-index: 2;
 }
 
 /*************************************Elements in the Header********************************/
@@ -260,7 +259,7 @@ header {
 {
     grid-area: links1;
     list-style-type: none;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 #social-links
@@ -296,7 +295,7 @@ a:visited
 }
 
 #main-navbar #main-navbar-list li {
-    z-index: 1000;
+    z-index: 2;
 }
 
 #main-navbar #main-navbar-list li a:link
@@ -417,7 +416,7 @@ header .header-headings-area {
     color: var(--off-black);
     border-radius: 4px;
     border: 4px solid black;
-    z-index: 1000;
+    z-index: 3;
 }
 
 .dropdown-menu div
@@ -459,6 +458,7 @@ header .header-headings-area {
     justify-self: center;
 }
 
+/* Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp */
 #menu-button{
     width: fit-content;
     height: fit-content;
@@ -467,10 +467,36 @@ header .header-headings-area {
     border-radius: 4px;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 2rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
     cursor: pointer;
 }
 
+.bar1, .bar2, .bar3
+{
+    width: 40px;
+    height: 0.25rem;
+    background-color: #000000;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.changeIcon .bar1 {
+    -webkit-transform: rotate(-43deg) translate(-4.5px, 6px) ;
+    transform: rotate(-43deg) translate(-4.5px, 6px) ;
+  }
+
+  /* Fade out the second bar */
+.changeIcon .bar2 {
+    opacity: 0;
+  }
+
+  /* Rotate last bar */
+.changeIcon .bar3 {
+    -webkit-transform: rotate(43deg) translate(-8.1px, -8px) ;
+    transform: rotate(43deg) translate(-8.1px, -8px) ;
+  }
 
 /************************************ELEMENTS IN THE INDEX MAIN CONTAINER****************************************/
 
@@ -801,7 +827,7 @@ footer
     align-content: center;
     justify-items: center;
     width: 100%;
-    align-self: start;
+    align-self: center;
 }
 
 
@@ -819,11 +845,13 @@ footer
                          "media-title"
                          "media-caption";  
     justify-items: center;  
-    text-align: center; 
+    text-align: center;
 }
 
 .hidden
 {   
+    text-align: center;
+    justify-items: center;
     display: none;
 }
 
@@ -909,8 +937,8 @@ footer
     text-align: center;
     cursor: pointer;
     border: 2px solid var(--off-black);
-    border-radius: 8px;
-    width: 60vw;
+    border-radius: 2px;
+    width: fit-content;
 }
 
 #scroll-up-arrow
@@ -918,7 +946,7 @@ footer
     grid-area: uparrow;
     cursor: pointer;
     justify-self: center;
-    margin-top: 20px;
+    align-self: center;
 }
 
 #scroll-up-arrow > img
@@ -943,13 +971,13 @@ footer
     display: grid;
     grid-template-columns: 100%;
     text-align: center;
-    min-height: 75%;
+    min-height: 60%;
 }
 
 @media only screen and (max-device-width: 400px)
 {
     #aside-reviews {
-        width: 98vw;
+        width: 90vw;
     }
     #aside-reviews > ul {
         grid-template-columns: 1fr!important;
@@ -958,7 +986,7 @@ footer
 }
 
 
-@media only screen and (max-device-width: 600px)
+@media only screen and (max-device-width: 700px)
 {
     .reviews-expand, .travel-events-expand
     {   
@@ -1016,7 +1044,7 @@ footer
     #aside-reviews
     {   
         justify-self: center;
-        width: 90%;
+        width: 75%;
         align-self: center;
         margin-right: 0;
         padding-bottom: 1rem;
@@ -1032,7 +1060,7 @@ footer
     {
         text-align: center;
         display: grid;
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr;
         align-items: start;
     }
     #aside-reviews > ul > li
@@ -1128,7 +1156,7 @@ footer
 .main-travel-events-container {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto;
     grid-template-areas: "travel-events-title"
                          "travel-events-content"
                          "travel-events-expand";
@@ -1136,7 +1164,7 @@ footer
     justify-items: center;
     align-items: start;
     align-content: start;
-    margin-top: -2rem;
+    margin-top: -10rem;
 }
 
 .travel-events-title
@@ -1159,7 +1187,6 @@ footer
     align-items: start;
     align-self: start;
     background: var(--white-color);
-    row-gap: 40px;
     padding-top: 40px;
 }
 
@@ -1167,9 +1194,9 @@ footer
 {
     display: inline-block;
     width: 90%;
-    background: var(--white-color);
-    height: fit-content;
+    height: 100%;
 }
+
 
 
 .travel-event-title
@@ -1183,19 +1210,20 @@ footer
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    height: 45%;
+    height: 55%;
     border: 6px solid black;
 }
 
 .travel-location-caption
 {
-    margin-left: 10%;
     font-size: 0.8rem;
+    text-align: center;
+    margin-left: 30%;
 }
 
 .travel-location-description
 {
-    text-align: center;
+    text-align: left;
 }
 
 .travel-events-expand
@@ -1204,13 +1232,38 @@ footer
     margin-bottom: 10rem;
 }
 
+@media only screen and (max-device-width: 1300px)
+{   
+    .travel-not-hidden
+    {   
+        padding-bottom: 1rem;
+    }
+}
+
+
+@media only screen and (max-device-width: 1200px) and (min-device-width: 768px)
+{   
+    .travel-not-hidden
+    {   
+        height: 70%;
+        padding-bottom: 2rem;
+    }
+}
+
+
 @media only screen and (max-device-width: 768px)
-{
+{   
+    .travel-not-hidden
+    {   
+        height: 50%;
+        padding-bottom: 2.5rem;
+    }
+
     .travel-events-content{
         grid-template-columns: 1fr;
     }
     .load-more {
-        width: 80vw;
+        width: 40vw;
         padding: 2vw;
         justify-self: center!important;
     }
@@ -1290,6 +1343,12 @@ footer
     justify-items: start;
 }
 
+.review > h3
+{
+    text-align: left!important;
+    margin-top: 2rem;
+}
+
 .main-review-container h3
 {   
     font-size: 1.8rem;
@@ -1309,6 +1368,142 @@ footer
 .article-body section 
 {
     margin-bottom: 1rem;
+}
+
+.article-body section p
+{
+    padding: 10px;
+}
+
+/* For a single review page's: responsive image gallery */
+.img-gallery
+{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    justify-items: start;
+    align-items: center;
+}
+
+.gallery-img-container
+{
+    position: relative;
+    text-align: center;
+    margin: 10px;
+}
+
+.gallery-img
+{   
+    opacity: 0.8;
+    cursor: pointer;
+    width: 14rem;
+    height: 10rem;
+    border: 2px solid grey;
+}
+
+.gallery-img:hover
+{
+    opacity: 1;
+}
+
+
+.review-single-image-container
+{
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.review-single-image
+{
+    width: 60vw;
+    height: auto;
+    opacity: 0.8;
+    cursor: pointer;
+    border: 2px solid grey;
+}
+
+.review-single-image:hover
+{
+    opacity: 1;
+}
+
+
+.gallery-img-text-white, .gallery-img-text-black
+{
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    font-weight: bolder;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.gallery-img-text-white
+{   
+    background-color: black;
+    color: white;
+}
+
+
+.gallery-img-text-black
+{   
+    background-color: white;
+    color: black;
+}
+
+.review-img-caption
+{
+    font-size: 1rem;
+    margin: 5px;
+    font-weight: bolder;
+    padding: 5px;
+    text-align: center;
+}
+
+/*Attribution: https://www.w3schools.com/howto/howto_js_lightbox.asp */
+
+.opened-image
+{
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 95vw;
+    height: 95vh;
+    overflow: auto;
+    background-color: black;
+    border: 4px solid grey;
+}
+
+.opened-image > img
+{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    bottom: 0;
+    padding: 10px;
+    width: 80%;
+    height: auto;
+}
+
+.opened-image > div
+{
+    display: none;
+}
+
+#close-message
+{   
+    z-index: 100;
+    color: white;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 40%;
+    font-weight: bolder;
+    background-color: black;
+    font-size: 22px;
 }
 
 @media only screen and (max-device-width: 1200px)
@@ -1349,6 +1544,7 @@ footer
     {
         margin-top: 20px;
     }
+
 }
 
 @media only screen and (max-device-width: 600px)

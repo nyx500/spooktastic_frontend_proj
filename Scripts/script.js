@@ -433,6 +433,8 @@ function changeMainHeadingSize(newSize)
 // FUNCTION TO CHANGE TEXT SIZE OF WHOLE PAGE
 function changeTextSize(pixels) {
 
+  console.log(pixels);
+  console.log(window.innerWidth);
   // Sets local storage with text size in pixels
   localStorage.setItem('textSize', pixels);
 
@@ -442,6 +444,40 @@ function changeTextSize(pixels) {
   // LARGE TEXT SIZE
   if (pixels == '22px')
   { 
+    if (document.getElementsByClassName('img-gallery'))
+    {
+      var imageGallery = document.getElementsByClassName('img-gallery');
+      imageGallery = Array.from(imageGallery);
+      imageGallery.forEach(gallery => {
+        gallery.style.gridTemplateColumns = '1fr';
+        gallery.style.gridTemplateRows = 'auto';
+        gallery.style.justifyItems = 'center';
+      })
+    }
+
+    if (document.getElementsByClassName('gallery-img'))
+    {
+      var galleryImages = document.getElementsByClassName('gallery-img');
+      galleryImages = Array.from(galleryImages);
+      galleryImages.forEach(img => {
+        if (window.innerWidth > 1200)
+        {
+          img.style.width = '30rem';
+          img.style.height = '16rem';
+        }
+        else if (window.innerWidth <= 1200 && window.innerWidth > 560)
+        {
+          img.style.width = '22rem';
+          img.style.height = '12rem';
+        }
+        else if (window.innerWidth <= 550)
+        {
+          img.style.width = '90vw';
+          img.style.width = '50vh';
+        }
+      })
+    }
+
     // Change main heading size for large screens
     if (window.innerWidth > 768)
     {
@@ -487,6 +523,34 @@ function changeTextSize(pixels) {
     {
       changeMainHeadingSize('11vw');
     }
+
+    if (window.innerWidth < 900)
+    {
+      if (document.getElementsByClassName('img-gallery'))
+      {
+        var imageGallery = document.getElementsByClassName('img-gallery');
+        imageGallery = Array.from(imageGallery);
+        imageGallery.forEach(gallery => {
+          gallery.style.gridTemplateColumns = '1fr';
+          gallery.style.gridTemplateRows = 'auto';
+          gallery.style.justifyItems = 'center';
+        })
+      }
+    }
+
+    if (window.innerWidth < 425)
+    {
+      if (document.getElementsByClassName('gallery-img'))
+      {
+        var galleryImages = document.getElementsByClassName('gallery-img');
+        galleryImages = Array.from(galleryImages);
+        galleryImages.forEach(img => {
+          img.style.width = '10rem';
+          img.style.height = '6rem';
+        })
+      }
+    }
+    
     changeReviewIconSize('10rem');
   }
   // SMALL TEXT SIZE
@@ -499,6 +563,25 @@ function changeTextSize(pixels) {
     else
     {
       changeMainHeadingSize('10vw');
+      if (document.getElementsByClassName('img-gallery'))
+      {
+        var imageGallery = document.getElementsByClassName('img-gallery');
+        imageGallery = Array.from(imageGallery);
+        imageGallery.forEach(gallery => {
+          gallery.style.gridTemplateColumns = '1fr';
+          gallery.style.gridTemplateRows = 'auto';
+          gallery.style.justifyItems = 'center';
+        })
+        if (document.getElementsByClassName('gallery-img'))
+        {
+          var galleryImages = document.getElementsByClassName('gallery-img');
+          galleryImages = Array.from(galleryImages);
+          galleryImages.forEach(img => {
+            img.style.width = '70vw';
+            img.style.height = '50vh';
+          })
+        }
+      }
     }
     changeReviewIconSize('16rem');
   }
@@ -513,10 +596,35 @@ function changeTextSize(pixels) {
     {
       changeMainHeadingSize('9vw');
     }
+
+    if (window.innerWidth < 600)
+    {
+      console.log('x');
+      if (document.getElementsByClassName('img-gallery'))
+      {
+        var imageGallery = document.getElementsByClassName('img-gallery');
+        imageGallery = Array.from(imageGallery);
+        imageGallery.forEach(gallery => {
+          gallery.style.gridTemplateColumns = '1fr';
+          gallery.style.gridTemplateRows = 'auto';
+          gallery.style.justifyItems = 'center';
+        })
+
+        if (document.getElementsByClassName('gallery-img'))
+        {
+          var galleryImages = document.getElementsByClassName('gallery-img');
+          galleryImages = Array.from(galleryImages);
+          galleryImages.forEach(img => {
+            img.style.width = '50vw';
+            img.style.height = '30vh';
+          })
+      }
     changeReviewIconSize('18rem');
   }
-}
 
+  }
+  }
+}
 // ADD EVENT LISTENERS FOR CLICKS ON DIFFERENT TEXTSIZE BUTTONS
 // ACCESSIBILITY MENU
 function textSizeListeners() {
@@ -685,9 +793,70 @@ function makeHeadingClickable() {
   })
 }
 
+// When clicked, changes the menu button's icon to a cross
+// Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp
+function rotateMenuButton(){
+  let menuButton = document.getElementById('menu-button');
+  menuButton.addEventListener('click', function()
+  {
+    menuButton.classList.toggle('changeIcon');
+  })
+}
+
+// https://www.w3schools.com/howto/howto_js_lightbox.asp
+function expandImages(){
+  var galleryImages;
+  var singleImages;
+  if (document.getElementsByClassName('gallery-img-container'))
+  {
+    galleryImages = document.getElementsByClassName('gallery-img-container');
+  }
+
+  if (document.getElementsByClassName('review-single-image-container'))
+  {
+    singleImages = document.getElementsByClassName('review-single-image-container');
+  }
+
+  galleryImages = Array.from(galleryImages);
+  singleImages = Array.from(singleImages);
+
+  galleryImages.forEach(image => {
+    image.addEventListener('click', () => {
+        if(image.classList.contains('opened-image'))
+        {   
+          document.getElementById('close-message').style.display = 'none';
+        }
+        else
+        {
+          document.getElementById('close-message').style.display = 'block';
+        }
+        image.classList.toggle('opened-image');
+    })
+  })
+
+  singleImages.forEach(image => {
+    image.addEventListener('click', () => {
+        if(image.classList.contains('opened-image'))
+        {   
+          document.getElementById('close-message').style.display = 'none';
+        }
+        else
+        {
+          document.getElementById('close-message').style.display = 'block';
+        }
+        image.classList.toggle('opened-image');
+    })
+  })
+}
+
+
+
 // WAIT UNTIL WINDOW LOADS TO ADD ALL EVENT LISTENERS AND SET LOCAL STORAGE VALUES
 window.onload = function(){
+  expandImages();
 
+  rotateMenuButton();
+  
   if (localStorage.getItem('textSize') == null)
   {
     localStorage.setItem('textSize', '16px');
