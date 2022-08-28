@@ -64,7 +64,9 @@ body {
     background: var(--this-red);
 }
 
+/* Container that fits in everything you can see on the web pages */
 .parent-container {
+    /* No space around the sides */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -129,6 +131,7 @@ header {
     color: var(--off-black) !important;
     width: 100vw;
     z-index: 2;
+    font-size: 0.4rem!important;
 }
 
 /*************************************Elements in the Header********************************/
@@ -788,28 +791,26 @@ footer {
 }
 
 
-.books-not-hidden,
-.films-not-hidden,
-.music-not-hidden {
+.not-hidden{
     border-radius: 3px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 5fr 0.5fr 0.5fr;
-    grid-template-areas: "media-icon"
-        "media-icon"
-        "media-icon"
-        "media-icon"
-        "media-icon"
-        "media-title"
-        "media-caption";
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
     justify-items: center;
-    text-align: center;
+    justify-content: center;
 }
 
 .hidden {
     text-align: center;
     justify-items: center;
     display: none;
+}
+
+.review-link
+{
+    margin-bottom: 40px;
 }
 
 .media-icon {
@@ -853,18 +854,18 @@ footer {
 
 .media-title {
     grid-area: media-title;
-    padding: 0;
-    margin: 0;
-    padding-top: 5px;
     font-size: 1rem;
+    text-align: center;
+    align-self: start;
+    padding-top: -100px;
 }
 
 .media-caption {
     grid-area: media-caption;
     font-size: 0.75rem;
-    margin: 0;
-    padding: 0;
     text-align: center;
+    align-self: start;
+    padding-top: -100px;
 }
 
 
@@ -895,8 +896,8 @@ footer {
     height: 3.5rem;
     padding-left: 4rem;
     padding-right: 4rem;
-    /* padding-top: 40px; */
     margin-right: 40px;
+    margin-left: 100px;
     background-image: linear-gradient(var(--this-mid-grey), var(--off-black), var(--this-mid-grey));
     color: var(--off-white);
     font-weight: bolder;
@@ -925,7 +926,7 @@ footer {
     border: 4px solid var(--this-mid-grey);
     align-self: stretch;
     margin-right: 1rem;
-    margin-top: -2rem;
+    margin-top: 2rem;
     color: var(--white-color);
     height: fit-content;
     padding-bottom: 6rem;
@@ -1140,15 +1141,8 @@ footer {
     align-self: start;
     background: var(--white-color);
     padding-top: 40px;
+    grid-column-gap: 20px;
 }
-
-.travel-not-hidden,
-.event-not-hidden {
-    display: inline-block;
-    width: 90%;
-    height: 100%;
-}
-
 
 
 .travel-event-title {
@@ -1157,11 +1151,11 @@ footer {
 }
 
 .travel-location-image {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 22rem;
+    width: 96%;
+    height: 14rem;
     border: 6px solid black;
+    margin-top: 10px;
+    margin: 20px;
 }
 
 .travel-location-caption {
@@ -1172,6 +1166,8 @@ footer {
 
 .travel-location-description {
     text-align: left;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 
 .travel-events-expand {
@@ -1322,6 +1318,15 @@ footer {
     align-items: center;
 }
 
+@media only screen and (max-device-width: 900px) {
+.img-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+}
+
 .gallery-img-container {
     position: relative;
     text-align: center;
@@ -1390,6 +1395,7 @@ footer {
 }
 
 /*Attribution: https://www.w3schools.com/howto/howto_js_lightbox.asp */
+/*Attribution: https://www.w3schools.com/howto/howto_js_lightbox.asp */
 
 .opened-image {
     position: fixed;
@@ -1403,14 +1409,17 @@ footer {
     border: 4px solid grey;
 }
 
-.opened-image>img {
+.opened-image > img {
     position: absolute;
     top: 10%;
     left: 10%;
-    bottom: 0;
     padding: 10px;
-    width: 80%;
-    height: auto;
+    /* Use the important! keyword (although should be used sparingly) to override
+    any other styling the image might have had before it was expanded with expandImage()
+    in the script and a new opened-image class was added to the container */
+    width: 90vw!important;
+    height: auto!important;
+    border: none;
 }
 
 .opened-image>div {
@@ -1422,12 +1431,16 @@ footer {
     color: white;
     display: none;
     position: fixed;
-    bottom: 10px;
-    right: 40%;
+    bottom: -20px;
+    left: 0;
     font-weight: bolder;
-    background-color: black;
-    font-size: 22px;
+    background-color: var(--this-dark-red);
+    font-size: 1rem;
+    padding: 10px;
+    width: 95vw;
+    border: 2px solid white;
 }
+
 
 @media only screen and (max-device-width: 1200px) {
     .main-review-container {

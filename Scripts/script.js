@@ -1,424 +1,37 @@
-// FUNCTIONS FOR CHANGING TEXT SIZE
-
-// CHANGE SIZE OF ICONS ON REVIEW PAGES
-function changeReviewIconSize(newSize) {
-  var reviewIcons = document.getElementsByClassName('media-icon');
-  if (reviewIcons.length != 0) {
-    for (var j = 0; j < reviewIcons.length; j++) {
-      {
-        reviewIcons[j].style.width = newSize;
-      }
-    }
-  }
-}
-
-// FUNCTION TO CHANGE SIZE OF JUST THE MAIN HEADING (SPOOKTASTIC)
-function changeMainHeadingSize(newSize) {
-  let mainHeading = document.getElementById('main-heading');
-  mainHeading.style.fontSize = newSize;
-}
-
-// FUNCTION TO CHANGE TEXT SIZE OF WHOLE PAGE
-function changeTextSize(pixels) {
-
-  console.log(pixels);
-  console.log(window.innerWidth);
-  // Sets local storage with text size in pixels
-  localStorage.setItem('textSize', pixels);
-
-  // Change the text size of the whole page (html element) in general
-  document.getElementsByTagName('html')[0].style.fontSize = pixels;
-
-  // LARGE TEXT SIZE
-  if (pixels == '22px') {
-    if (document.getElementsByClassName('img-gallery')) {
-      var imageGallery = document.getElementsByClassName('img-gallery');
-      imageGallery = Array.from(imageGallery);
-      imageGallery.forEach(gallery => {
-        gallery.style.gridTemplateColumns = '1fr';
-        gallery.style.gridTemplateRows = 'auto';
-        gallery.style.justifyItems = 'center';
-      })
-    }
-
-    if (document.getElementsByClassName('gallery-img')) {
-      var galleryImages = document.getElementsByClassName('gallery-img');
-      galleryImages = Array.from(galleryImages);
-      galleryImages.forEach(img => {
-        if (window.innerWidth > 1200) {
-          img.style.width = '30rem';
-          img.style.height = '16rem';
-        }
-        else if (window.innerWidth <= 1200 && window.innerWidth > 560) {
-          img.style.width = '22rem';
-          img.style.height = '12rem';
-        }
-        else if (window.innerWidth <= 550) {
-          img.style.width = '90vw';
-          img.style.width = '50vh';
-        }
-      })
-    }
-
-    if (document.getElementsByClassName('travel-location-image')) {
-      var travelImages = document.getElementsByClassName('travel-location-image');
-      travelImages= Array.from(travelImages);
-      travelImages.forEach(img => {
-        if (window.innerWidth > 1200) {
-          img.style.width = '24rem';
-          img.style.height = '14rem';
-        }
-      })
-    }
-
-    // Change main heading size for large screens
-    if (window.innerWidth > 768) {
-      changeMainHeadingSize('5.2rem');
-      // Change size of images on Book/Film review pages
-      // Avoids overflow over pages
-      changeReviewIconSize('10rem');
-    }
-    else {
-      changeMainHeadingSize('2rem');
-      changeReviewIconSize('10rem');
-      if (document.getElementsByClassName('reviews-expand')[0]) {
-        var bottomArea = document.getElementsByClassName('reviews-expand')[0];
-        bottomArea.style.gridTemplateColumns = '1fr';
-        bottomArea.style.gridTemplateRows = '1fr 1fr';
-        bottomArea.style.gridTemplateAreas = ' "loadbutton" "uparrow"';
-        bottomArea.style.justifyContent = 'start';
-        bottomArea.style.justifyItems = 'start';
-      }
-      else if (document.getElementsByClassName('travel-events-expand')[0]) {
-        console.log('x');
-        var bottomArea = document.getElementsByClassName('travel-events-expand')[0];
-        bottomArea.style.gridTemplateColumns = '1fr';
-        bottomArea.style.gridTemplateRows = '1fr 1fr';
-        bottomArea.style.gridTemplateAreas = ' "loadbutton" "uparrow"';
-        bottomArea.style.justifyContent = 'start';
-        bottomArea.style.justifyItems = 'start';
-      }
-    }
-
-  }
-  // MEDIUM TEXT SIZE
-  else if (pixels == '18px') {
-    if (window.innerWidth > 768) {
-      changeMainHeadingSize('5rem');
-    }
-    else {
-      changeMainHeadingSize('11vw');
-    }
-
-    if (window.innerWidth < 900) {
-      if (document.getElementsByClassName('img-gallery')) {
-        var imageGallery = document.getElementsByClassName('img-gallery');
-        imageGallery = Array.from(imageGallery);
-        imageGallery.forEach(gallery => {
-          gallery.style.gridTemplateColumns = '1fr';
-          gallery.style.gridTemplateRows = 'auto';
-          gallery.style.justifyItems = 'center';
-        })
-      }
-    }
-
-    if (window.innerWidth < 425) {
-      if (document.getElementsByClassName('gallery-img')) {
-        var galleryImages = document.getElementsByClassName('gallery-img');
-        galleryImages = Array.from(galleryImages);
-        galleryImages.forEach(img => {
-          img.style.width = '10rem';
-          img.style.height = '6rem';
-        })
-      }
-    }
-
-    changeReviewIconSize('10rem');
-  }
-  // SMALL TEXT SIZE
-  else if (pixels == '14px') {
-    if (window.innerWidth > 768) {
-      changeMainHeadingSize('5.8rem');
-    }
-    else {
-      changeMainHeadingSize('10vw');
-      if (document.getElementsByClassName('img-gallery')) {
-        var imageGallery = document.getElementsByClassName('img-gallery');
-        imageGallery = Array.from(imageGallery);
-        imageGallery.forEach(gallery => {
-          gallery.style.gridTemplateColumns = '1fr';
-          gallery.style.gridTemplateRows = 'auto';
-          gallery.style.justifyItems = 'center';
-        })
-        if (document.getElementsByClassName('gallery-img')) {
-          var galleryImages = document.getElementsByClassName('gallery-img');
-          galleryImages = Array.from(galleryImages);
-          galleryImages.forEach(img => {
-            img.style.width = '70vw';
-            img.style.height = '50vh';
-          })
-        }
-      }
-    }
-    changeReviewIconSize('16rem');
-  }
-  // EXTRA SMALL TEXT SIZE
-  else {
-    if (window.innerWidth > 768) {
-      changeMainHeadingSize('4.2rem');
-    }
-    else {
-      changeMainHeadingSize('9vw');
-    }
-
-    if (window.innerWidth < 600) {
-      console.log('x');
-      if (document.getElementsByClassName('img-gallery')) {
-        var imageGallery = document.getElementsByClassName('img-gallery');
-        imageGallery = Array.from(imageGallery);
-        imageGallery.forEach(gallery => {
-          gallery.style.gridTemplateColumns = '1fr';
-          gallery.style.gridTemplateRows = 'auto';
-          gallery.style.justifyItems = 'center';
-        })
-
-        if (document.getElementsByClassName('gallery-img')) {
-          var galleryImages = document.getElementsByClassName('gallery-img');
-          galleryImages = Array.from(galleryImages);
-          galleryImages.forEach(img => {
-            img.style.width = '50vw';
-            img.style.height = '30vh';
-          })
-        }
-        changeReviewIconSize('18rem');
-      }
-
-    }
-  }
-}
-
-// ADD EVENT LISTENERS FOR CLICKS ON DIFFERENT TEXTSIZE BUTTONS
-// ACCESSIBILITY MENU
-function textSizeListeners() {
-  // Gets a list of buttons for changing the text size
-  var text_options = document.getElementById("text-size-options");
-  var text_choice_buttons = text_options.getElementsByTagName("button");
-
-  /* Iterates through the buttons and changes the text-size of the
-  HTML page respectively to the selected size */
-  for (var i = 0; i < text_choice_buttons.length; i++) {
-    if (text_choice_buttons[i].id == "large-text") {
-      text_choice_buttons[i].addEventListener('click', function () {
-        if (window.innerWidth > 768) {
-          changeTextSize('22px');
-        }
-        else {
-          changeTextSize('20px');
-        }
-      })
-    }
-    else if (text_choice_buttons[i].id == "medium-text") {
-      text_choice_buttons[i].addEventListener('click', function () {
-        changeTextSize('18px');
-      })
-    }
-    else if (text_choice_buttons[i].id == "small-text") {
-      text_choice_buttons[i].addEventListener('click', function () {
-        changeTextSize('14px');
-      })
-    }
-    else if (text_choice_buttons[i].id == "extra-small-text") {
-      text_choice_buttons[i].addEventListener('click', function () {
-        changeTextSize('12px');
-      })
-    }
-  }
-}
-
-
-//SELECT FORM EVENT LISTENERS
-function selectFormEventListeners() {
-  if (document.getElementById('subscribe-form')) {
-    var form = document.getElementById('subscribe-form');
-    var formTextInputs = document.getElementsByClassName('form-text-input');
-    formTextInputs = Array.from(formTextInputs);
-    formTextInputs.forEach((input) => {
-      input.addEventListener('focus', function () {
-        // Attribution:
-        //  https://stackoverflow.com/questions/61992025/google-chrome-showing-black-border-on-focus-state-for-button-user-agent-styles
-        input.style.outline = 'none';
-        input.style.border = '2px solid var(--this-red)';
-      })
-      input.addEventListener('focusout', function () {
-        input.style.border = '2px solid var(--off-black)';
-      })
-    })
-
-    var formCheckboxContainers = document.getElementsByClassName('checkbox-container');
-    formCheckBoxContainers = Array.from(formCheckboxContainers);
-    formCheckBoxContainers.forEach((container) => {
-      // Making the container a variable makes it accessible in eventListener
-      var container = container;
-      let checkbox = container.getElementsByTagName('input')[0];
-      let label = container.getElementsByTagName('label')[0];
-      // Attribution:
-      // https://stackoverflow.com/questions/9887360/how-can-i-check-if-a-checkbox-is-checked
-      checkbox.addEventListener('change', e => {
-        if (e.target.checked === true) {
-          label.style.fontWeight = 'bolder';
-        }
-        else {
-          label.style.fontWeight = 'normal';
-        }
-      })
-    })
-
-
-
-    // Stores form submission button
-    var submitButton = document.getElementById('form-submit');
-    // When button is clicked, decide whether form is valid
-    submitButton.addEventListener('click', (e) => {
-      // Counter keeps track of how many input errors the user has made
-      var formInputErrors = 0;
-
-      // Deletes all the error messages from previous submit
-      if (document.getElementsByClassName('form-error')) {
-        var errors = document.getElementsByClassName('form-error');
-        errors = Array.from(errors);
-        // Attribution: https://www.javascripttutorial.net/javascript-dom/javascript-removechild/
-        errors.forEach(err => {
-          form.removeChild(err);
-        })
-      }
-
-      // Prevents automatic reload of page onclick of submit button
-      // This is because we have no back-end --> form data is not actually being sent anywhere...
-      e.preventDefault();
-
-      for (var i = 0; i < formTextInputs.length; i++) {
-        // For all the obligatory (text) inputs in the form, reset border to black
-        formTextInputs[i].style.border = '2px solid var(--off-black)';
-        // Checks for empty inputs
-        // Attribution: https://www.w3resource.com/javascript/form/non-empty-field.php
-        if (formTextInputs[i].value.length === 0) {
-          // Inserts an error message above the empty input
-          var error = document.createElement("div");
-          error.innerHTML = 'Please fill in this field!';
-          error.className = 'form-error';
-          error.id = `error${i + 1}`;
-          formTextInputs[i].style.border = '2px solid var(--this-dark-red)';
-          // Attribution: https://attacomsian.com/blog/javascript-dom-get-the-parent-of-an-element#:~:text=To%20get%20the%20parent%20node,element%20as%20a%20Node%20object.&text=The%20parentNode%20property%20is%20read,you%20can%20not%20modify%20it.
-          form.insertBefore(error, formTextInputs[i].parentNode);
-          // Increments the number of errors
-          formInputErrors++;
-        }
-      }
-
-      // Checks for invalid email address --> no '@' symbol in the email
-      // Attribution: https://www.w3schools.com/jsref/jsref_includes.asp
-      if (document.getElementById('email').value.length > 0 && !document.getElementById('email').value.includes('@')) {
-        var error = document.createElement("div");
-        error.innerHTML = 'Invalid email address.';
-        error.className = 'form-error';
-        error.id = `error${4}`;
-        document.getElementById('email').style.border = '2px solid var(--this-dark-red)';
-        form.insertBefore(error, document.getElementById('email').parentNode);
-        // Increments the number of errors
-        formInputErrors++;
-      }
-
-      // If form is valid, do this
-      if (formInputErrors == 0) {
-        // Hide form title and form
-        var formTitle = document.getElementById('subscribe-form-heading');
-        formTitle.style.display = 'none';
-        formTitle.style.display = 'none';
-        // Replace form with a thank you message and link back to homepage
-        form.innerHTML = '<div id="thank-you-message"><h4>Thank you for signing up!</h4> <br> <h5 id="back-link">Back to <a href="index.html">Home</a></h5></div>';
-        // Scroll to beginning of thank you message
-        scrollToJustAboveElement(document.getElementById('thank-you-message'), 400);
-      }
-    })
-  }
-}
-
-function makeHeadingClickable() {
-  document.getElementById('main-heading').addEventListener('click', function () {
-    console.log('clicked');
-    window.location.href = "index.html"; s
-  })
-}
-
-// When clicked, changes the menu button's icon to a cross
-// Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp
-function rotateMenuButton() {
-  let menuButton = document.getElementById('menu-button');
-  menuButton.addEventListener('click', function () {
-    menuButton.classList.toggle('changeIcon');
-  })
-}
-
-// https://www.w3schools.com/howto/howto_js_lightbox.asp
-function expandImages() {
-  var galleryImages;
-  var singleImages;
-  if (document.getElementsByClassName('gallery-img-container')) {
-    galleryImages = document.getElementsByClassName('gallery-img-container');
-  }
-
-  if (document.getElementsByClassName('review-single-image-container')) {
-    singleImages = document.getElementsByClassName('review-single-image-container');
-  }
-
-  galleryImages = Array.from(galleryImages);
-  singleImages = Array.from(singleImages);
-
-  galleryImages.forEach(image => {
-    image.addEventListener('click', () => {
-      if (image.classList.contains('opened-image')) {
-        document.getElementById('close-message').style.display = 'none';
-      }
-      else {
-        document.getElementById('close-message').style.display = 'block';
-      }
-      image.classList.toggle('opened-image');
-    })
-  })
-
-  singleImages.forEach(image => {
-    image.addEventListener('click', () => {
-      if (image.classList.contains('opened-image')) {
-        document.getElementById('close-message').style.display = 'none';
-      }
-      else {
-        document.getElementById('close-message').style.display = 'block';
-      }
-      image.classList.toggle('opened-image');
-    })
-  })
-}
-
-
-
-// WAIT UNTIL WINDOW LOADS TO ADD ALL EVENT LISTENERS AND SET LOCAL STORAGE VALUES
+// WINDOW/DOCUMENT EVENT LISTENER FUNCTIONS
 window.onload = function () {
 
-  expandImages();
+  // Updates image size based on screen size/font-size chosen by user
+  changeImageSize() 
+  // Rotates the menu bars on menu button onclick and turns them into an 'X' symbol
   rotateMenuButton();
+  // Implements functionality for Light/Dark mode
   darkLightToggle();
+  // Let user change text size
   textSizeListeners();
-  selectFormEventListeners();
+  // Lets user click on images inside articles to make them fill up the screen
+  expandImages();
+  // Let user navigate to index.html page when clicks on main heading
+  makeHeadingClickable();
+  // Dropdown menu functionality on clicking the menu button
+  openDropdown();
+  closeDropdownOnOutsideClick();
 
+  // If on the Form web page, run the form validation code
+  if (document.getElementById('subscribe-form') != undefined) {
+    subscribeFormEventListeners();
+  }
+
+  // Sets default root-font-size to 14px
   if (localStorage.getItem('textSize') == null) {
-    localStorage.setItem('textSize', '16px');
+    localStorage.setItem('textSize', '14px');
   }
   else {
     let textSize = localStorage.getItem('textSize');
     changeTextSize(textSize);
   }
 
-
+  // Sets dark or light color mode
   var colorMode = localStorage.getItem('colorMode');
   /* If color settings exist, make sure they are applied for 
   every other page on the web site, so not lost when navigate to other page */
@@ -430,6 +43,7 @@ window.onload = function () {
   }
 
 }
+
 
 // Identifies if page is fully loaded
 // If not fully loaded, display the loader icon
@@ -445,21 +59,9 @@ document.onreadystatechange = () => {
   else {
     loader.style.display = 'block';
   }
-
-  makeHeadingClickable();
 };
 
-// Closes dropdown menu on outside click
-document.addEventListener("click", function (event) {
-  if (event.target.id != "menu-button" && event.target.className != "dropdown-link-div") {
-    if (dropdown.style.display != 'none') {
-      dropdown.style.display = 'none';
-    }
-  }
-}
-)
-
-// When the user scrolls the page, execute myFunction
+// When the user scrolls the page, make the main header fixed
 // Attribution: Fixed navbar inspired by this W3Schools Tutorial https://www.w3schools.com/howto/howto_js_sticky_header.asp
 window.addEventListener("scroll", function () {
   if (window.innerWidth > 768) {
@@ -467,6 +69,25 @@ window.addEventListener("scroll", function () {
   }
 });
 
+//  GENERAL FUNCTIONS NECESSARY FOR THE FUNCTIONALITY OF ALL THE WEB PAGES IN THE SITE
+
+// When user clicks on main heading, redirect them to the index page
+function makeHeadingClickable() {
+  document.getElementById('main-heading').addEventListener('click', function () {
+    window.location.href = "index.html";
+  })
+}
+
+// When clicked, animates the menu button's icon to a cross
+// Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp
+function rotateMenuButton() {
+  let menuButton = document.getElementById('menu-button');
+  menuButton.addEventListener('click', function () {
+    menuButton.classList.toggle('changeIcon');
+  })
+}
+
+// Changes color of a random element
 function changeColor(elem, newColor) {
   elem.style.color = newColor;
 }
@@ -474,25 +95,24 @@ function changeColor(elem, newColor) {
 
 // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function makeSticky() {
-
   var nav = document.getElementById("main-navbar");
   // Get the text-size accessibility buttons as an array;
   var textSizeOptions = document.getElementById('text-size-options').children;
   // Attribution: https://www.w3schools.com/jsref/prop_element_children.asp
-  // Helpful: .childNodes VS .children --> .children is useful for getting only
-  // HTML elements
+  // Helpful: .childNodes VS .children --> .children is useful for getting HTML only
   // Attribution 2: https://www.geeksforgeeks.org/htmlcollection-for-loop/
   // How to make an array from an HTMLCollection, so that the ForEach() method
   // becomes available for iterating through the collection
   textSizeOptions = Array.from(textSizeOptions);
+  // Gets all main links in navbar and creates array out of them
   var navLinks = document.getElementsByClassName('main-nav-link');
   navLinks = Array.from(navLinks);
 
+  // When the user scrolls down vertically, add the sticky navbar
   if (window.pageYOffset > nav.offsetTop) {
     nav.classList.add("sticky1");
 
-    var logo = document.getElementById('navbar-logo-text');
-
+    let logo = document.getElementById('navbar-logo-text');
     if (localStorage.getItem('colorMode') == 'light') {
       logo.style.color = myBlack;
       nav.style.backgroundColor = myLightGrey;
@@ -502,6 +122,7 @@ function makeSticky() {
       nav.style.backgroundColor = myBlack;
     }
 
+    // Change the color of the buttons in the navbar if a sticky is made
     textSizeOptions.forEach(button => {
       // The color of the links for accessibility depends on
       // whether the color mode is set to dark or light mode
@@ -534,12 +155,12 @@ function makeSticky() {
     })
   }
   else {
+    // Resets the colors of the navbar if the sticky menu has disappeared
     nav.style.background = 'none';
     nav.classList.remove("sticky1");
     textSizeOptions.forEach(button => {
       button.style.color = myWhite;
     })
-
     navLinks.forEach(link => {
       link.style.color = myWhite;
       link.addEventListener('mouseover', () => {
@@ -554,7 +175,7 @@ function makeSticky() {
 }
 
 
-
+// If page has a scroll-up arrow, go to top of page when click it
 if (document.getElementById('scroll-up-arrow') != null) {
   document.getElementById('scroll-up-arrow').onclick = function () {
     document.body.scrollTop = 0; // For Safari
@@ -562,24 +183,71 @@ if (document.getElementById('scroll-up-arrow') != null) {
   }
 }
 
-document.getElementById('menu-button').onclick = function () {
-  if (document.getElementById('dropdown').style.display == 'inline-block') {
-    document.getElementById('dropdown').style.display = 'none';
-  }
-  else {
-    document.getElementById('dropdown').style.display = 'inline-block';
+// When click on menu button, open the dropdown menu
+function openDropdown() {
+  document.getElementById('menu-button').onclick = function () {
+    if (dropdown.style.display == 'inline-block') {
+      dropdown.style.display = 'none';
+    }
+    else {
+      dropdown.style.display = 'inline-block';
+    }
   }
 }
 
-function closeDropdownOnOutsideClick() {
-  var myDropdown = document.getElementById('dropdown');
 
+// Closes dropdown if clicked outside it
+function closeDropdownOnOutsideClick() {
   document.getElementsByTagName('html')[0].addEventListener("click", function (event) {
     if (event.target.id != "menu-button" && event.target.className != "dropdown-link-div") {
-      if (myDropdown.style.display != 'none') {
-        myDropdown.style.display = 'none';
+      if (dropdown.style.display != 'none') {
+        dropdown.style.display = 'none';
       }
     }
   }
   )
+}
+
+// https://www.w3schools.com/howto/howto_js_lightbox.asp
+// ADDS AND EVENT LISTENER TO IMAGES IN THE SINGLE REVIEW PAGE
+// If an image is clicked on, expand it and add a message saying to click again to close
+function expandImages() {
+  // Gets arrays of images
+  // Images that are in a gallery
+  let galleryImages;
+  // Single images in a line
+  let singleImages;
+  if (document.getElementsByClassName('gallery-img-container')) {
+    galleryImages = document.getElementsByClassName('gallery-img-container');
+  }
+  if (document.getElementsByClassName('review-single-image-container')) {
+    singleImages = document.getElementsByClassName('review-single-image-container');
+  }
+  galleryImages = Array.from(galleryImages);
+  singleImages = Array.from(singleImages);
+
+  // Adds event listeners to images that changes the size by adding a class
+  galleryImages.forEach(image => {
+    image.addEventListener('click', () => {
+      if (image.classList.contains('opened-image')) {
+        document.getElementById('close-message').style.display = 'none';
+      }
+      else {
+        document.getElementById('close-message').style.display = 'block';
+      }
+      image.classList.toggle('opened-image');
+    })
+  })
+
+  singleImages.forEach(image => {
+    image.addEventListener('click', () => {
+      if (image.classList.contains('opened-image')) {
+        document.getElementById('close-message').style.display = 'none';
+      }
+      else {
+        document.getElementById('close-message').style.display = 'block';
+      }
+      image.classList.toggle('opened-image');
+    })
+  })
 }

@@ -77,3 +77,9 @@ if (document.getElementsByTagName('aside')[0]) {
 else {
   aside = null;
 }
+
+
+/* An array storing which kinds of image class are on the currently-loaded page,
+as well as their size parameters
+*/
+var kindsOfImageObject = [];
