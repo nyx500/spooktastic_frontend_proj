@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spooktastic: Film Reviews</title>
-    <link rel="stylesheet" href="./Styles/style.css">
+    <title>Spooktastic Home: Film Reviews</title>
+    <!-- Attribution: https://www.w3schools.com/html/html_favicon.asp -->
+    <!-- Attribution: https://www.flaticon.com/premium-icon/pentagram_3600252?term=pentagram&page=1&position=2&page=1&position=2&related_id=3600252&origin=search -->
     <link rel="icon" type="image/x-icon" href="/assets/star.svg">
+    <link rel="stylesheet" href="./Styles/style.css">
   </head>
   <body>
-    <div class="parent-container">
+    <div class="parent-container">     
         <div class="loader"></div>
         <header>
             <!--Attribution: tip for making CSS background-img accessible 
@@ -165,49 +167,49 @@
             <div class="main-part-of-page main-reviews-container">
                 <section class="reviews">
                     <h3 class="reviews-title">Film Reviews</h3>
-                    <div id="review-articles-films" class="reviews-content">
-                        <a href="review.html" class="films-not-hidden review-link">
-                        <article class="review-box">
-                            <img class="media-icon" src="Assets/itBook.jpg">
-                            <h5 class="media-title">Book Title</h5>
-                            <p class="media-caption">Ophelia Lavey</p>
-                        </article class="review-box">
-                        </a>
-                        <a href="review.html" class="films-not-hidden review-link">
+                    <div id="review-articles-books" class="reviews-content">
+                        <a href="review.html" class="not-hidden review-link">
                             <article class="review-box">
-                                <img class="media-icon" src="Assets/itBook.jpg">
+                                <img class="media-icon" src="Assets/no-image.jpg">
                                 <h5 class="media-title">Book Title</h5>
                                 <p class="media-caption">Ophelia Lavey</p>
                             </article class="review-box">
                         </a>
-                        <a href="review.html" class="films-not-hidden review-link">
+                        <a href="review.html" class="not-hidden review-link">
                             <article class="review-box">
-                                <img class="media-icon" src="Assets/itBook.jpg">
-                                <h5 class="media-title">Book Title</h5>
-                                <p class="media-caption">Ophelia Lavey</p>
-                            </article class="review-box">
-                            </a>
-                        <a href="review.html" class="films-not-hidden review-link">
-                            <article class="review-box">
-                                <img class="media-icon" src="Assets/itBook.jpg">
-                                <h5 class="media-title">Book Title</h5>
-                                <p class="media-caption">Ophelia Lavey</p>
-                            </article class="review-box">
-                            </a>
-                        <a href="review.html" class="films-not-hidden review-link">
-                            <article class="review-box">
-                                <img class="media-icon" src="Assets/itBook.jpg">
+                                <img class="media-icon" src="Assets/no-image.jpg">
                                 <h5 class="media-title">Book Title</h5>
                                 <p class="media-caption">Ophelia Lavey</p>
                             </article class="review-box">
                         </a>
-                            <a href="review.html" class="films-not-hidden review-link">
-                                <article class="review-box">
-                                    <img class="media-icon" src="Assets/itBook.jpg">
-                                    <h5 class="media-title">Book Title</h5>
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
+                        <a href="review.html" class="not-hidden review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/no-image.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                        </a>
+                        <a href="review.html" class="not-hidden review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/no-image.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                        </a>
+                        <a href="review.html" class="not-hidden review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/no-image.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                        </a>
+                        <a href="review.html" class="not-hidden review-link">
+                            <article class="review-box">
+                                <img class="media-icon" src="Assets/no-image.jpg">
+                                <h5 class="media-title">Book Title</h5>
+                                <p class="media-caption">Ophelia Lavey</p>
+                            </article class="review-box">
+                        </a>
                     </div>
                     <div class="reviews-expand">
                         <button id="load-more-films" class="load-more">Load More...</button>
@@ -217,10 +219,6 @@
                 <aside id="aside-reviews">
                     <h4>Other 'Horrifying' Content...</h4>
                     <ul>
-                        <li><a>5 Best (Something)...</a></li>
-                        <li><a>5 Best (Something)...</a></li>
-                        <li><a>5 Best (Something)...</a></li>
-                        <li><a>5 Best (Something)...</a></li>
                         <li><a>5 Best (Something)...</a></li>
                         <li><a>5 Best (Something)...</a></li>
                         <li><a>5 Best (Something)...</a></li>
@@ -277,6 +275,10 @@
             </nav>
         </footer>
     </div>
+    <script src="./Scripts/globals.js"></script>
     <script src="./Scripts/script.js"></script>
+    <script src="./Scripts/darkLightModeFunctions.js"></script>
+    <script src="./Scripts/hideShowElements.js"></script>
+    <script src="./Scripts/reviewListings.js"></script>
   </body>
 </html>

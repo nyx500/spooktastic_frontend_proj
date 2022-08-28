@@ -34,8 +34,8 @@ html {
     overflow-x: hidden;
 }
 
-html, body
-{
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -45,22 +45,22 @@ html, body
 ::-webkit-scrollbar {
     width: 1rem;
     background: var(--this-mid-grey);
-  }
+}
 
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     /* For mozilla browser compatibility */
-    -webkit-box-shadow: inset 0 0 6px var(--off-black); 
+    -webkit-box-shadow: inset 0 0 6px var(--off-black);
     /* Other browsers */
     box-shadow: inset 0 0 6px var(--off-black);
     border-radius: 10px;
 }
-  
+
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     /* For mozilla browser compatibility */
-    -webkit-box-shadow: inset 4px 4px 6px var(--off-black); 
+    -webkit-box-shadow: inset 4px 4px 6px var(--off-black);
     /* Other browsers */
-    box-shadow: inset 4px 4px 6px var(--off-black); 
+    box-shadow: inset 4px 4px 6px var(--off-black);
     background: var(--this-red);
 }
 
@@ -72,16 +72,17 @@ html, body
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: minmax(15rem, auto) minmax(40rem, auto) minmax(10rem, auto);
     grid-template-areas: "hd hd hd hd hd hd hd hd hd"
-                         "mn mn mn mn mn mn mn mn mn"
-                         "ft ft ft ft ft ft ft ft ft";
+        "mn mn mn mn mn mn mn mn mn"
+        "ft ft ft ft ft ft ft ft ft";
 }
 
 /* Attribution: https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
     text-align: center;
     z-index: 9999999999;
-    border: 16px solid #f3f3f3; /* Light grey */
-    
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+
     border-top: 16px solid var(--this-lightest-grey);
     border-right: 16px solid var(--this-red);
     border-bottom: 16px solid var(--this-mid-grey);
@@ -98,8 +99,13 @@ html, body
 }
 
 @keyframes spin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /******************************GENERAL LAYOUT***************************************************/
@@ -111,16 +117,16 @@ header {
     /* grid-template-columns: repeat(1fr, 9); */
     /* grid-template-rows: repeat(3, 1fr); */
     grid-template-areas: "nav nav nav nav nav nav nav nav nav"
-                          "hds hds hds hds hds hds hds hds hds"
-                          ". . . . . . . . .";
+        "hds hds hds hds hds hds hds hds hds"
+        ". . . . . . . . .";
 }
 
 /*Attribution: https://www.w3schools.com/howto/howto_js_sticky_header.asp */
 /*Sticky formatting for main navbar*/
 .sticky1 {
-    position: fixed;    
+    position: fixed;
     background-color: var(--this-light-grey);
-    color: var(--off-black)!important;
+    color: var(--off-black) !important;
     width: 100vw;
     z-index: 2;
 }
@@ -128,22 +134,20 @@ header {
 /*************************************Elements in the Header********************************/
 
 
-#main-navbar
-{   
+#main-navbar {
     color: var(--off-white);
     grid-area: nav;
     font-size: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr repeat(3, 1fr);
     grid-template-rows: 2fr;
-    grid-template-areas: 
-    "accessibility accessibility mainlist mainlist mainlist"
-    "accessibility accessibility mainlist mainlist mainlist";
+    grid-template-areas:
+        "accessibility accessibility mainlist mainlist mainlist"
+        "accessibility accessibility mainlist mainlist mainlist";
     row-gap: 0px;
 }
 
-#accessibility-options
-{   
+#accessibility-options {
     list-style-type: none;
     grid-area: accessibility;
     z-index: 2;
@@ -163,47 +167,43 @@ header {
     padding-top: 0.7rem;
     display: inline-block;
 }
-#text-size-options
-{   
+
+#text-size-options {
     grid-area: textsizes;
     width: fit-content;
     display: inline-block;
 }
-#text-size-options > button
-{
+
+#text-size-options>button {
     background-color: Transparent;
     border: none;
     cursor: pointer;
     width: fit-content;
     color: var(--off-white);
 }
-#text-size-options > button > b:hover
-{
+
+#text-size-options>button>b:hover {
     color: var(--this-red);
 }
-#large-text
-{   
+
+#large-text {
     font-size: 1.8rem;
 }
 
-#medium-text
-{
+#medium-text {
     font-size: 1.4rem;
 }
 
-#small-text
-{
+#small-text {
     font-size: 1.0rem;
 }
 
 
-#extra-small-text
-{
+#extra-small-text {
     font-size: 0.6rem;
 }
 
-#dark-mode
-{   
+#dark-mode {
     margin-top: 10px;
     grid-area: darkbutton;
     height: fit-content;
@@ -218,25 +218,23 @@ header {
     cursor: pointer;
 }
 
-#dark-mode:hover{
+#dark-mode:hover {
     width: 12rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 
-#navbar-logo-text a
-{   
+#navbar-logo-text a {
     grid-area: logo;
     color: var(--off-white);
     margin: 0;
-    padding:0;
+    padding: 0;
     text-align: start;
     margin-right: 2rem;
 }
 
-#navbar-logo-text a:hover
-{
+#navbar-logo-text a:hover {
     font-size: 2rem;
 }
 
@@ -251,24 +249,22 @@ header {
     grid-template-rows: 1fr 1fr;
     justify-items: end;
     grid-template-areas: "links1 links1 links1 links1 links1 links1  links1  links1"
-                         "links2 links2 links2 links2 links2 links2  links2  links2";
+        "links2 links2 links2 links2 links2 links2  links2  links2";
 
 }
 
-#links-to-this-site
-{
+#links-to-this-site {
     grid-area: links1;
     list-style-type: none;
     margin-bottom: 1rem;
 }
 
-#social-links
-{
+#social-links {
     grid-area: links2;
     list-style-type: none;
 }
 
-#links-to-this-site > li{
+#links-to-this-site>li {
     display: inline;
     grid-area: site-nav;
     font-size: 0.8rem;
@@ -277,20 +273,17 @@ header {
     font-weight: bolder;
 }
 
-#social-links > li
-{
+#social-links>li {
     display: inline;
     padding-left: 14px;
 }
 
-.social-media-link
-{
+.social-media-link {
     display: inline;
     grid-area: social-nav;
 }
 
-a:visited
-{
+a:visited {
     color: red;
 }
 
@@ -298,35 +291,30 @@ a:visited
     z-index: 2;
 }
 
-#main-navbar #main-navbar-list li a:link
-{
+#main-navbar #main-navbar-list li a:link {
     color: var(--this-red);
 }
 
-#main-navbar #main-navbar-list li a:visited
-{
+#main-navbar #main-navbar-list li a:visited {
     color: var(--off-white);
 }
-#main-navbar #main-navbar-list li a:hover
-{
+
+#main-navbar #main-navbar-list li a:hover {
     color: var(--this-red);
 }
 
-@media only screen and (max-device-width: 1565px) and (min-device-width: 1200px)
-{   
-    #accessibility-options{ 
+@media only screen and (max-device-width: 1565px) and (min-device-width: 1200px) {
+    #accessibility-options {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "logo darkbutton"
-                            "logo textsize";
+            "logo textsize";
     }
 }
 
 
-@media only screen and (max-device-width: 1200px) and (min-device-width: 768px)
-{
-    #accessibility-options
-    {   
+@media only screen and (max-device-width: 1200px) and (min-device-width: 768px) {
+    #accessibility-options {
         list-style-type: none;
         grid-area: accessibility;
         z-index: 2;
@@ -335,8 +323,8 @@ a:visited
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: "logo"
-                            "darkbutton"
-                            "textsizes";
+            "darkbutton"
+            "textsizes";
         align-content: start;
         align-items: center;
         justify-content: start;
@@ -345,24 +333,23 @@ a:visited
 
 }
 
-@media only screen and (max-device-width: 768px)
-{
+@media only screen and (max-device-width: 768px) {
     #main-navbar-list {
         display: none;
     }
-    #navbar-logo-text
-    {
+
+    #navbar-logo-text {
         display: none;
     }
-    #main-navbar
-    {
+
+    #main-navbar {
         grid-area: nav;
         font-size: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr repeat(3, 1fr);
         grid-template-rows: 1fr;
-        grid-template-areas: 
-        "accessibility accessibility accessibility accessibility accessibility";
+        grid-template-areas:
+            "accessibility accessibility accessibility accessibility accessibility";
         row-gap: 0px;
     }
 
@@ -374,11 +361,11 @@ header .header-headings-area {
 
 }
 
-#main-heading{
+#main-heading {
     text-align: center;
-    font-size: 3rem; 
-    margin-bottom:0;
-    padding-bottom:0;
+    font-size: 3rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
     cursor: pointer;
 }
 
@@ -386,8 +373,7 @@ header .header-headings-area {
     color: var(--this-red);
 }
 
-#main-subheading-and-dropdown-container
-{
+#main-subheading-and-dropdown-container {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 10% 80% 10%;
@@ -395,32 +381,29 @@ header .header-headings-area {
 
 }
 
-#dropdown{
+#dropdown {
     display: none;
 }
 
-.dropdown-container
-{   
+.dropdown-container {
     grid-area: dropdown;
     align-self: end;
     position: relative;
     margin: 20px;
 }
 
-.dropdown-menu
-{
+.dropdown-menu {
     position: left;
     padding: 10px;
     width: 50vw;
-    background-color:var(--this-light-grey);
+    background-color: var(--this-light-grey);
     color: var(--off-black);
     border-radius: 4px;
     border: 4px solid black;
     z-index: 3;
 }
 
-.dropdown-menu div
-{
+.dropdown-menu div {
     margin-top: 5px;
     text-align: center;
     display: grid;
@@ -432,25 +415,22 @@ header .header-headings-area {
     align-items: center;
 }
 
-.dropdown-menu div a
-{   
+.dropdown-menu div a {
     grid-area: droplink;
     padding: 10px;
     font-size: 1.2rem;
     font-weight: bolder;
 }
 
-.dropdown-menu div a:visited
-{
+.dropdown-menu div a:visited {
     color: var(--this-red);
 }
 
-.dropdown-menu div a:hover
-{
+.dropdown-menu div a:hover {
     color: var(--this-dark-red);
 }
 
-#main-subheading{
+#main-subheading {
     grid-area: sbhd;
     text-align: center;
     font-size: 1.8rem;
@@ -459,7 +439,7 @@ header .header-headings-area {
 }
 
 /* Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp */
-#menu-button{
+#menu-button {
     width: fit-content;
     height: fit-content;
     background: linear-gradient(var(--off-white), var(--this-light-grey), var(--off-white));
@@ -472,8 +452,9 @@ header .header-headings-area {
     cursor: pointer;
 }
 
-.bar1, .bar2, .bar3
-{
+.bar1,
+.bar2,
+.bar3 {
     width: 40px;
     height: 0.25rem;
     background-color: #000000;
@@ -483,188 +464,175 @@ header .header-headings-area {
 
 /* Rotate first bar */
 .changeIcon .bar1 {
-    -webkit-transform: rotate(-43deg) translate(-4.5px, 6px) ;
-    transform: rotate(-43deg) translate(-4.5px, 6px) ;
-  }
+    -webkit-transform: rotate(-43deg) translate(-4.5px, 6px);
+    transform: rotate(-43deg) translate(-4.5px, 6px);
+}
 
-  /* Fade out the second bar */
+/* Fade out the second bar */
 .changeIcon .bar2 {
     opacity: 0;
-  }
+}
 
-  /* Rotate last bar */
+/* Rotate last bar */
 .changeIcon .bar3 {
-    -webkit-transform: rotate(43deg) translate(-8.1px, -8px) ;
-    transform: rotate(43deg) translate(-8.1px, -8px) ;
-  }
+    -webkit-transform: rotate(43deg) translate(-8.1px, -8px);
+    transform: rotate(43deg) translate(-8.1px, -8px);
+}
 
 /************************************ELEMENTS IN THE INDEX MAIN CONTAINER****************************************/
 
 main {
     grid-area: mn;
-    background-color:var(--off-white);
-    color: 	var(--off-black);
+    background-color: var(--off-white);
+    color: var(--off-black);
     display: grid;
     grid-template-rows: 5% 95%;
     grid-template-areas: "social-media-links"
-                         "main-part";
+        "main-part";
 }
 
 
 
-#main-container-media-links
-{   
+#main-container-media-links {
     z-index: 2;
     list-style-type: none;
     display: none;
     grid-area: social-media-links;
 }
 
-.main-part-of-page{
+.main-part-of-page {
     grid-area: main-part;
 }
 
 
-#main-container-media-links > li
-{
+#main-container-media-links>li {
     margin-left: 14px;
 }
 
 /* Social media buttons on navbar will disappear and appear in the main container if
 screen size is less than 768px */
-@media only screen and (max-device-width: 768px)
-{   
-    #main-container-media-links
-    {
+@media only screen and (max-device-width: 768px) {
+    #main-container-media-links {
         display: inline;
     }
-    #main-container-media-links > li{
+
+    #main-container-media-links>li {
         display: inline-block;
     }
 }
 
 
-.social-media-icon
-{   
+.social-media-icon {
     width: 1.8rem;
     height: auto;
 }
 
-.social-media-icon:hover{
+.social-media-icon:hover {
     width: 3rem;
 }
 
 
 
-#welcome-content
-{   
+#welcome-content {
     padding-top: 50px;
     padding-bottom: 100px;
     display: grid;
     grid-template-columns: 15% minmax(30%, 70%) 15%;
     grid-template-rows: repeat(1fr, 4);
     grid-template-areas: ". header1 ."
-                        ". header2 ."
-                        ". welcominfo ."
-                        ". welcomeinfo .";
+        ". header2 ."
+        ". welcominfo ."
+        ". welcomeinfo .";
     justify-content: center;
     align-content: center;
     justify-items: center;
     align-items: space-around;
     text-align: center;
-    gap: 0.8rem;    
+    gap: 0.8rem;
     margin: 2rem;
 }
 
-#welcome-content h2
-{
+#welcome-content h2 {
     font-size: 1.6rem;
     grid-area: header1;
     align-self: start;
 }
 
 
-#welcome-content h3
-{
+#welcome-content h3 {
     font-size: 1.4rem;
     grid-area: header2;
     align-self: start;
 }
 
-#welcome-info
-{
+#welcome-info {
     grid-area: welcomeinfo;
     align-self: end;
 }
 
-#welcome-info > p
-{
+#welcome-info>p {
     font-size: 1.1rem;
     text-align: center;
 }
 
-#welcome-list
-{
+#welcome-list {
     list-style-type: none;
 }
 
-#welcome-list li
-{   
+#welcome-list li {
     font-size: 0.9rem;
     padding-top: 2.2rem;
 }
 
 
 /* Media queries for header and index page */
-@media only screen and (min-device-width: 768px)
-{
-    .dropdown{
-        display:none;
+@media only screen and (min-device-width: 768px) {
+    .dropdown {
+        display: none;
     }
- 
+
 }
 
-@media only screen and (max-device-width: 600px)
-{   
+@media only screen and (max-device-width: 600px) {
+
     /* Increase contrast between black and white for smaller screens */
     :root {
         --off-black: #000000;
         --off-white: #FFFFFF;
     }
-    
-    #main-subheading
-    {
+
+    #main-subheading {
         font-size: calc(100vw / 20);
     }
-    #welcome-info-content
-    {
+
+    #welcome-info-content {
         font-size: calc(100vw / 40);
     }
-    #welcome-list
-    {
+
+    #welcome-list {
         font-size: calc(100vw / 30);
-        justify-self: start!important;
+        justify-self: start !important;
         margin-left: -2.4rem;
     }
 }
 
-@media only screen and (max-device-width: 400px)
-{   
-    #menu-button
-    {
+@media only screen and (max-device-width: 400px) {
+    #menu-button {
         font-size: 10px;
     }
-    #main-subheading{
+
+    #main-subheading {
         font-size: 1rem;
     }
-    #accessibility-options
-    {   
+
+    #accessibility-options {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas:
-                            "darkbutton"
-                            "textsizes";
+            "darkbutton"
+            "textsizes";
     }
+
     #accessibility-options li {
         padding-top: 0.7rem;
         display: block;
@@ -674,43 +642,40 @@ screen size is less than 768px */
 
 /************************************ELEMENTS IN THE FOOTER****************************************/
 
-footer
-{
+footer {
     grid-area: ft;
     background-color: var(--this-light-grey);
-    color: 	var(--off-black);
+    color: var(--off-black);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: repeat(1fr, 9);
     grid-template-areas: ". .  map"
-                         ". .  map"
-                         ". contact map"
-                         ". contact map"
-                         ". contact map"
-                         ". contact map"
-                         ". . map"
-                         ". .  map"
-                         "copyright  . map "           
+        ". .  map"
+        ". contact map"
+        ". contact map"
+        ". contact map"
+        ". contact map"
+        ". . map"
+        ". .  map"
+        "copyright  . map "
 
 }
 
-#copyright
-{
+#copyright {
     grid-area: copyright;
     font-size: 0.8rem;
     margin-left: 0.6rem;
     margin-bottom: 0.6rem;
 }
-#contact
-{
+
+#contact {
     grid-area: contact;
     font-size: 1rem;
     text-align: center;
     align-self: center;
 }
 
-#site-map
-{
+#site-map {
     grid-area: map;
     font-size: 0.9rem;
     align-self: start;
@@ -719,39 +684,33 @@ footer
 }
 
 
-#site-map > ol > li
-{
+#site-map>ol>li {
     padding: 0.5rem;
 }
 
-#site-map > ol > li > a
-{
+#site-map>ol>li>a {
     color: var(--off-black);
 }
 
-#site-map > ol > li > a:visited
-{
+#site-map>ol>li>a:visited {
     color: var(--this-mid-grey);
 }
 
-#site-map > ol > li > a:hover
-{
+#site-map>ol>li>a:hover {
     color: var(--this-red);
 }
 
-#site-map > ol
-{
+#site-map>ol {
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr;
 }
 
 /* Large phones and smaller screen size*/
-@media only screen and (max-device-width: 768px)
-{   
+@media only screen and (max-device-width: 768px) {
+
     /* Puts the footer's sitemap links into two columns instead of one long one */
-    #site-map ol
-    {   
+    #site-map ol {
         grid-template-columns: 1fr 1fr;
         align-content: start;
         align-items: start;
@@ -759,21 +718,21 @@ footer
 }
 
 /* Small phones size */
-@media only screen and (max-device-width: 375px)
-{   
+@media only screen and (max-device-width: 375px) {
+
     /* Footer sections (contact, site links, copyright) are stacked in one column
     instead of 3 columns side by side */
-    footer{
-    grid-template-columns: 1fr;
-    grid-template-rows: 4fr 4fr 1fr;
-    grid-template-areas: "contact"
-                         "map"
-                         "copyright";
-    justify-content: center;
-    justify-items: center;
-    align-self: start;
-    align-items: start;  
-    width: 100vw;  
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: 4fr 4fr 1fr;
+        grid-template-areas: "contact"
+            "map"
+            "copyright";
+        justify-content: center;
+        justify-items: center;
+        align-self: start;
+        align-items: start;
+        width: 100vw;
     }
 }
 
@@ -792,22 +751,21 @@ footer
     grid-template-areas: "reviews asidereviews";
 }
 
-.reviews { 
+.reviews {
     height: 100%;
     grid-area: reviews;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "reviewstitle reviewstitle reviewstitle"
-                         "reviewscontent reviewscontent reviewscontent"
-                         "reviewsexpand reviewsexpand reviewsexpand";
+        "reviewscontent reviewscontent reviewscontent"
+        "reviewsexpand reviewsexpand reviewsexpand";
     grid-auto-rows: auto;
     justify-content: start;
     justify-items: start;
-    
+
 }
 
-.reviews-title
-{   
+.reviews-title {
     grid-area: reviewstitle;
     font-size: 3rem;
     text-align: center;
@@ -815,8 +773,7 @@ footer
     margin-left: 20px;
 }
 
-.reviews-content
-{   
+.reviews-content {
     grid-area: reviewscontent;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -831,58 +788,70 @@ footer
 }
 
 
-.books-not-hidden, .films-not-hidden, .music-not-hidden
-{
+.books-not-hidden,
+.films-not-hidden,
+.music-not-hidden {
     border-radius: 3px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 5fr 0.5fr 0.5fr;
     grid-template-areas: "media-icon"
-                         "media-icon"
-                         "media-icon"
-                         "media-icon"
-                         "media-icon"
-                         "media-title"
-                         "media-caption";  
-    justify-items: center;  
+        "media-icon"
+        "media-icon"
+        "media-icon"
+        "media-icon"
+        "media-title"
+        "media-caption";
+    justify-items: center;
     text-align: center;
 }
 
-.hidden
-{   
+.hidden {
     text-align: center;
     justify-items: center;
     display: none;
 }
 
-.media-icon
-{
+.media-icon {
     grid-area: media-icon;
-    height: auto;
+    height: 15rem;
     width: 10rem;
     border-radius: 10px;
-    border: 4px solid grey; 
+    border: 4px solid grey;
 }
 
-.media-icon:hover, .travel-location-image:hover
-{
+.media-icon:hover,
+.travel-location-image:hover {
 
-    animation: tilt-n-move-shaking 0.4s linear infinite; 
+    animation: tilt-n-move-shaking 0.4s linear infinite;
     border: 4px solid var(--this-red);
 }
 
 /* Make the photos of the media shake on hover */
 /* CSS Shake Animation Attribution: https://unused-css.com/blog/css-shake-animation/ */
-@keyframes tilt-n-move-shaking{
-    0% {transform: translate(0, 0,) rotate(0 deg);}
-    25% { transform: translate(5px, 5px) rotate(5deg); }
-    50% { transform: translate(0, 0) rotate(0eg); }
-    75% { transform: translate(-5px, 5px) rotate(-5deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
+@keyframes tilt-n-move-shaking {
+    0% {
+        transform: translate(0, 0, ) rotate(0 deg);
+    }
+
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0eg);
+    }
+
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
 }
 
-.media-title
-{   
+.media-title {
     grid-area: media-title;
     padding: 0;
     margin: 0;
@@ -890,8 +859,7 @@ footer
     font-size: 1rem;
 }
 
-.media-caption
-{
+.media-caption {
     grid-area: media-caption;
     font-size: 0.75rem;
     margin: 0;
@@ -900,13 +868,12 @@ footer
 }
 
 
-.reviews-expand
-{
+.reviews-expand {
     grid-area: reviewsexpand;
 }
 
-.reviews-expand, .travel-events-expand
-{
+.reviews-expand,
+.travel-events-expand {
     width: 100%;
     height: fit-content;
     border-radius: 10px;
@@ -916,14 +883,13 @@ footer
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "loadbutton loadbutton uparrow"
-                        "loadbutton loadbutton uparrow";
+        "loadbutton loadbutton uparrow";
     margin-left: 2rem;
     align-items: end;
 }
 
 
-.load-more
-{   
+.load-more {
     grid-area: loadbutton;
     font-size: 1.2rem;
     height: 3.5rem;
@@ -941,21 +907,18 @@ footer
     width: fit-content;
 }
 
-#scroll-up-arrow
-{   
+#scroll-up-arrow {
     grid-area: uparrow;
     cursor: pointer;
     justify-self: center;
     align-self: center;
 }
 
-#scroll-up-arrow > img
-{
+#scroll-up-arrow>img {
     height: 6rem;
 }
 
-#aside-reviews
-{
+#aside-reviews {
     grid-area: asidereviews;
     border-radius: 4px;
     background-color: var(--this-light-grey);
@@ -966,7 +929,7 @@ footer
     color: var(--white-color);
     height: fit-content;
     padding-bottom: 6rem;
-    margin-bottom: 10rem!important;
+    margin-bottom: 10rem !important;
     font-weight: bolder;
     display: grid;
     grid-template-columns: 100%;
@@ -974,75 +937,73 @@ footer
     min-height: 60%;
 }
 
-@media only screen and (max-device-width: 400px)
-{
+@media only screen and (max-device-width: 400px) {
     #aside-reviews {
         width: 90vw;
     }
-    #aside-reviews > ul {
-        grid-template-columns: 1fr!important;
+
+    #aside-reviews>ul {
+        grid-template-columns: 1fr !important;
     }
-    
+
 }
 
 
-@media only screen and (max-device-width: 700px)
-{
-    .reviews-expand, .travel-events-expand
-    {   
+@media only screen and (max-device-width: 700px) {
+
+    .reviews-expand,
+    .travel-events-expand {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "loadbutton" 
+        grid-template-areas: "loadbutton"
             "uparrow";
     }
-    .load-more
-    {
+
+    .load-more {
         justify-self: center;
     }
-    #scroll-up-arrow
-    {
+
+    #scroll-up-arrow {
         justify-self: start;
     }
 }
 
 
-#aside-reviews > h4
-{   
+#aside-reviews>h4 {
     font-size: 1.8rem;
 }
 
-#aside-reviews > ul
-{
+#aside-reviews>ul {
     display: grid;
     align-items: center;
 }
 
-#aside-reviews > ul > li
-{   
+#aside-reviews>ul>li {
     padding-top: 20px;
     padding-bottom: 20px;
-    
+
 }
 
 
 /* For small laptop screens and smaller - reviews page */
-@media only screen and (max-device-width: 1200px)
-{   
+@media only screen and (max-device-width: 1200px) {
+
     /* Only make the header sticky on large laptop and PC screens */
-    .sticky1{
-        display: none!important;
+    .sticky1 {
+        display: none !important;
     }
+
     /* Makes aside section go underneath the main content instead of next to it */
     .main-reviews-container {
         grid-template-columns: 100%;
         grid-template-rows: auto auto;
         grid-template-areas: "reviews"
-                             "asidereviews";
+            "asidereviews";
         justify-content: center;
     }
+
     /* Reformats aside menu to new dimensions, so it takes up less space */
-    #aside-reviews
-    {   
+    #aside-reviews {
         justify-self: center;
         width: 75%;
         align-self: center;
@@ -1052,98 +1013,90 @@ footer
         display: grid;
         grid-template-rows: 1fr 2fr;
     }
-    #aside-reviews > h4
-    {
+
+    #aside-reviews>h4 {
         margin-left: 2rem;
     }
-    #aside-reviews > ul
-    {
+
+    #aside-reviews>ul {
         text-align: center;
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: start;
     }
-    #aside-reviews > ul > li
-    {
+
+    #aside-reviews>ul>li {
         display: inline-block;
         padding: 0.5rem;
     }
-    .reviews-title
-    {   
+
+    .reviews-title {
         font-size: 2.5rem;
         margin-left: 0px;
-        padding:10px;
+        padding: 10px;
     }
-    .reviews-content
-    {   
+
+    .reviews-content {
         grid-template-columns: 1fr 1fr;
         column-gap: 0rem;
         margin-bottom: 0px;
     }
-    .media-icon
-    {
+
+    .media-icon {
         width: 20rem;
     }
 }
 
 /* Book icon size of 20rem was too large for tablet-size screens */
-@media only screen and (max-device-width: 966px)
-{
-    .media-icon
-    {
+@media only screen and (max-device-width: 966px) {
+    .media-icon {
         width: 12rem;
     }
 }
 
-@media only screen and (max-device-width: 768px)
-{
-    .media-icon
-    {
+@media only screen and (max-device-width: 768px) {
+    .media-icon {
         width: 10rem;
     }
-    .reviews-title
-    {   
+
+    .reviews-title {
         font-size: 2rem;
     }
 }
 
-@media only screen and (max-device-width: 650px)
-{
-    .media-icon
-    {
+@media only screen and (max-device-width: 650px) {
+    .media-icon {
         width: 10rem;
     }
 }
 
 /* For very small screens - reviews page */
-@media only screen and (max-device-width: 650px)
-{
-    .reviews-content
-    {   
+@media only screen and (max-device-width: 650px) {
+    .reviews-content {
         grid-template-columns: 1fr;
         row-gap: 0rem;
     }
-    .media-icon
-    {
+
+    .media-icon {
         width: 10rem;
     }
-    .reviews-title
-    {   
+
+    .reviews-title {
         font-size: 1.5rem;
     }
-    #scroll-up-arrow
-    {   
+
+    #scroll-up-arrow {
         justify-self: start;
         margin-right: 0rem;
     }
+
     /* Decreases the relative size of the 'scroll to top' arrow */
-    #scroll-up-arrow > img
-    {
+    #scroll-up-arrow>img {
         height: 4rem;
     }
+
     /* Makes the list of links in the aside organized into 2 columns */
-    #aside-reviews > ul
-    {
+    #aside-reviews>ul {
         text-align: center;
         grid-template-columns: 1fr 1fr;
         align-items: start;
@@ -1158,8 +1111,8 @@ footer
     grid-template-columns: 100%;
     grid-template-rows: auto;
     grid-template-areas: "travel-events-title"
-                         "travel-events-content"
-                         "travel-events-expand";
+        "travel-events-content"
+        "travel-events-expand";
     justify-content: center;
     justify-items: center;
     align-items: start;
@@ -1167,16 +1120,15 @@ footer
     margin-top: -10rem;
 }
 
-.travel-events-title
-{
+.travel-events-title {
     grid-area: travel-events-title;
     font-size: 3rem;
     text-align: center;
     padding-top: 100px;
 
 }
-.travel-events-content
-{
+
+.travel-events-content {
     grid-area: travel-events-content;
     width: 97%;
     display: grid;
@@ -1190,8 +1142,8 @@ footer
     padding-top: 40px;
 }
 
-.travel-not-hidden, .event-not-hidden
-{
+.travel-not-hidden,
+.event-not-hidden {
     display: inline-block;
     width: 90%;
     height: 100%;
@@ -1199,81 +1151,75 @@ footer
 
 
 
-.travel-event-title
-{
-    font-size: 1.6rem;
+.travel-event-title {
+    font-size: 1.2rem;
     text-align: center;
 }
 
-.travel-location-image
-{
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 55%;
+.travel-location-image {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 22rem;
     border: 6px solid black;
 }
 
-.travel-location-caption
-{
+.travel-location-caption {
     font-size: 0.8rem;
     text-align: center;
     margin-left: 30%;
 }
 
-.travel-location-description
-{
+.travel-location-description {
     text-align: left;
 }
 
-.travel-events-expand
-{
+.travel-events-expand {
     grid-area: travel-events-expand;
     margin-bottom: 10rem;
 }
 
-@media only screen and (max-device-width: 1300px)
-{   
-    .travel-not-hidden
-    {   
+@media only screen and (max-device-width: 1300px) {
+    .travel-not-hidden {
         padding-bottom: 1rem;
     }
 }
 
 
-@media only screen and (max-device-width: 1200px) and (min-device-width: 768px)
-{   
-    .travel-not-hidden
-    {   
+@media only screen and (max-device-width: 1200px) and (min-device-width: 768px) {
+    .travel-not-hidden {
         height: 70%;
         padding-bottom: 2rem;
     }
 }
 
 
-@media only screen and (max-device-width: 768px)
-{   
-    .travel-not-hidden
-    {   
+@media only screen and (max-device-width: 768px) {
+    .travel-not-hidden {
         height: 50%;
         padding-bottom: 2.5rem;
     }
 
-    .travel-events-content{
+    .travel-events-content {
         grid-template-columns: 1fr;
     }
+
     .load-more {
         width: 40vw;
         padding: 2vw;
-        justify-self: center!important;
+        justify-self: center !important;
+    }
+
+    .travel-location-image {
+        width: 70vw;
+        height: auto;
     }
 }
 
 
 /****************************ELEMENTS IN SINGLE REVIEW PAGE*************************************************/
 
-.main-review-container
-{   
+.main-review-container {
     display: grid;
     grid-template-columns: 4fr 2fr;
     grid-template-rows: auto;
@@ -1286,8 +1232,7 @@ footer
     margin-top: -1vw;
 }
 
-#aside-single-review
-{
+#aside-single-review {
     grid-area: aside-single-review;
     border-radius: 4px;
     background-color: var(--this-light-grey);
@@ -1300,13 +1245,11 @@ footer
     margin-right: 20px;
 }
 
-#aside-single-review > ul > h4
-{   
+#aside-single-review>ul>h4 {
     font-size: 2rem;
 }
 
-#aside-single-review > ul
-{
+#aside-single-review>ul {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
@@ -1314,20 +1257,17 @@ footer
     align-items: start;
 }
 
-#aside-single-review > h4
-{
+#aside-single-review>h4 {
     text-align: center;
     margin-left: 20px;
 }
 
-#aside-single-review > ul > li
-{   
+#aside-single-review>ul>li {
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-.review 
-{
+.review {
     grid-area: review;
     align-self: start;
     margin-left: 2px;
@@ -1335,49 +1275,45 @@ footer
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas: "reviewtitle"
-                         "article-text"
-                         "reviewsexpand";
+        "article-text"
+        "reviewsexpand";
     grid-gap: 0.5rem;
     align-items: center;
     justify-content: start;
     justify-items: start;
 }
 
-.review > h3
-{
-    text-align: left!important;
+.review>h3 {
+    text-align: left !important;
     margin-top: 2rem;
+    padding: 20px;
 }
 
-.main-review-container h3
-{   
+.main-review-container h3 {
     font-size: 1.8rem;
     grid-area: reviewtitle;
     justify-self: start;
     margin-left: 6rem;
 }
 
-#article-text
-{
+#article-text {
     grid-area: article-text;
     width: 80%;
     justify-self: start;
     margin-left: 2rem;
     overflow-wrap: break-word;
 }
-.article-body section 
-{
+
+.article-body section {
     margin-bottom: 1rem;
 }
 
-.article-body section p
-{
+.article-body section p {
     padding: 10px;
 }
 
 /* For a single review page's: responsive image gallery */
-.img-gallery
-{
+.img-gallery {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1386,15 +1322,13 @@ footer
     align-items: center;
 }
 
-.gallery-img-container
-{
+.gallery-img-container {
     position: relative;
     text-align: center;
     margin: 10px;
 }
 
-.gallery-img
-{   
+.gallery-img {
     opacity: 0.8;
     cursor: pointer;
     width: 14rem;
@@ -1402,21 +1336,18 @@ footer
     border: 2px solid grey;
 }
 
-.gallery-img:hover
-{
+.gallery-img:hover {
     opacity: 1;
 }
 
 
-.review-single-image-container
-{
+.review-single-image-container {
     width: 100%;
     position: relative;
     text-align: center;
 }
 
-.review-single-image
-{
+.review-single-image {
     width: 60vw;
     height: auto;
     opacity: 0.8;
@@ -1424,14 +1355,13 @@ footer
     border: 2px solid grey;
 }
 
-.review-single-image:hover
-{
+.review-single-image:hover {
     opacity: 1;
 }
 
 
-.gallery-img-text-white, .gallery-img-text-black
-{
+.gallery-img-text-white,
+.gallery-img-text-black {
     position: absolute;
     bottom: 1rem;
     right: 2rem;
@@ -1440,21 +1370,18 @@ footer
     opacity: 0.9;
 }
 
-.gallery-img-text-white
-{   
+.gallery-img-text-white {
     background-color: black;
     color: white;
 }
 
 
-.gallery-img-text-black
-{   
+.gallery-img-text-black {
     background-color: white;
     color: black;
 }
 
-.review-img-caption
-{
+.review-img-caption {
     font-size: 1rem;
     margin: 5px;
     font-weight: bolder;
@@ -1464,8 +1391,7 @@ footer
 
 /*Attribution: https://www.w3schools.com/howto/howto_js_lightbox.asp */
 
-.opened-image
-{
+.opened-image {
     position: fixed;
     z-index: 5;
     left: 0;
@@ -1477,8 +1403,7 @@ footer
     border: 4px solid grey;
 }
 
-.opened-image > img
-{
+.opened-image>img {
     position: absolute;
     top: 10%;
     left: 10%;
@@ -1488,13 +1413,11 @@ footer
     height: auto;
 }
 
-.opened-image > div
-{
+.opened-image>div {
     display: none;
 }
 
-#close-message
-{   
+#close-message {
     z-index: 100;
     color: white;
     display: none;
@@ -1506,14 +1429,12 @@ footer
     font-size: 22px;
 }
 
-@media only screen and (max-device-width: 1200px)
-{
-    .main-review-container
-    {   
+@media only screen and (max-device-width: 1200px) {
+    .main-review-container {
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: 1fr;
-        grid-template-areas: "review" "aside-single-review";
+        grid-template-areas: "review""aside-single-review";
         grid-gap: 1rem;
         align-content: start;
         align-items: start;
@@ -1521,9 +1442,8 @@ footer
         justify-items: start;
         margin-top: -1vw;
     }
-    
-    #aside-single-review
-    {
+
+    #aside-single-review {
         color: var(--white-color);
         font-weight: bolder;
         min-height: 60%;
@@ -1532,36 +1452,34 @@ footer
         margin-top: 50px;
         margin-bottom: 50px;
     }
-    #aside-single-review > ul
-    {
+
+    #aside-single-review>ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         grid-gap: 10px;
         align-items: start;
     }
-    #aside-single-review > ul > li
-    {
+
+    #aside-single-review>ul>li {
         margin-top: 20px;
     }
 
 }
 
-@media only screen and (max-device-width: 600px)
-{   
-    #aside-single-review
-    {
+@media only screen and (max-device-width: 600px) {
+    #aside-single-review {
         margin-bottom: 100px;
     }
-    #aside-single-review > ul {
+
+    #aside-single-review>ul {
         grid-template-rows: 25% 25% 25% 25%;
         grid-template-columns: auto;
     }
 }
 
-@media only screen and (max-device-width: 300px)
-{
-    #aside-single-review > ul {
+@media only screen and (max-device-width: 300px) {
+    #aside-single-review>ul {
         grid-template-columns: 100%;
         grid-template-rows: auto;
     }
@@ -1569,19 +1487,17 @@ footer
 
 /* SUBSCRIBE PAGE STYLING */
 
-#subscribe-form-container
-{
+#subscribe-form-container {
     display: grid;
     grid-template-columns: 95%;
     grid-template-rows: auto;
     grid-template-areas: "form-title"
-                         "form";
+        "form";
     justify-content: center;
     margin-top: 2rem;
 }
 
-#subscribe-form-heading
-{
+#subscribe-form-heading {
     font-size: 1.6rem;
     grid-area: form-title;
     text-align: center;
@@ -1590,42 +1506,38 @@ footer
     padding: 10px;
 }
 
-#subscribe-form
-{   
+#subscribe-form {
     padding: 20px;
     grid-area: form;
     justify-self: center;
     align-self: center;
-    
+
 }
 
 
-.form-row
-{
+.form-row {
     margin: 1rem;
 }
 
-#first-name-input-container, #last-name-input-container, #email-input-container
-{
+#first-name-input-container,
+#last-name-input-container,
+#email-input-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.form-text-label
-{   
+.form-text-label {
     display: inline-block;
 }
 
-.form-text-input
-{   
+.form-text-input {
     display: inline-block;
     padding: 7px;
     border: 2px solid black;
 }
 
 
-#form-submit
-{
+#form-submit {
     background-color: grey;
     padding: 10px;
     margin-top: 1rem;
@@ -1634,41 +1546,39 @@ footer
     width: 6rem;
 }
 
-.form-error
-{
+.form-error {
     color: var(--this-red);
     font-size: 1.2rem;
 }
 
-#thank-you-message
-{
+#thank-you-message {
     margin-top: 10rem;
     margin-bottom: 5rem;
     font-size: 1.8rem;
 }
 
-#back-link
-{
+#back-link {
     text-align: center;
 }
 
-#back-link > a:hover
-{
+#back-link>a:hover {
     color: var(--this-red);
 }
 
-@media only screen and (max-device-width: 768px)  
-{
-    .form-text-label, .form-text-input
-    {
+@media only screen and (max-device-width: 768px) {
+
+    .form-text-label,
+    .form-text-input {
         display: block;
     }
-    .form-text-input
-    {
+
+    .form-text-input {
         padding: 10px;
     }
-    #first-name-input-container, #last-name-input-container, #email-input-container
-    {
+
+    #first-name-input-container,
+    #last-name-input-container,
+    #email-input-container {
         grid-template-columns: 1fr;
     }
 }
