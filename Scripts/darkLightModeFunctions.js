@@ -3,6 +3,7 @@
 // Checks if the sticky navbar is open/exists
 // If so, change colors of sticky and links inside it to the ones specified in the arguments
 function checkForStickyNavBarAndChangeStyle(navbarBackground, textColor, rightMenuColorOnClose) {
+    console.log('change');  
     // CHECKS IF STICKY NAVBAR EXISTS:
     // If so, define stickyNav variable as the HTML sticky element
     // If not, set stickyNav to 'null'
@@ -20,6 +21,17 @@ function checkForStickyNavBarAndChangeStyle(navbarBackground, textColor, rightMe
         stickyNav.style.backgroundColor = navbarBackground;
         // Light mode: myBlack
         stickyNav.style.color = textColor;
+
+        // Light mode navbar border
+        if (textColor == myBlack)
+        {
+             stickyNav.style.border = '2px solid var(--this-mid-grey)';
+        }
+        // Dark mode navbar border
+        else
+        {
+            stickyNav.style.border = '2px solid var(--this-dark-red)';
+        }
 
         // Changes color of the links in the header if a sticky navbar is open
         for (var i = 0; i < leftHandMenuLinks.length; i++) {
@@ -121,7 +133,7 @@ function darkColorSettings() {
         footerLinks[i].style.color = myWhite;
     }
 
-    checkForStickyNavBarAndChangeStyle(myBlack, myWhite, myWhite);
+    checkForStickyNavBarAndChangeStyle('black', myWhite, myWhite);
 
 }
 
@@ -140,8 +152,8 @@ function changeColorMode() {
 // ADDS CHANGE COLOR MODE FUNCTION TO DARK/LIGHT BUTTON EVENT LISTENER ON CLICK
 function darkLightToggle() {
     darkLightButton.addEventListener('click', function () {
-
         if (!localStorage.getItem('colorMode')) {
+            console.log(localStorage.getItem('colorMode'));
             localStorage.setItem('colorMode', 'light');
         }
         changeColorMode();

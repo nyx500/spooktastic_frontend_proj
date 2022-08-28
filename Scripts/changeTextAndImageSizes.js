@@ -4,9 +4,9 @@
 // Changes image size depending on the content of the kindsOfImageObject global array
 function changeImageSize() {
 
-    console.log('change image size');
     // If there are image types in the kindsofImageObject array, then do this:
     if (kindsOfImageObject.length > 0) {
+      
       // Iterate through the kinds of images (they all have a className property)
       for (var i = 0; i < kindsOfImageObject.length; i++) {
   
@@ -21,24 +21,25 @@ function changeImageSize() {
         This object will store information about what size to make the
         current images on the screen for the font size currently selected
         by the user */
-        let sizeObject;
+        var sizeObject;
         
         // Possible pixel font sizes user can select
         switch (localStorage.getItem('textSize')) {
           case '22px':
-            sizeObject = imageObjects[i].largeTextSize;
+            console.log('22px');
+            sizeObject = kindsOfImageObject[i].largeTextSize;
             break;
   
           case '18px':
-            sizeObject = imageObjects[i].midTextSize;
+            sizeObject = kindsOfImageObject[i].midTextSize;
             break;
   
           case '14px':
-            sizeObject = imageObjects[i].smallTextSize;
+            sizeObject = kindsOfImageObject[i].smallTextSize;
             break;
   
           case '12px':
-            sizeObject = imageObjects[i].extraSmallTextSize;
+            sizeObject = kindsOfImageObject[i].extraSmallTextSize;
             break;
         }
         
@@ -47,15 +48,17 @@ function changeImageSize() {
         that is stored in the global kindsOfImageObject array */
         for (var j = 0; j < imgs.length; j++) {
           if (window.innerWidth > 900) {
-            console.log('big screen');
+            console.log('XXXX');
             imgs[j].style.width = sizeObject.largeScreenWidth;
             imgs[j].style.height = sizeObject.largeScreenHeight;
           }
           else if (window.innerWidth <= 900 && window.innerWidth >= 500) {
+            console.log('YYY');
             imgs[j].style.width = sizeObject.midScreenWidth;
             imgs[j].style.height = sizeObject.midScreenHeight;
           }
           else {
+            console.log('ZZZ');
             imgs[j].style.width = sizeObject.smallScreenWidth;
             imgs[j].style.height = sizeObject.smallScreenHeight;
           }
@@ -72,13 +75,14 @@ function changeImageSize() {
   
   // FUNCTION TO CHANGE TEXT SIZE OF WHOLE PAGE
   function changeTextSize(pixels) {
-    changeImageSize();
   
     // Sets local storage with text size in pixels
     localStorage.setItem('textSize', pixels);
   
     // Change the text size of the whole page (html element) in general
     document.getElementsByTagName('html')[0].style.fontSize = pixels;
+    
+    changeImageSize();
   
     // LARGE TEXT SIZE
     if (pixels == '22px') {

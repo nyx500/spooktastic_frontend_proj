@@ -1,6 +1,24 @@
 // WINDOW/DOCUMENT EVENT LISTENER FUNCTIONS
 window.onload = function () {
 
+  // SETS IMAGE DIMENSIONS DEPENDING ON PAGE BEING VISITED
+  // Books/Films/Music page
+  let currentPage = window.location.href;
+  if (currentPage.includes('Reviews'))
+  {
+    kindsOfImageObject =  setReviewIconsParameters()
+  }
+  // Travel/Events pages
+  else if (currentPage.includes('travel') || currentPage.includes('events'))
+  {
+    kindsOfImageObject = setTravelEventsIconsImageParameters();
+  }
+  // Individual reviews
+  else if (currentPage.includes('Article') || currentPage.includes('review'))
+  {
+    kindsOfImageObject = setSingleReviewImageParameters();
+  }
+
   // Updates image size based on screen size/font-size chosen by user
   changeImageSize() 
   // Rotates the menu bars on menu button onclick and turns them into an 'X' symbol
@@ -41,6 +59,7 @@ window.onload = function () {
   else {
     darkColorSettings();
   }
+  
 
 }
 
@@ -116,10 +135,12 @@ function makeSticky() {
     if (localStorage.getItem('colorMode') == 'light') {
       logo.style.color = myBlack;
       nav.style.backgroundColor = myLightGrey;
+      nav.style.border = '2px solid var(--this-mid-gray)';
     }
     else {
       logo.style.color = myWhite;
-      nav.style.backgroundColor = myBlack;
+      nav.style.backgroundColor = 'black';
+      nav.style.border = '2px solid var(--this-dark-red)';
     }
 
     // Change the color of the buttons in the navbar if a sticky is made
@@ -157,6 +178,7 @@ function makeSticky() {
   else {
     // Resets the colors of the navbar if the sticky menu has disappeared
     nav.style.background = 'none';
+    nav.style.border = 'none';
     nav.classList.remove("sticky1");
     textSizeOptions.forEach(button => {
       button.style.color = myWhite;

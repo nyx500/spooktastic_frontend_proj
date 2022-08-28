@@ -2,35 +2,46 @@
     font-family: "Oxygen Regular";
     src: url(../Fonts/Oxygen/Oxygen-Regular.ttf)
 }
-
 @font-face {
     font-family: "Oxygen Bold";
     src: url(../Fonts/Oxygen/Oxygen-Bold.ttf)
 }
-
 @font-face {
     font-family: "Oxygen Light";
     src: url(../Fonts/Oxygen/Oxygen-Light.ttf)
 }
 
-
+/* Sets variables for main color palette */
 :root {
     /* Make black a bit lighter and white not pure-white to make it less tiring for eyes */
-    --off-black: #101010ed;
+    --off-black: #101010;
     --off-white: #F8F0E3;
-    --this-red: #ff0000;
+    --this-red: #FF0800;
     --this-dark-red: #650000;
     --this-mid-grey: #404040;
     --this-light-grey: #ABABAB;
     --this-lightest-grey: #DDDDDD;
 }
 
+/* CSS STYLING FOR ELEMENTS THAT ARE ON EVERY PAGE:
+--> BODY
+--> SCROLLBARS
+--> HEADER
+--> NAVBAR
+--> ACCESSIBILITY BUTTONS
+--> STICKY HEADER 
+--> MAIN BODY
+--> MENU BUTTON AND DROPDOWN
+--> FOOTER
+*/
 
+/* Creates a custom red-and-grey scroll bar */
 html {
     font-family: "Oxygen Regular", Verdana, Tahoma, sans-serif;
     font-size: 16px;
     scrollbar-color: var(--this-red) var(--this-mid-grey);
     scrollbar-width: auto;
+    /* Make sure only vertical scroll-bar appears */
     overflow-x: hidden;
 }
 
@@ -40,13 +51,14 @@ body {
     padding: 0;
 }
 
-/*Appearance of scrollbar in Chrome a bit different but still same color scheme and works*/
+/*Appearance of scrollbar in Chrome is slightly different but still has the same color scheme and works*/
 /*Attribution: https://css-tricks.com/custom-scrollbars-in-webkit/*/
+
+/* Firefox scrollbars */
 ::-webkit-scrollbar {
     width: 1rem;
     background: var(--this-mid-grey);
 }
-
 ::-webkit-scrollbar-track {
     /* For mozilla browser compatibility */
     -webkit-box-shadow: inset 0 0 6px var(--off-black);
@@ -54,7 +66,6 @@ body {
     box-shadow: inset 0 0 6px var(--off-black);
     border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     /* For mozilla browser compatibility */
@@ -66,31 +77,35 @@ body {
 
 /* Container that fits in everything you can see on the web pages */
 .parent-container {
-    /* No space around the sides */
+    /* No space around the sides of the website */
     width: 100%;
     margin: 0;
     padding: 0;
+    /* Divide every page into three main grids: header, main, and footer */
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: minmax(15rem, auto) minmax(40rem, auto) minmax(10rem, auto);
+    /* Header, main section, and footer rows */
     grid-template-areas: "hd hd hd hd hd hd hd hd hd"
         "mn mn mn mn mn mn mn mn mn"
         "ft ft ft ft ft ft ft ft ft";
 }
 
+/* Loader appears until document reaches onreadystate ready status */
 /* Attribution: https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
     text-align: center;
-    z-index: 9999999999;
+    /* Makes sure the loader is on on top of every other HTML element on the page */
+    z-index: 999;
     border: 16px solid #f3f3f3;
-    /* Light grey */
-
+    /* Four different sections of loader circle in different colors */
     border-top: 16px solid var(--this-lightest-grey);
     border-right: 16px solid var(--this-red);
     border-bottom: 16px solid var(--this-mid-grey);
     border-left: 16px solid var(--this-dark-red);
-
+    /* Makes a curve */
     border-radius: 50%;
+    /* Always put loader in the center */
     position: fixed;
     display: block;
     left: 47vw;
@@ -110,14 +125,13 @@ body {
     }
 }
 
-/******************************GENERAL LAYOUT***************************************************/
+/******************************HEADER LAYOUT**********************************/
 header {
     color: var(--off-white);
     background-image: url("../Assets/forestVanillaFilter.jpg");
     grid-area: hd;
     display: grid;
-    /* grid-template-columns: repeat(1fr, 9); */
-    /* grid-template-rows: repeat(3, 1fr); */
+    /* Has three sections: navbar, headers, and then blank space to wrap around for balance */
     grid-template-areas: "nav nav nav nav nav nav nav nav nav"
         "hds hds hds hds hds hds hds hds hds"
         ". . . . . . . . .";
@@ -125,59 +139,71 @@ header {
 
 /*Attribution: https://www.w3schools.com/howto/howto_js_sticky_header.asp */
 /*Sticky formatting for main navbar*/
+/* JavaScript files have code for when user scrolls down on Large screens, the sticky
+changes display from 'none' to 'block' */
 .sticky1 {
     position: fixed;
     background-color: var(--this-light-grey);
     color: var(--off-black) !important;
     width: 100vw;
+    /* Makes sure the sticky is in front of the other elements */
     z-index: 2;
-    font-size: 0.4rem!important;
+    /* The sticky navbar originally too big and taking up most of the page, so I made
+     the font-size smaller */
+    font-size: 0.3rem!important;
 }
 
-/*************************************Elements in the Header********************************/
-
-
+/******************************Navbar Styling**********************************/
+/* Whole navbar section, including both the accessibility (text sizes, dark mode) buttons
+    on the left, as well as the links to the parts of the website on the right  */
 #main-navbar {
     color: var(--off-white);
     grid-area: nav;
     font-size: 1rem;
     display: grid;
+    /* Want space for the main list of links to be larger than for the accessibility options */
     grid-template-columns: 1fr 1fr repeat(3, 1fr);
     grid-template-rows: 2fr;
+    /* Organization of two smaller navbars */
     grid-template-areas:
         "accessibility accessibility mainlist mainlist mainlist"
         "accessibility accessibility mainlist mainlist mainlist";
-    row-gap: 0px;
 }
 
+/*********** Navigation panel for accessibility options ***********/
+
+/* Includes three groups: logo, dark-light mode button, and array of text-size buttons */
 #accessibility-options {
     list-style-type: none;
     grid-area: accessibility;
-    z-index: 2;
+    /* Makes sure that buttons are visible when sticky is displayed */
+    z-index: 3;
     align-self: start;
     display: grid;
     grid-template-columns: "1fr 1fr 1fr";
+    /* Buttons should be displayed in a row for convention's sake */
     grid-template-rows: 1fr;
     grid-template-areas: "logo darkbutton textsizes";
-    grid-gap: 10px;
     align-content: start;
     align-items: center;
     justify-content: start;
     justify-items: start;
 }
 
+/* List items which wrap the text-size buttons */
 #accessibility-options li {
-    padding-top: 0.7rem;
     display: inline-block;
 }
 
+/* Span HTML display element containing the buttons representing different text sizes */
 #text-size-options {
     grid-area: textsizes;
     width: fit-content;
     display: inline-block;
 }
 
-#text-size-options>button {
+/* Buttons with a transparent background are displayed to look like links */
+#text-size-options > button {
     background-color: Transparent;
     border: none;
     cursor: pointer;
@@ -185,49 +211,50 @@ header {
     color: var(--off-white);
 }
 
-#text-size-options>button>b:hover {
+/* Highlight red when user moves mouse over buttons */
+#text-size-options> button> b:hover {
     color: var(--this-red);
+    font-size: 120%;
 }
 
+/* Match the size to the functionality of what happens when the text-size is selected */
 #large-text {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
 }
-
 #medium-text {
-    font-size: 1.4rem;
+    font-size: 2rem;
 }
-
 #small-text {
-    font-size: 1.0rem;
+    font-size: 1.5rem;
 }
-
-
 #extra-small-text {
-    font-size: 0.6rem;
+    font-size: 1rem;
 }
 
+/* Dark/Light Mode Button for Accessibility */
 #dark-mode {
     margin-top: 10px;
     grid-area: darkbutton;
     height: fit-content;
-    padding: 10px;
+    padding: 8px;
     width: 8rem;
-    /* Max-width so does not overflow off the web page on very small screens */
+    /* Max-width so does that the button not overflow off the web page on very small screens */
     max-width: 50vw;
     color: var(--off-white);
-    border: 2px solid var(--off-white);
+    /* Brighter border for greater contrast and visibility */
+    border: 2px solid white;
     border-radius: 8px;
     background-image: linear-gradient(var(--this-light-grey), var(--off-black), var(--this-light-grey));
     cursor: pointer;
 }
 
+/* Highlights the dark mode button on hover */
 #dark-mode:hover {
-    width: 12rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    border: 2px solid var(--this-red);
+    padding: 14px;
 }
 
-
+/* Logo text (links to home) */
 #navbar-logo-text a {
     grid-area: logo;
     color: var(--off-white);
@@ -235,16 +262,24 @@ header {
     padding: 0;
     text-align: start;
     margin-right: 2rem;
+    font-size: 1.2rem;    
 }
 
+/* Increase size of logo on hover */
 #navbar-logo-text a:hover {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
+
+
+/*********** Navigation panel for navbar links to pages ***********/
 
 #main-navbar-list {
+    /* No bullet points */
     list-style-type: none;
     grid-area: mainlist;
+    /* Align on right of header */
     justify-self: end;
+    /* Align on top of header */
     align-self: start;
     margin: 10px;
     margin-right: 30px;
@@ -256,126 +291,96 @@ header {
 
 }
 
+/* Ordered list subarray of main links nav: internal links on this page */
 #links-to-this-site {
     grid-area: links1;
     list-style-type: none;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+}
+/* Increases size of link when mouse is over it */
+#links-to-this-site > li:hover {
+    font-size: 1.5rem;
 }
 
-#social-links {
-    grid-area: links2;
-    list-style-type: none;
-}
-
-#links-to-this-site>li {
+/* Makes all the links to different web pages inline */
+#links-to-this-site > li, #social-links > li {
     display: inline;
-    grid-area: site-nav;
-    font-size: 0.8rem;
     padding-left: 14px;
+    font-size: 1rem;
     color: var(--off-white);
     font-weight: bolder;
 }
 
-#social-links>li {
+/* Social media links buttons */
+/* Ordered list subarray of main links nav: external links to social media */
+#social-links {
+    grid-area: links2;
+    list-style-type: none;
+    padding-top: 10px;
+}
+#social-links > li {
     display: inline;
     padding-left: 14px;
 }
-
+/* The 'a' tag of the link */
 .social-media-link {
-    display: inline;
     grid-area: social-nav;
 }
 
+/* Links change color to red when they have been visited once or more */
 a:visited {
     color: red;
 }
 
+/* Z-index makes sure that all links are on top of the sticky navbar which has
+a z-index o 2 */
 #main-navbar #main-navbar-list li {
-    z-index: 2;
+    z-index: 3;
 }
 
-#main-navbar #main-navbar-list li a:link {
-    color: var(--this-red);
-}
-
-#main-navbar #main-navbar-list li a:visited {
-    color: var(--off-white);
-}
-
-#main-navbar #main-navbar-list li a:hover {
-    color: var(--this-red);
-}
-
-@media only screen and (max-device-width: 1565px) and (min-device-width: 1200px) {
-    #accessibility-options {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "logo darkbutton"
-            "logo textsize";
-    }
+/* Includes three groups: logo, dark-light mode button, and array of text-size buttons */
+#accessibility-options {
+    list-style-type: none;
+    grid-area: accessibility;
+    /* Makes sure that buttons are visible when sticky is displayed */
+    z-index: 3;
+    align-self: start;
+    display: grid;
+    grid-template-columns: "1fr 1fr 1fr";
+    /* Buttons should be displayed in a row for convention's sake */
+    grid-template-rows: 1fr;
+    grid-template-areas: "logo darkbutton textsizes";
+    align-content: start;
+    align-items: center;
+    justify-content: start;
+    justify-items: start;
 }
 
 
-@media only screen and (max-device-width: 1200px) and (min-device-width: 768px) {
-    #accessibility-options {
-        list-style-type: none;
-        grid-area: accessibility;
-        z-index: 2;
-        align-self: start;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: "logo"
-            "darkbutton"
-            "textsizes";
-        align-content: start;
-        align-items: center;
-        justify-content: start;
-        justify-items: start;
-    }
 
-}
+/******************************END OF NAVBAR STYLING**********************************/
 
-@media only screen and (max-device-width: 768px) {
-    #main-navbar-list {
-        display: none;
-    }
+/******************************HEADERS STYLING**********************************/
 
-    #navbar-logo-text {
-        display: none;
-    }
-
-    #main-navbar {
-        grid-area: nav;
-        font-size: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr repeat(3, 1fr);
-        grid-template-rows: 1fr;
-        grid-template-areas:
-            "accessibility accessibility accessibility accessibility accessibility";
-        row-gap: 0px;
-    }
-
-}
-
-
-header .header-headings-area {
+/* Area where main header ('SPOOKTASTIC'), sub-heading and dropdown icon are */
+.header-headings-area {
     grid-area: hds;
-
 }
 
+/* Main title heading */
 #main-heading {
     text-align: center;
-    font-size: 3rem;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    font-size: 3.5rem;
     cursor: pointer;
 }
 
+/* Red when hover over title */
 #main-heading:hover {
     color: var(--this-red);
 }
 
+/* Bottom section of header */
+/* Contains subheading in the center and dropdown menu button on the left */
 #main-subheading-and-dropdown-container {
     display: grid;
     grid-template-rows: 1fr;
@@ -384,10 +389,12 @@ header .header-headings-area {
 
 }
 
+/* Hide dropdown unless clicked */
 #dropdown {
     display: none;
 }
 
+/* Put menu button and dropdown at bottom of header */
 .dropdown-container {
     grid-area: dropdown;
     align-self: end;
@@ -395,17 +402,20 @@ header .header-headings-area {
     margin: 20px;
 }
 
+/* Make expanded dropdown menu go over half of page */
 .dropdown-menu {
     position: left;
     padding: 10px;
-    width: 50vw;
+    width: 40vw;
     background-color: var(--this-light-grey);
     color: var(--off-black);
     border-radius: 4px;
     border: 4px solid black;
-    z-index: 3;
+    /* Behind sticky navbar */
+    z-index: 2;
 }
 
+/* Div container for each link in the dropdown */
 .dropdown-menu div {
     margin-top: 5px;
     text-align: center;
@@ -413,30 +423,32 @@ header .header-headings-area {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "droplink";
+    /* Begin dropdown links text on left */
     justify-content: start;
     justify-items: start;
     align-items: center;
 }
 
+/* Dropdown links */
 .dropdown-menu div a {
     grid-area: droplink;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bolder;
 }
-
+/* Color change when hover over or visit links in dropdown menu */
 .dropdown-menu div a:visited {
     color: var(--this-red);
 }
-
 .dropdown-menu div a:hover {
     color: var(--this-dark-red);
 }
 
+/* 'Your Go-To Site for Horror News and Reviews' text */
 #main-subheading {
     grid-area: sbhd;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding: 50px;
     justify-self: center;
 }
@@ -450,17 +462,18 @@ header .header-headings-area {
     border-radius: 4px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     cursor: pointer;
 }
 
+/* Three bars that make up icon on the dropdown button */
 .bar1,
 .bar2,
 .bar3 {
     width: 40px;
-    height: 0.25rem;
-    background-color: #000000;
+    height: 0.3rem;
+    background-color: black;
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -482,7 +495,8 @@ header .header-headings-area {
     transform: rotate(43deg) translate(-8.1px, -8px);
 }
 
-/************************************ELEMENTS IN THE INDEX MAIN CONTAINER****************************************/
+
+/************************************MAIN CONTAINER****************************************/
 
 main {
     grid-area: mn;
@@ -491,11 +505,13 @@ main {
     display: grid;
     grid-template-rows: 5% 95%;
     grid-template-areas: "social-media-links"
-        "main-part";
+                          "main-part";
 }
 
 
-
+/* Social media links in main container */
+/* Only appear with smaller screen sizes, whereas the top social media
+links in the navbar will disappear */
 #main-container-media-links {
     z-index: 2;
     list-style-type: none;
@@ -503,41 +519,16 @@ main {
     grid-area: social-media-links;
 }
 
+/* Main content */
 .main-part-of-page {
     grid-area: main-part;
 }
 
 
-#main-container-media-links>li {
-    margin-left: 14px;
-}
+/************************************INDEX.HTML STYLING****************************************/
 
-/* Social media buttons on navbar will disappear and appear in the main container if
-screen size is less than 768px */
-@media only screen and (max-device-width: 768px) {
-    #main-container-media-links {
-        display: inline;
-    }
-
-    #main-container-media-links>li {
-        display: inline-block;
-    }
-}
-
-
-.social-media-icon {
-    width: 1.8rem;
-    height: auto;
-}
-
-.social-media-icon:hover {
-    width: 3rem;
-}
-
-
-
+/* Main message in index page welcoming the user */
 #welcome-content {
-    padding-top: 50px;
     padding-bottom: 100px;
     display: grid;
     grid-template-columns: 15% minmax(30%, 70%) 15%;
@@ -551,49 +542,68 @@ screen size is less than 768px */
     justify-items: center;
     align-items: space-around;
     text-align: center;
-    gap: 0.8rem;
-    margin: 2rem;
+    margin: 1rem;
 }
 
+/*  */
 #welcome-content h2 {
     font-size: 1.6rem;
     grid-area: header1;
-    align-self: start;
 }
 
 
 #welcome-content h3 {
     font-size: 1.4rem;
     grid-area: header2;
+}
+
+#welcome-content h2, #welcome-content h3
+{
     align-self: start;
 }
 
+/* Short text description of the website */
 #welcome-info {
     grid-area: welcomeinfo;
-    align-self: end;
+    align-self: center;
 }
 
-#welcome-info>p {
+#welcome-info >p {
     font-size: 1.1rem;
     text-align: center;
 }
 
+/* Bullet point list advertising features of the website */
 #welcome-list {
     list-style-type: none;
 }
 
 #welcome-list li {
     font-size: 0.9rem;
-    padding-top: 2.2rem;
+    padding-top: 2rem;
 }
 
-
-/* Media queries for header and index page */
-@media only screen and (min-device-width: 768px) {
-    .dropdown {
-        display: none;
+@media only screen and (max-device-width: 400px) {
+    #menu-button {
+        font-size: 10px;
     }
 
+    #main-subheading {
+        font-size: 1rem;
+    }
+
+    #accessibility-options {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "darkbutton"
+            "textsizes";
+    }
+
+    #accessibility-options li {
+        padding-top: 0.7rem;
+        display: block;
+    }
 }
 
 @media only screen and (max-device-width: 600px) {
@@ -619,28 +629,82 @@ screen size is less than 768px */
     }
 }
 
-@media only screen and (max-device-width: 400px) {
-    #menu-button {
-        font-size: 10px;
-    }
 
-    #main-subheading {
-        font-size: 1rem;
-    }
-
-    #accessibility-options {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-            "darkbutton"
-            "textsizes";
-    }
-
-    #accessibility-options li {
-        padding-top: 0.7rem;
-        display: block;
+/* Display dropdown only on smaller screens */
+@media only screen and (min-device-width: 768px) 
+{
+    .dropdown-container
+    {
+        display: none;
     }
 }
+
+/* Small screens */
+@media only screen and (max-device-width: 768px) {
+    .dropdown-container
+    {
+        display: inline-block;
+    }
+    /* Hide the navbar links for very small screens (must use menu-button and dropdown instead) */
+    #main-navbar-list {
+        display: none;
+    }
+    #navbar-logo-text {
+        display: none;
+    } 
+    /* Only display accessibility options in the header */
+    #main-navbar {
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "accessibility accessibility accessibility accessibility accessibility";
+    }
+    /* Social media buttons on navbar will disappear and appear in the main container if
+    screen size is less than 768px */
+    #main-container-media-links {
+        display: inline;
+    }
+    #main-container-media-links > li {
+        display:
+         inline-block;
+    }
+    /* Not the same as navbar social media icons */
+    /* These ones have different appearance and are displayed in the Main semantic
+    section of the document */
+    .social-media-icon {
+    width: 1.8rem;
+    height: auto;
+    }
+    .social-media-icon:hover {
+        width: 3rem;
+    }
+
+}
+
+/* Media query for small laptops */
+@media only screen and (max-device-width: 1565px) and (min-device-width: 1200px) {
+    /* Stack dark-button on top of textsize buttons instead of having them all inline */
+    #accessibility-options {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "logo darkbutton"
+                             "logo textsize";
+    }
+}
+
+
+/* Medium-sized/tablet screens */
+@media only screen and (max-device-width: 1200px) and (min-device-width: 768px) {
+    /* Make three rows for the logo, darkmode button, and textsizes buttons to fit the screen */
+    #accessibility-options {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "logo"
+                            "darkbutton"
+                            "textsizes";
+    }
+
+}
+
 
 
 /************************************ELEMENTS IN THE FOOTER****************************************/
@@ -1151,12 +1215,14 @@ footer {
 }
 
 .travel-location-image {
-    width: 96%;
-    height: 14rem;
+    width: 26rem;
+    height: 16rem;
     border: 6px solid black;
     margin-top: 10px;
     margin: 20px;
 }
+
+
 
 .travel-location-caption {
     font-size: 0.8rem;
@@ -1178,6 +1244,10 @@ footer {
 @media only screen and (max-device-width: 1300px) {
     .travel-not-hidden {
         padding-bottom: 1rem;
+    }
+    .travel-location-image
+    {
+        width: 20rem;
     }
 }
 

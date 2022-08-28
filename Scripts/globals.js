@@ -7,6 +7,7 @@ var myBlack = 'var(--off-black)';
 var myWhite = 'var(--off-white)';
 var myRed = 'var(--this-red)';
 var myLightGrey = 'var(--this-light-grey)';
+var myMidGrey = 'var(--this-mid-grey)';
 // Stores common linear gradient CSS colors when changing BUTTON color when toggling dark/light modes
 var linearGradientLight = 'linear-gradient(var(--this-mid-grey), var(--off-black), var(--this-mid-grey))';
 var linearGradientDark = 'linear-gradient(var(--this-mid-grey), var(--off-white), var(--this-mid-grey))';
