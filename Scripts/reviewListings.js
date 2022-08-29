@@ -11,36 +11,36 @@ function setReviewIconsParameters()
     let imageObject = {
         className: 'media-icon',
         largeTextSize : {
-            smallScreenWidth: '12rem',
-            smallScreenHeight: '14rem',
+            smallScreenWidth: '10rem',
+            smallScreenHeight: '12rem',
             midScreenWidth: '14rem',
             midScreenHeight: '16rem',
-            largeScreenWidth: '14rem',
-            largeScreenHeight: '20rem'
+            largeScreenWidth: '10rem',
+            largeScreenHeight: '16rem'
         },
         midTextSize : {
             smallScreenWidth: '12rem',
             smallScreenHeight: '16rem',
             midScreenWidth: '14rem',
             midScreenHeight: '18rem',
-            largeScreenWidth: '14rem',
-            largeScreenHeight: '18rem',
+            largeScreenWidth: '10rem',
+            largeScreenHeight: '14rem',
         },
         smallTextSize: {
             smallScreenWidth: '10rem',
             smallScreenHeight: '14rem',
             midScreenWidth: '12rem',
             midScreenHeight: '16rem',
-            largeScreenWidth: '16rem',
-            largeScreenHeight: '20rem'
+            largeScreenWidth: '12rem',
+            largeScreenHeight: '16rem'
         },
         extraSmallTextSize: {
             smallScreenWidth: '9rem',
             smallScreenHeight: '12rem',
             midScreenWidth: '12rem',
             midScreenHeight: '16rem',
-            largeScreenWidth: '14rem',
-            largeScreenHeight: '20rem'
+            largeScreenWidth: '12rem',
+            largeScreenHeight: '18rem'
         }
     } 
     array.push(imageObject);
