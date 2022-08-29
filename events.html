@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spooktastic: Travel Suggestions</title>
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="icon" type="image/x-icon" href="/assets/star.svg">
-  </head>
-  <body>
-    <div class="parent-container">
-        <div class="loader"></div>
-        <header>
+</head>
+
+<body>
+    <!-- Container for all the visible HTML -->
+    <div aria-label="container for all the body html" class="parent-container">
+        <!-- Loader appears only if document is not ready yet (functionality in JS) -->
+        <div aria-label="circular loader in red, grey, and black" class="loader"></div>
+        <!-- Header containing logo, navbars, titles, subtitles and dropdown -->
+        <!-- Becomes sticky if user scrolls down on a large screen +1200px -->
+        <header aria-label="header including accessibility options, navbar and headings">
             <!--Attribution: tip for making CSS background-img accessible 
                 https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
-            <!-- include the img tag but visually hide it with .screenreader-only -->
-            <img class="screenreader-only" alt="Background photograph of dark greyscale forest" src="./Assets/forestVanillaFilter.jpg">
-            <nav id="main-navbar">
-                <ul id="accessibility-options">
+            <!-- Includes the img tag but visually hide it with .screenreader-only -->
+            <img class="screenreader-only" alt="Background photograph of dark greyscale forest"
+                src="./Assets/forestVanillaFilter.jpg">
+            <!-- Left-side navbar containing acessibility options, links and social media icons -->
+            <nav aria-label="main navbar" id="main-navbar">
+                <!-- List of accessibility options: text size options and dark/light mode button
+                (as well as logo) -->
+                <ul aria-label="list of accessibility options" id="accessibility-options">
                     <li>
+                        <!-- Logo disappears on smaller screens less than 768px -->
                         <h2 id="navbar-logo-text">
-                            <a href="index.html">SPOOKTASTIC</a>
+                            <a role="logo" href="index.html">SPOOKTASTIC</a>
                         </h2>
                     </li>
                     <li>
+                        <!-- Button to switch between dark and light mode -->
                         <button id="dark-mode">
                             Dark Mode
                         </button>
                     </li>
                     <li>
-                        <span id="text-size-options">
+                        <!-- Text options, change font size in whole page on click -->
+                        <!-- Used a 'span' semantic tag because the buttons always need to 
+                            always be in a horizontal line -->
+                        <span aria-label="text size options span container" id="text-size-options">
+                            <!-- Buttons styled to look like links -->
                             <button id="large-text">
-                                <b>A</b>
+                                <b aria-label="large text option">A</b>
                             </button>
                             <button id="medium-text">
-                                <b>a</b>
+                                <b aria-label="medium text option">a</b>
                             </button>
                             <button id="small-text">
-                                <b>a</b>
+                                <b aria-label="small text option">a</b>
                             </button>
                             <button id="extra-small-text">
-                                <b>a</b>
+                                <b aria-label="extra small text option">a</b>
                             </button>
                         </span>
                     </li>
-                    
                 </ul>
-                
-                 <ol id="main-navbar-list">
-                    <ol id="links-to-this-site">
+                <!-- Right-side navbar. Shows links within website and social media icons -->
+                <!-- Hidden on smaller screens with less than 768px -->
+                <ol aria-label="navbar with social media links and site links" id="main-navbar-list">
+                    <ol aria-lavel="internal links within this website" id="links-to-this-site">
                         <li>
                             <a class="main-nav-link" id="main-nav-home-link" href="index.html">HOME</a>
                         </li>
@@ -55,49 +71,54 @@
                             <a class="main-nav-link" id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
                         </li>
                         <li>
-                            <a class="main-nav-link" id="main-nav-films-link"  href="filmReviews.html">MOVIES</a>
+                            <a class="main-nav-link" id="main-nav-films-link" href="filmReviews.html">MOVIES</a>
                         </li>
                         <li>
-                            <a class="main-nav-link" id="main-nav-music-link"  href="music.html">MUSIC</a>
+                            <a class="main-nav-link" id="main-nav-music-link" href="music.html">MUSIC</a>
                         </li>
                         <li>
-                            <a class="main-nav-link" id="main-nav-travel-link"  href="travel.html">TRAVEL</a>
+                            <a class="main-nav-link" id="main-nav-travel-link" href="travel.html">TRAVEL</a>
                         </li>
                         <li>
-                            <a class="main-nav-link" id="main-nav-events-link"  href="events.html">EVENTS</a>
+                            <a class="main-nav-link" id="main-nav-events-link" href="events.html">EVENTS</a>
                         </li>
                         <li>
-                            <a class="main-nav-link" id="main-nav-about-link"  href="index.html">ABOUT</a>
-                        </li>
-                        <li>
-                            <a class="main-nav-link" id="main-nav-write-link"  href="subscribe.html">SUBSCRIBE</a>
+                            <a class="main-nav-link" id="main-nav-write-link" href="subscribe.html">SUBSCRIBE</a>
                         </li>
                     </ol>
-                    <ol id="social-links">
+                    <!-- Hidden on smaller screens and displayed in <main/> -->
+                    <ol aria-label="list of links to social media" id="social-links">
                         <li>
-                            <a class="social-media-link" href="https://www.facebook.com">
-                                <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px" height="auto">
+                            <a aria-label="link to facebook" class="social-media-link" href="https://www.facebook.com">
+                                <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg"
+                                    width="20px" height="auto">
                             </a>
                         </li>
                         <li>
-                            <a class="social-media-link" href="https://www.twitter.com">
-                                <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px" height="auto">
+                            <a aria-label="link to twitter" class="social-media-link" href="https://www.twitter.com">
+                                <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg"
+                                    width="20px" height="auto">
                             </a>
                         </li>
-                        <li >
-                            <a class="social-media-link" href="https://www.instagram.com">
-                                <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px" height="auto">
-                            </a>
-                        </li>   
                         <li>
-                            <a class="social-media-link" href="https://www.pinterest.com">
-                                <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px" height="auto">
+                            <a aria-label="link to instagram" class="social-media-link"
+                                href="https://www.instagram.com">
+                                <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to pinterest" class="social-media-link"
+                                href="https://www.pinterest.com">
+                                <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
+                                    width="20px" height="auto">
                             </a>
                         </li>
                     </ol>
                 </ol>
-            </nav>    
-            <div class="header-headings-area">
+            </nav>
+            <!-- Title of website, subheading section -->
+            <div aria-label="main headings area" class="header-headings-area">
                 <h1 id="main-heading">
                     SPOOKTASTIC
                 </h1>
@@ -108,12 +129,13 @@
                     <div class="dropdown-container">
                         <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
                         <!-- Changes the menu three bars icon to a cross when clicked -->
-                        <div id="menu-button">
+                        <!-- Only appears on smaller screens of 768px or less -->
+                        <div area-label="menu with three bars which change to an X on open" id="menu-button">
                             <div class="bar1"></div>
                             <div class="bar2"></div>
                             <div class="bar3"></div>
                         </div>
-                        <div id="dropdown" class="dropdown-menu">
+                        <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
                             <div class="dropdown-link-div">
                                 <a href="index.html">Home</a>
                             </div>
@@ -143,32 +165,40 @@
                 </div>
             </div>
         </header>
-
         <main>
             <ul id="main-container-media-links">
                 <li>
-                    <a class="social-media-link" href="https://www.facebook.com">
-                        <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px" height="auto">
+                    <!-- Gave aria labels as no text inside the component for screenreaders to access -->
+                    <a aria-label="on small screens link to facebook" class="social-media-link"
+                        href="https://www.facebook.com">
+                        <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px"
+                            height="auto">
                     </a>
                 </li>
                 <li>
-                    <a class="social-media-link" href="https://www.twitter.com">
-                        <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px" height="auto">
+                    <a aria-label="on small screens link to twitter" class="social-media-link"
+                        href="https://www.twitter.com">
+                        <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px"
+                            height="auto">
                     </a>
                 </li>
                 <li>
-                    <a class="social-media-link" href="https://www.instagram.com">
-                        <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px" height="auto">
+                    <a aria-label="on small screens link to instagram" class="social-media-link"
+                        href="https://www.instagram.com">
+                        <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
+                            width="20px" height="auto">
                     </a>
-                </li>   
+                </li>
                 <li>
-                    <a class="social-media-link" href="https://www.pinterest.com">
-                        <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px" height="auto">
+                    <a aria-label="on small screens link to pinterest" class="social-media-link"
+                        href="https://www.pinterest.com">
+                        <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
+                            width="20px" height="auto">
                     </a>
                 </li>
             </ul>
             <div class="main-part-of-page main-travel-events-container">
-                <h3 id="travel-events-title"  class="travel-events-title">Upcoming Spooky Events</h3>
+                <h3 id="travel-events-title" class="travel-events-title">Upcoming Spooky Events</h3>
                 <div id="events-content" class="travel-events-content">
                     <div class="not-hidden event-item">
                         <a class="travel-event-title" href="review.html">
@@ -177,16 +207,18 @@
                         <a href="review.html">
                             <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
+                        <a class="travel-location-caption">
+                            <caption>
+                                Description of the image
+                            </caption>
+                        </a>
                         <p class="travel-location-description">
-                            "Lorem ipsum dolor sit amet, consectetur 
+                            "Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
+                            ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
                         </p>
                     </div>
                     <div class="not-hidden event-item">
@@ -196,16 +228,18 @@
                         <a href="review.html">
                             <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
+                        <a class="travel-location-caption">
+                            <caption>
+                                Description of the image
+                            </caption>
+                        </a>
                         <p class="travel-location-description">
-                            "Lorem ipsum dolor sit amet, consectetur 
+                            "Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
+                            ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
                         </p>
                     </div>
                     <div class="hidden event-item">
@@ -215,16 +249,18 @@
                         <a href="review.html">
                             <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
+                        <a class="travel-location-caption">
+                            <caption>
+                                Description of the image
+                            </caption>
+                        </a>
                         <p class="travel-location-description">
-                            "Lorem ipsum dolor sit amet, consectetur 
+                            "Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
+                            ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
                         </p>
                     </div>
                     <div class="hidden event-item">
@@ -234,16 +270,18 @@
                         <a href="review.html">
                             <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
+                        <a class="travel-location-caption">
+                            <caption>
+                                Description of the image
+                            </caption>
+                        </a>
                         <p class="travel-location-description">
-                            "Lorem ipsum dolor sit amet, consectetur 
+                            "Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
+                            ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
                         </p>
                     </div>
                     <div class="hidden event-item">
@@ -253,16 +291,18 @@
                         <a href="review.html">
                             <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
+                        <a class="travel-location-caption">
+                            <caption>
+                                Description of the image
+                            </caption>
+                        </a>
                         <p class="travel-location-description">
-                            "Lorem ipsum dolor sit amet, consectetur 
+                            "Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
+                            ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
                         </p>
                     </div>
                     <div class="hidden event-item">
@@ -272,16 +312,18 @@
                         <a href="review.html">
                             <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
-                        <a class="travel-location-caption"><caption >
-                            Description of the image
-                        </caption></a>
+                        <a class="travel-location-caption">
+                            <caption>
+                                Description of the image
+                            </caption>
+                        </a>
                         <p class="travel-location-description">
-                            "Lorem ipsum dolor sit amet, consectetur 
+                            "Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea 
-                            commodo consequat. 
+                            ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
                         </p>
                     </div>
                 </div>
@@ -291,7 +333,10 @@
                 </div>
             </div>
         </main>
-        <footer>
+        <!-- Footer in 3 columns on larger screens -->
+        <!-- Footer with 1 column on small screens -->
+        <footer aria-label="footer containing copyright, contact details and links to other pages in
+            the site">
             <div id="copyright">
                 Ophelia Lavey 2022
             </div>
@@ -303,13 +348,14 @@
                 </email>
                 <h5>Snail Mail:</h5>
                 <address id="footer-address-contact">
-                    23 Will-O-the-Wisp Road 
+                    23 Will-O-the-Wisp Road
                     Salem
                     DV6 666
                     UK
                 </address>
             </div>
-        <nav id="site-map">
+            <!-- Another navbar with all links within site -->
+            <nav aria-label="links within this site" id="site-map">
                 <ol>
                     <li>
                         <a id="footer-nav-home-link" href="index.html">Home</a>
@@ -330,9 +376,6 @@
                         <a id="footer-nav-events-link" href="events.html">Mysterious Events</a>
                     </li>
                     <li>
-                        <a id="footer-nav-about-link" href="index.html">About</a>
-                    </li>
-                    <li>
                         <a id="footer-nav-write-link" href="subscribe.html">Subscribe to Newsletter!</a>
                     </li>
                 </ol>
@@ -345,5 +388,6 @@
     <script src="./Scripts/hideShowElements.js"></script>
     <script src="./Scripts/travelAndEvents.js"></script>
     <script src="./Scripts/changeTextAndImageSizes.js"></script>
-  </body>
+</body>
+
 </html>

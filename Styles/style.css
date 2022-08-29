@@ -222,7 +222,7 @@ changes display from 'none' to 'block' */
 }
 
 /* Buttons with a transparent background are displayed to look like links */
-#text-size-options>button {
+#text-size-options > button {
     background-color: Transparent;
     border: none;
     cursor: pointer;
@@ -309,7 +309,7 @@ changes display from 'none' to 'block' */
     grid-template-rows: 1fr 1fr;
     justify-items: end;
     grid-template-areas: "links1 links1 links1 links1 links1 links1  links1  links1"
-        "links2 links2 links2 links2 links2 links2  links2  links2";
+                        "links2 links2 links2 links2 links2 links2  links2  links2";
 
 }
 
@@ -321,13 +321,13 @@ changes display from 'none' to 'block' */
 }
 
 /* Increases size of link when mouse is over it */
-#links-to-this-site>li:hover {
+#links-to-this-site > li:hover {
     font-size: 1.5rem;
 }
 
 /* Makes all the links to different web pages inline */
 #links-to-this-site>li,
-#social-links>li {
+#social-links > li {
     display: inline;
     padding-left: 14px;
     font-size: 1rem;
@@ -564,6 +564,7 @@ footer {
     /* Will change colors in dark mode */
     background-color: var(--this-light-grey);
     color: var(--off-black);
+    border: 4px double var(--this-dark-red);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: repeat(1fr, 9);
@@ -577,7 +578,6 @@ footer {
         ". . map"
         ". .  map"
         "copyright  . map "
-
 }
 
 /* First section: copyright */
@@ -633,7 +633,7 @@ later on smaller size screens */
 /************************************END OF FOOTER STYLING****************************************/
 
 
-/************************************INDEX.HTML STYLING****************************************/
+/************************************HOMEPAGE STYLING****************************************/
 
 /* Main message in index page welcoming the user */
 #welcome-content {

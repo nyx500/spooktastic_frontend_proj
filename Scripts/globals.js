@@ -30,7 +30,6 @@ var rightHandMenuLinks = [
   document.getElementById('main-nav-music-link'),
   document.getElementById('main-nav-travel-link'),
   document.getElementById('main-nav-events-link'),
-  document.getElementById('main-nav-about-link'),
   document.getElementById('main-nav-write-link')
 ]
 
@@ -42,7 +41,6 @@ var footerLinks = [
   document.getElementById('footer-nav-music-link'),
   document.getElementById('footer-nav-travel-link'),
   document.getElementById('footer-nav-events-link'),
-  document.getElementById('footer-nav-about-link'),
   document.getElementById('footer-nav-write-link')
 ]
 
