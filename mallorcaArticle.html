@@ -4,171 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spooktastic</title>
+    <title>5 Spooky Locations in Mallorca, Spain</title>
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="icon" type="image/x-icon" href="/assets/star.svg">
 </head>
 
 <body>
-    <div class="parent-container">
-        <div class="loader"></div>
-        <!-- Container for all the visible HTML -->
-        <div aria-label="container for all the body html" class="parent-container">
-            <!-- Loader appears only if document is not ready yet (functionality in JS) -->
-            <div aria-label="circular loader in red, grey, and black" class="loader"></div>
-            <!-- Header containing logo, navbars, titles, subtitles and dropdown -->
-            <!-- Becomes sticky if user scrolls down on a large screen +1200px -->
-            <header aria-label="header including accessibility options, navbar and headings">
-                <!--Attribution: tip for making CSS background-img accessible 
-                    https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
-                <!-- Includes the img tag but visually hide it with .screenreader-only -->
-                <img class="screenreader-only" alt="Background photograph of dark greyscale forest"
-                    src="./Assets/forestVanillaFilter.jpg">
-                <!-- Left-side navbar containing acessibility options, links and social media icons -->
-                <nav aria-label="main navbar" id="main-navbar">
-                    <!-- List of accessibility options: text size options and dark/light mode button
-                    (as well as logo) -->
-                    <ul aria-label="list of accessibility options" id="accessibility-options">
-                        <li>
-                            <!-- Logo disappears on smaller screens less than 768px -->
-                            <h2 id="navbar-logo-text">
-                                <a role="logo" href="index.html">SPOOKTASTIC</a>
-                            </h2>
-                        </li>
-                        <li>
-                            <!-- Button to switch between dark and light mode -->
-                            <button id="dark-mode">
-                                Dark Mode
-                            </button>
-                        </li>
-                        <li>
-                            <!-- Text options, change font size in whole page on click -->
-                            <!-- Used a 'span' semantic tag because the buttons always need to 
-                                always be in a horizontal line -->
-                            <span aria-label="text size options span container" id="text-size-options">
-                                <!-- Buttons styled to look like links -->
-                                <button id="large-text">
-                                    <b aria-label="large text option">A</b>
-                                </button>
-                                <button id="medium-text">
-                                    <b aria-label="medium text option">a</b>
-                                </button>
-                                <button id="small-text">
-                                    <b aria-label="small text option">a</b>
-                                </button>
-                                <button id="extra-small-text">
-                                    <b aria-label="extra small text option">a</b>
-                                </button>
-                            </span>
-                        </li>
-                    </ul>
-                    <!-- Right-side navbar. Shows links within website and social media icons -->
-                    <!-- Hidden on smaller screens with less than 768px -->
-                    <ol aria-label="navbar with social media links and site links" id="main-navbar-list">
-                        <ol aria-lavel="internal links within this website" id="links-to-this-site">
-                            <li>
-                                <a class="main-nav-link" id="main-nav-home-link" href="index.html">HOME</a>
-                            </li>
-                            <li>
-                                <a class="main-nav-link" id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
-                            </li>
-                            <li>
-                                <a class="main-nav-link" id="main-nav-films-link" href="filmReviews.html">MOVIES</a>
-                            </li>
-                            <li>
-                                <a class="main-nav-link" id="main-nav-music-link" href="music.html">MUSIC</a>
-                            </li>
-                            <li>
-                                <a class="main-nav-link" id="main-nav-travel-link" href="travel.html">TRAVEL</a>
-                            </li>
-                            <li>
-                                <a class="main-nav-link" id="main-nav-events-link" href="events.html">EVENTS</a>
-                            </li>
-                            <li>
-                                <a class="main-nav-link" id="main-nav-write-link" href="subscribe.html">SUBSCRIBE</a>
-                            </li>
-                        </ol>
-                        <!-- Hidden on smaller screens and displayed in <main/> -->
-                        <ol aria-label="list of links to social media" id="social-links">
-                            <li>
-                                <a aria-label="link to facebook" class="social-media-link"
-                                    href="https://www.facebook.com">
-                                    <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg"
-                                        width="20px" height="auto">
-                                </a>
-                            </li>
-                            <li>
-                                <a aria-label="link to twitter" class="social-media-link"
-                                    href="https://www.twitter.com">
-                                    <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg"
-                                        width="20px" height="auto">
-                                </a>
-                            </li>
-                            <li>
-                                <a aria-label="link to instagram" class="social-media-link"
-                                    href="https://www.instagram.com">
-                                    <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
-                                        width="20px" height="auto">
-                                </a>
-                            </li>
-                            <li>
-                                <a aria-label="link to pinterest" class="social-media-link"
-                                    href="https://www.pinterest.com">
-                                    <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
-                                        width="20px" height="auto">
-                                </a>
-                            </li>
-                        </ol>
-                    </ol>
-                </nav>
-                <!-- Title of website, subheading section -->
-                <div aria-label="main headings area" class="header-headings-area">
-                    <h1 id="main-heading">
-                        SPOOKTASTIC
-                    </h1>
-                    <div id="main-subheading-and-dropdown-container">
-                        <h2 id="main-subheading">
-                            Your Go-To Site for Horror News and Reviews
+    <!-- Container for all the visible HTML -->
+    <div aria-label="container for all the body html" class="parent-container">
+        <!-- Loader appears only if document is not ready yet (functionality in JS) -->
+        <div aria-label="circular loader in red, grey, and black" class="loader"></div>
+        <!-- Header containing logo, navbars, titles, subtitles and dropdown -->
+        <!-- Becomes sticky if user scrolls down on a large screen +1200px -->
+        <header aria-label="header including accessibility options, navbar and headings">
+            <!--Attribution: tip for making CSS background-img accessible 
+                https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
+            <!-- Includes the img tag but visually hide it with .screenreader-only -->
+            <img class="screenreader-only" alt="Background photograph of dark greyscale forest"
+                src="./Assets/forestVanillaFilter.jpg">
+            <!-- Left-side navbar containing acessibility options, links and social media icons -->
+            <nav aria-label="main navbar" id="main-navbar">
+                <!-- List of accessibility options: text size options and dark/light mode button
+                (as well as logo) -->
+                <ul aria-label="list of accessibility options" id="accessibility-options">
+                    <li>
+                        <!-- Logo disappears on smaller screens less than 768px -->
+                        <h2 id="navbar-logo-text">
+                            <a role="logo" href="index.html">SPOOKTASTIC</a>
                         </h2>
-                        <div class="dropdown-container">
-                            <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
-                            <!-- Changes the menu three bars icon to a cross when clicked -->
-                            <!-- Only appears on smaller screens of 768px or less -->
-                            <div area-label="menu with three bars which change to an X on open" id="menu-button">
-                                <div class="bar1"></div>
-                                <div class="bar2"></div>
-                                <div class="bar3"></div>
+                    </li>
+                    <li>
+                        <!-- Button to switch between dark and light mode -->
+                        <button id="dark-mode">
+                            Dark Mode
+                        </button>
+                    </li>
+                    <li>
+                        <!-- Text options, change font size in whole page on click -->
+                        <!-- Used a 'span' semantic tag because the buttons always need to 
+                            always be in a horizontal line -->
+                        <span aria-label="text size options span container" id="text-size-options">
+                            <!-- Buttons styled to look like links -->
+                            <button id="large-text">
+                                <b aria-label="large text option">A</b>
+                            </button>
+                            <button id="medium-text">
+                                <b aria-label="medium text option">a</b>
+                            </button>
+                            <button id="small-text">
+                                <b aria-label="small text option">a</b>
+                            </button>
+                            <button id="extra-small-text">
+                                <b aria-label="extra small text option">a</b>
+                            </button>
+                        </span>
+                    </li>
+                </ul>
+                <!-- Right-side navbar. Shows links within website and social media icons -->
+                <!-- Hidden on smaller screens with less than 768px -->
+                <ol aria-label="navbar with social media links and site links" id="main-navbar-list">
+                    <ol aria-lavel="internal links within this website" id="links-to-this-site">
+                        <li>
+                            <a class="main-nav-link" id="main-nav-home-link" href="index.html">HOME</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-films-link" href="filmReviews.html">MOVIES</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-music-link" href="music.html">MUSIC</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-travel-link" href="travel.html">TRAVEL</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-events-link" href="events.html">EVENTS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-write-link" href="subscribe.html">SUBSCRIBE</a>
+                        </li>
+                    </ol>
+                    <!-- Hidden on smaller screens and displayed in <main/> -->
+                    <ol aria-label="list of links to social media" id="social-links">
+                        <li>
+                            <a aria-label="link to facebook" class="social-media-link" href="https://www.facebook.com">
+                                <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to twitter" class="social-media-link" href="https://www.twitter.com">
+                                <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to instagram" class="social-media-link"
+                                href="https://www.instagram.com">
+                                <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to pinterest" class="social-media-link"
+                                href="https://www.pinterest.com">
+                                <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                    </ol>
+                </ol>
+            </nav>
+            <!-- Title of website, subheading section -->
+            <div aria-label="main headings area" class="header-headings-area">
+                <h1 id="main-heading">
+                    SPOOKTASTIC
+                </h1>
+                <div id="main-subheading-and-dropdown-container">
+                    <h2 id="main-subheading">
+                        Your Go-To Site for Horror News and Reviews
+                    </h2>
+                    <div class="dropdown-container">
+                        <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
+                        <!-- Changes the menu three bars icon to a cross when clicked -->
+                        <!-- Only appears on smaller screens of 768px or less -->
+                        <div area-label="menu with three bars which change to an X on open" id="menu-button">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div>
+                        <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
+                            <div class="dropdown-link-div">
+                                <a href="index.html">Home</a>
                             </div>
-                            <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
-                                <div class="dropdown-link-div">
-                                    <a href="index.html">Home</a>
-                                </div>
-                                <hr>
-                                <div class="dropdown-link-div">
-                                    <a href="bookReviews.html">Book Reviews</a>
-                                </div>
-                                <hr>
-                                <div class="dropdown-link-div">
-                                    <a href="filmReviews.html">Film Reviews</a>
-                                </div>
-                                <hr>
-                                <div class="dropdown-link-div">
-                                    <a href="travel.html">Travel Suggestions</a>
-                                </div>
-                                <hr>
-                                <div class="dropdown-link-div">
-                                    <a href="events.html">Events</a>
-                                </div>
-                                <hr>
-                                <div class="dropdown-link-div">
-                                    <a href="subscribe.html">Subscribe</a>
-                                </div>
-                                <hr>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="bookReviews.html">Book Reviews</a>
                             </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="filmReviews.html">Film Reviews</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="travel.html">Travel Suggestions</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="events.html">Events</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="subscribe.html">Subscribe</a>
+                            </div>
+                            <hr>
                         </div>
                     </div>
                 </div>
-            </header>
+            </div>
+        </header>
             <main>
                 <ul id="main-container-media-links">
                     <li>

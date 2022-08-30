@@ -326,7 +326,7 @@ changes display from 'none' to 'block' */
 }
 
 /* Makes all the links to different web pages inline */
-#links-to-this-site>li,
+#links-to-this-site > li,
 #social-links > li {
     display: inline;
     padding-left: 14px;
@@ -730,6 +730,8 @@ the website */
     text-align: center;
     align-self: start;
     margin-left: 20px;
+    font-size: 1.8rem;
+    padding:0.8rem;
 }
 
 /* Links to reviews in this section */
@@ -853,7 +855,10 @@ as the red arrow which when clicked takes user to the top of the page */
 .load-more {
     grid-area: loadbutton;
     font-size: 1.2rem;
+    /* Ensures text of button fits inside */
     height: fit-content;
+    width: fit-content;
+    /* Sets width with padding property */
     padding: 1rem;
     padding-left: 20%;
     padding-right: 20%;
@@ -866,7 +871,6 @@ as the red arrow which when clicked takes user to the top of the page */
     cursor: pointer;
     border: 2px solid var(--off-black);
     border-radius: 2px;
-    width: fit-content;
 }
 
 /* Arrow to take user to top of the page */
@@ -878,7 +882,7 @@ as the red arrow which when clicked takes user to the top of the page */
     margin-bottom: -20px;
 }
 
-#scroll-up-arrow>img {
+#scroll-up-arrow > img {
     height: 6rem !important;
 }
 
@@ -903,22 +907,25 @@ as the red arrow which when clicked takes user to the top of the page */
     min-height: 60%;
 }
 
+
+/* List of links in aside menu */
+#aside-reviews > ul {
+    display: grid;
+    align-items: center;
+    list-style-type: none;
+    justify-items: center;
+    justify-content: start;
+}
+
 /* Aside heading */
-#aside-reviews>h4 {
+#aside-reviews > li > h4 {
     font-size: 1.8rem;
 }
 
-/* List of links in aside menu */
-#aside-reviews>ul {
-    display: grid;
-    align-items: center;
-}
-
 /* Separates the links in the aside menu */
-#aside-reviews>ul>li {
+#aside-reviews > ul > li > a {
     padding-top: 20px;
     padding-bottom: 20px;
-
 }
 
 
@@ -1020,13 +1027,24 @@ as the red arrow which when clicked takes user to the top of the page */
     border-radius: 4px;
     background-color: var(--this-light-grey);
     border: 4px solid var(--this-mid-grey);
+    align-self: stretch;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    height: fit-content;
     color: var(--white-color);
     font-weight: bolder;
     min-height: 75%;
     justify-self: end;
+    padding-bottom: 6rem;
+    margin-bottom: 10rem !important;
     margin-top: 50px;
     margin-right: 20px;
+    display: grid;
+    grid-template-columns: 100%;
+    text-align: center;
+    min-height: 60%;
 }
+
 
 /* List of items in review aside container */
 
@@ -1663,25 +1681,30 @@ where navbar will be hidden */
     /* Reformats aside menu to new dimensions, so it takes up less space */
     #aside-reviews {
         justify-self: center;
-        width: 75%;
+        width: fit-content;
+        padding-right: 2rem;
         align-self: center;
         margin-right: 0;
         padding-bottom: 1rem;
         margin-bottom: 10px;
         display: grid;
-        grid-template-rows: 1fr 2fr;
+        grid-template-columns: 1fr!important;
+        grid-template-rows: auto;
+        align-content: center;
+        justify-content: center;
     }
 
     #aside-reviews > ul {
         text-align: center;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        justify-items: center;
     }
 
     #aside-reviews > ul > li {
-        display: inline-block;
-        padding: 0.5rem;
+        display: block;
+        padding: 3rem;
     }
 
     /* Styling for single review/article page */

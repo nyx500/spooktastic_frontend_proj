@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spooktastic: Travel Suggestions</title>
+    <title>Events</title>
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="icon" type="image/x-icon" href="/assets/star.svg">
 </head>
@@ -168,7 +168,6 @@
         <main>
             <ul id="main-container-media-links">
                 <li>
-                    <!-- Gave aria labels as no text inside the component for screenreaders to access -->
                     <a aria-label="on small screens link to facebook" class="social-media-link"
                         href="https://www.facebook.com">
                         <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px"
@@ -197,15 +196,18 @@
                     </a>
                 </li>
             </ul>
+            <!-- Same layout as travel articles page -->
+            <!-- In two columns on desktop and tablet screens, one column on mobiles -->
             <div class="main-part-of-page main-travel-events-container">
                 <h3 id="travel-events-title" class="travel-events-title">Upcoming Spooky Events</h3>
                 <div id="events-content" class="travel-events-content">
-                    <div class="not-hidden event-item">
+                    <!-- First article showing when document loads -->
+                    <div aria-label="event article one" class="not-hidden event-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -221,12 +223,13 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="not-hidden event-item">
+                    <!-- Second article showing when document loads -->
+                    <div aria-label="event article two" class="not-hidden event-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -242,12 +245,15 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden event-item">
+                     <!-- Third article and greater indices of article are hidden when document loads -->
+                    <!-- Need to click on Load More button to expand the articles and click on the button
+                    which will display Hide to collapse article listings again -->
+                    <div aria-label="event article three" class="hidden event-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -263,12 +269,12 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden event-item">
+                    <div aria-label="event article four" class="hidden event-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -284,12 +290,12 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden event-item">
+                    <div aria-label="event article five"  class="hidden event-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -305,12 +311,12 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden event-item">
+                    <div aria-label="event article six" class="hidden event-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -327,9 +333,11 @@
                         </p>
                     </div>
                 </div>
+                 <!-- Container for Load More  button and scroll-up arrow -->
                 <div class="travel-events-expand">
                     <button id="load-more-events" class="load-more">Load More...</button>
-                    <a id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                    <a aria-label="scroll up red arrow" id="scroll-up-arrow"><img alt="Red arrow which takes user to
+                        top of page when clicked" src="Assets/upArrow.png"></a>
                 </div>
             </div>
         </main>

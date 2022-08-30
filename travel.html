@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spooktastic: Travel Suggestions</title>
+    <title>Travel Suggestions</title>
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="icon" type="image/x-icon" href="/assets/star.svg">
 </head>
@@ -161,33 +161,39 @@
                 </div>
             </div>
         </header>
-        <main>
-            <ul id="main-container-media-links">
+        <main aria-label="main container for travel articles">
+            <ul aria-label="list of links to social media" id="main-container-media-links">
                 <li>
-                    <a class="social-media-link" href="https://www.facebook.com">
-                        <img class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px" height="auto">
+                    <a aria-label="link to facebook" class="social-media-link" href="https://www.facebook.com">
+                        <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px"
+                            height="auto">
                     </a>
                 </li>
                 <li>
-                    <a class="social-media-link" href="https://www.twitter.com">
-                        <img class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px" height="auto">
+                    <a aria-label="link to twitter" class="social-media-link" href="https://www.twitter.com">
+                        <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px"
+                            height="auto">
                     </a>
                 </li>
                 <li>
-                    <a class="social-media-link" href="https://www.instagram.com">
-                        <img class="social-media-icon" src="./Assets/instagramIcon.svg" width="20px" height="auto">
+                    <a aria-label="link to instagram" class="social-media-link" href="https://www.instagram.com">
+                        <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
+                            width="20px" height="auto">
                     </a>
                 </li>
                 <li>
-                    <a class="social-media-link" href="https://www.pinterest.com">
-                        <img class="social-media-icon" src="./Assets/pinterestIcon.svg" width="20px" height="auto">
+                    <a aria-label="link to pinterest" class="social-media-link" href="https://www.pinterest.com">
+                        <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
+                            width="20px" height="auto">
                     </a>
                 </li>
             </ul>
+            <!-- In two columns on desktop and tablet screens, one column on mobiles -->
             <div class="main-part-of-page main-travel-events-container">
                 <h3 id="travel-title" class="travel-events-title">Top Spooky Travel Locations</h3>
                 <div id="travel-content" class="travel-events-content">
-                    <div class="not-hidden travel-item">
+                    <!-- First article showing when document loads -->
+                    <div aria-label="travel article one" class="not-hidden travel-item">
                         <a class="travel-event-title" href="mallorcaArticle.html">
                             <h4>Haunted Mallorca</h4>
                         </a>
@@ -207,12 +213,14 @@
                             more mystical and atmospheric side of this beautiful vacation island.
                         </p>
                     </div>
-                    <div class="not-hidden travel-item">
+                    <!-- Second article showing when document loads -->
+                    <div aria-label="travel article two" class="not-hidden travel-item">
                         <a href="washingtonStateArticle.html" class="travel-event-title" href="review.html">
                             <h4>Disover Seattle!</h4>
                         </a>
                         <a href="washingtonStateArticle.html">
-                            <img class="travel-location-image" src="./Assets/WashingtonArticle/yeOldCuriosity.jpg">
+                            <img alt="Ye Olde Curiosity Shop front, Seattle" class="travel-location-image"
+                                src="./Assets/WashingtonArticle/yeOldCuriosity.jpg">
                         </a>
                         <a href="washingtonStateArticle.html" class="travel-location-caption">
                             <caption>
@@ -228,12 +236,15 @@
                             best-written works of fantasy fiction out there...
                         </p>
                     </div>
-                    <div class="hidden travel-item">
+                    <!-- Third article and greater indices of article are hidden when document loads -->
+                    <!-- Need to click on Load More button to expand the articles and click on the button
+                    which will display Hide to collapse article listings again -->
+                    <div aria-label="travel article three" class="hidden travel-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -249,12 +260,12 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden travel-item">
+                    <div aria-label="travel article four" class="hidden travel-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -270,12 +281,12 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden travel-item">
+                    <div aria-label="travel article five" class="hidden travel-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -291,12 +302,12 @@
                             commodo consequat.
                         </p>
                     </div>
-                    <div class="hidden travel-item">
+                    <div aria-label="travel article six" class="hidden travel-item">
                         <a class="travel-event-title" href="review.html">
                             <h4>Title of Location/Event</h4>
                         </a>
                         <a href="review.html">
-                            <img class="travel-location-image" src="./Assets/romanian_caves.jpg">
+                            <img alt="no image" class="travel-location-image" src="./Assets/romanian_caves.jpg">
                         </a>
                         <a class="travel-location-caption">
                             <caption>
@@ -313,9 +324,11 @@
                         </p>
                     </div>
                 </div>
+                <!-- Container for Load More  button and scroll-up arrow -->
                 <div class="travel-events-expand">
                     <button id="load-more-travel" class="load-more">Load More...</button>
-                    <a id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                    <a aria-label="scroll up red arrow" id="scroll-up-arrow"><img alt="Red arrow which takes user to
+                        top of page when clicked" src="Assets/upArrow.png"></a>
                 </div>
             </div>
         </main>

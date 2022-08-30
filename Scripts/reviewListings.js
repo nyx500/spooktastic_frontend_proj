@@ -36,7 +36,7 @@ function setReviewIconsParameters()
         },
         extraSmallTextSize: {
             smallScreenWidth: '9rem',
-            smallScreenHeight: '12rem',
+            smallScreenHeight: '14rem',
             midScreenWidth: '12rem',
             midScreenHeight: '16rem',
             largeScreenWidth: '12rem',

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spooktastic Home: Book Reviews</title>
+    <title>Book Reviews</title>
     <!-- Attribution: https://www.w3schools.com/html/html_favicon.asp -->
     <!-- Attribution: https://www.flaticon.com/premium-icon/pentagram_3600252?term=pentagram&page=1&position=2&page=1&position=2&related_id=3600252&origin=search -->
     <link rel="icon" type="image/x-icon" href="/assets/star.svg">
@@ -169,6 +169,7 @@
             </div>
         </header>
         <main>
+            <!-- Inline row list displaying social media links -->
             <ul id="main-container-media-links">
                 <li>
                     <!-- Gave aria labels as no text inside the component for screenreaders to access -->
@@ -200,6 +201,7 @@
                     </a>
                 </li>
                 </ul>
+                <!-- In three columns on large screens, two columns on tablets, one column on mobiles -->
                 <div class="main-part-of-page main-reviews-container">
                     <!-- Left hand section (about 70% of screen): container with review icons -->
                     <section aria-label="section with images of books to click on" class="reviews">
@@ -261,13 +263,15 @@
                         <div  class="reviews-expand">
                             <button id="load-more-books" class="load-more">Load More...</button>
                             <a aria-label="arrow button to go
-                            to top of the page" id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                            to top of the page" id="scroll-up-arrow"><img
+                            alt="red arrow pointing up" src="Assets/upArrow.png"></a>
                         </div>
                     </section>
-                    <!-- An aside section with external links, takes up approximately 30% of page -->
+                    <!-- An aside section with external links, takes up approximately 20% of page -->
+                    <!-- Is positioned in one column under the reviews container on smaller screens -->
                     <aside id="aside-reviews">
-                        <h4>Other 'Horrifying' Content...</h4>
                         <ul>
+                            <li><h4>Other 'Horrifying' Content...</h4></li>
                             <li><a>5 Best (Something)...</a></li>
                             <li><a>5 Best (Something)...</a></li>
                             <li><a>5 Best (Something)...</a></li>
