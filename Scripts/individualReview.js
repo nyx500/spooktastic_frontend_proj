@@ -46,8 +46,8 @@ function setSingleReviewImageParameters() {
     var galleryImageObject = {
         className: 'gallery-img',
         largeTextSize : {
-            smallScreenWidth: '10rem',
-            smallScreenHeight: '8rem',
+            smallScreenWidth: '5rem!important',
+            smallScreenHeight: '3rem!important',
             midScreenWidth: '18rem',
             midScreenHeight: 'auto',
             largeScreenWidth: '12rem', 

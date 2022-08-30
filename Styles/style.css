@@ -222,7 +222,7 @@ changes display from 'none' to 'block' */
 }
 
 /* Buttons with a transparent background are displayed to look like links */
-#text-size-options > button {
+#text-size-options>button {
     background-color: Transparent;
     border: none;
     cursor: pointer;
@@ -309,7 +309,7 @@ changes display from 'none' to 'block' */
     grid-template-rows: 1fr 1fr;
     justify-items: end;
     grid-template-areas: "links1 links1 links1 links1 links1 links1  links1  links1"
-                        "links2 links2 links2 links2 links2 links2  links2  links2";
+        "links2 links2 links2 links2 links2 links2  links2  links2";
 
 }
 
@@ -321,13 +321,13 @@ changes display from 'none' to 'block' */
 }
 
 /* Increases size of link when mouse is over it */
-#links-to-this-site > li:hover {
+#links-to-this-site>li:hover {
     font-size: 1.5rem;
 }
 
 /* Makes all the links to different web pages inline */
-#links-to-this-site > li,
-#social-links > li {
+#links-to-this-site>li,
+#social-links>li {
     display: inline;
     padding-left: 14px;
     font-size: 1rem;
@@ -731,7 +731,7 @@ the website */
     align-self: start;
     margin-left: 20px;
     font-size: 1.8rem;
-    padding:0.8rem;
+    padding: 0.8rem;
 }
 
 /* Links to reviews in this section */
@@ -882,7 +882,7 @@ as the red arrow which when clicked takes user to the top of the page */
     margin-bottom: -20px;
 }
 
-#scroll-up-arrow > img {
+#scroll-up-arrow>img {
     height: 6rem !important;
 }
 
@@ -909,7 +909,7 @@ as the red arrow which when clicked takes user to the top of the page */
 
 
 /* List of links in aside menu */
-#aside-reviews > ul {
+#aside-reviews>ul {
     display: grid;
     align-items: center;
     list-style-type: none;
@@ -918,14 +918,15 @@ as the red arrow which when clicked takes user to the top of the page */
 }
 
 /* Aside heading */
-#aside-reviews > li > h4 {
+#aside-reviews>li>h4 {
     font-size: 1.8rem;
 }
 
 /* Separates the links in the aside menu */
-#aside-reviews > ul > li > a {
+#aside-reviews>ul>li>a {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-size: 1.6rem;
 }
 
 
@@ -949,9 +950,9 @@ as the red arrow which when clicked takes user to the top of the page */
 /* Title for whole travel page */
 .travel-events-title {
     grid-area: travel-events-title;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     text-align: center;
-    padding-top: 200px;
+    padding-top: 10rem;
     overflow-wrap: break-word;
 
 }
@@ -971,11 +972,13 @@ as the red arrow which when clicked takes user to the top of the page */
     padding-top: 40px;
     grid-column-gap: 20px;
 }
+
 /* Title for one specific article */
 .travel-event-title {
     font-size: 1rem;
     text-align: center;
 }
+
 /* Title for image in the article */
 .travel-location-image {
     width: 26rem;
@@ -984,11 +987,13 @@ as the red arrow which when clicked takes user to the top of the page */
     margin-top: 10px;
     margin: 20px;
 }
+
 /* Article caption */
 .travel-location-caption {
     font-size: 0.8rem;
     text-align: left;
 }
+
 /* Article beginning description... */
 .travel-location-description {
     text-align: left;
@@ -1001,6 +1006,7 @@ as the red arrow which when clicked takes user to the top of the page */
     grid-area: travel-events-expand;
     margin-bottom: 10rem;
 }
+
 /****************************END TRAVEL/EVENTS STYLING**********************************************/
 
 
@@ -1009,10 +1015,10 @@ as the red arrow which when clicked takes user to the top of the page */
 .main-review-container {
     display: grid;
     /* Has the main review section and the aside section */
-    grid-template-columns: 4fr 2fr;
+    grid-template-columns: 4fr 3fr;
     grid-template-rows: auto;
     grid-template-areas: "review review review review aside-single-review aside-single-review";
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     align-content: start;
     align-items: start;
     justify-content: start;
@@ -1027,42 +1033,51 @@ as the red arrow which when clicked takes user to the top of the page */
     border-radius: 4px;
     background-color: var(--this-light-grey);
     border: 4px solid var(--this-mid-grey);
-    align-self: stretch;
-    margin-right: 1rem;
-    margin-top: 2rem;
+    width: fit-content;
+    /* Makes sure content doesn't overflow from the container */
+    width: fit-content;
     height: fit-content;
-    color: var(--white-color);
+    /* Makes sure content stretches to the bottom of the page, so that
+    the containers look proportional */
+    align-self: stretch;
+    align-content: stretch;
+    align-items: stretch;
     font-weight: bolder;
-    min-height: 75%;
+    /* Makes sure that doesn't overflow over the main articles container */
+    max-width: 40%;
+    min-height: 100%;
     justify-self: end;
-    padding-bottom: 6rem;
+    padding: 1rem;
+    padding-bottom: 60rem;
     margin-bottom: 10rem !important;
     margin-top: 50px;
     margin-right: 20px;
     display: grid;
     grid-template-columns: 100%;
-    text-align: center;
     min-height: 60%;
 }
 
 
 /* List of items in review aside container */
 
-#aside-single-review > h4 {
+#aside-single-review>h4 {
     text-align: center;
     margin-left: 20px;
 }
-#aside-single-review > ul {
+
+#aside-single-review>ul {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
     grid-gap: 2px;
     align-items: start;
 }
-#aside-single-review > ul > h4 {
+
+#aside-single-review>ul>h4 {
     font-size: 2rem;
 }
-#aside-single-review  > ul > li {
+
+#aside-single-review>ul>li {
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -1085,7 +1100,7 @@ as the red arrow which when clicked takes user to the top of the page */
 }
 
 /* Heading/title of review */
-.review > h3 {
+.review>h3 {
     text-align: left !important;
     margin-top: 0.2rem;
     padding: 20px;
@@ -1097,15 +1112,17 @@ as the red arrow which when clicked takes user to the top of the page */
 /* Main text of article */
 #article-text {
     grid-area: article-text;
-    width: 80%;
+    width: 100%;
     justify-self: start;
     margin-left: 2rem;
     overflow-wrap: break-word;
 }
+
 /* A section/paragraph in the article */
 .article-body section {
     margin-bottom: 1rem;
 }
+
 .article-body section p {
     padding: 10px;
 }
@@ -1136,6 +1153,7 @@ as the red arrow which when clicked takes user to the top of the page */
     height: 10rem;
     border: 2px solid grey;
 }
+
 .gallery-img:hover {
     opacity: 1;
 }
@@ -1162,13 +1180,13 @@ as the red arrow which when clicked takes user to the top of the page */
 }
 
 
-
 /* Single image - not in a gallery */
 .review-single-image-container {
     width: 100%;
     position: relative;
     text-align: center;
 }
+
 .review-single-image {
     width: 60vw;
     height: auto;
@@ -1176,9 +1194,11 @@ as the red arrow which when clicked takes user to the top of the page */
     cursor: pointer;
     border: 2px solid grey;
 }
+
 .review-single-image:hover {
     opacity: 1;
 }
+
 /* Image caption */
 .review-img-caption {
     font-size: 1rem;
@@ -1202,7 +1222,8 @@ as the red arrow which when clicked takes user to the top of the page */
     background-color: black;
     border: 4px solid grey;
 }
-.opened-image > img {
+
+.opened-image>img {
     position: absolute;
     top: 10%;
     left: 10%;
@@ -1214,8 +1235,9 @@ as the red arrow which when clicked takes user to the top of the page */
     height: auto;
     border: none;
 }
+
 /* Hide the text that overlays the image when it is expanded */
-.opened-image > div {
+.opened-image>div {
     display: none;
 }
 
@@ -1270,10 +1292,12 @@ telling the user to click on the image again to close it */
     align-self: center;
 
 }
+
 /* A row in the form for a specific input */
 .form-row {
     margin: 1rem;
 }
+
 /* Input containers */
 #first-name-input-container,
 #last-name-input-container,
@@ -1281,10 +1305,12 @@ telling the user to click on the image again to close it */
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 /* Label for an input */
 .form-text-label {
     display: inline-block;
 }
+
 /* Input box */
 .form-text-input {
     display: inline-block;
@@ -1314,11 +1340,13 @@ telling the user to click on the image again to close it */
     margin-bottom: 5rem;
     font-size: 1.8rem;
 }
+
 /* Link back to Home page */
 #back-link {
     text-align: center;
 }
-#back-link > a:hover {
+
+#back-link>a:hover {
     color: var(--this-red);
 }
 
@@ -1378,26 +1406,27 @@ telling the user to click on the image again to close it */
 
     /* Aside section in reviews pages --> set width to not take up the whole page */
     #aside-reviews {
-        width: 90vw;
+        width: 80vw;
     }
 
-    #aside-reviews > ul {
+    #aside-reviews>ul {
         grid-template-columns: 1fr !important;
     }
 
     /* Aside section in single article/review page */
-    #aside-single-review{
-        max-width: 70vw!important;
+    #aside-single-review {
+        max-width: 70vw !important;
     }
-    #aside-single-review > ul {
-        grid-template-columns: 1fr!important;
+
+    #aside-single-review>ul {
+        grid-template-columns: 1fr !important;
         grid-template-rows: auto;
     }
 }
 
 
 /* LARGER MOBILE SCREENS */
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 700px) {
 
     /* For mobile-size screens, use sharper black and white background/text colors.
     For other screens, I used an off-black and off-white color for most of the webpages,
@@ -1432,7 +1461,9 @@ telling the user to click on the image again to close it */
     /* Styling for aside section on single review/article page */
     #aside-single-review {
         margin-bottom: 100px;
+        max-width: 75%;
     }
+
     #aside-single-review>ul {
         grid-template-rows: 25% 25% 25% 25%;
         grid-template-columns: auto;
@@ -1464,37 +1495,8 @@ telling the user to click on the image again to close it */
         margin-right: 0rem;
     }
 
-
-    /* Makes the list of links in the aside organized into 2 columns */
-    #aside-reviews>ul {
-        text-align: center;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-    }
-
 }
 
-/* TABLET SCREENS */
-/* 700px and less */
-@media only screen and (max-device-width: 700px) {
-
-    /* Change the layout of the load button and arrow */
-    /* Arrange into a single column instead of having them in a row */
-    .reviews-expand,
-    .travel-events-expand {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "loadbutton"
-            "uparrow";
-        grid-row-gap: 50px;
-        justify-items: start;
-    }
-
-    #scroll-up-arrow {
-        justify-self: start;
-    }
-
-}
 
 /* 768px and less */
 @media only screen and (max-device-width: 768px) {
@@ -1587,9 +1589,11 @@ telling the user to click on the image again to close it */
     .form-text-input {
         display: block;
     }
+
     .form-text-input {
         padding: 10px;
     }
+
     #first-name-input-container,
     #last-name-input-container,
     #email-input-container {
@@ -1623,12 +1627,26 @@ where navbar will be hidden */
             "darkbutton"
             "textsizes";
     }
+
     .travel-not-hidden {
         height: 70%;
         padding-bottom: 2rem;
     }
 }
 
+/* Tablet screens under 900px */
+@media only screen and (max-device-width: 900px) {
+    .img-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: center;
+    }
+
+}
+
+
+/* Smaller laptops */
+/* Any screen smaller than 1200px */
 
 /* Smaller laptops */
 /* Any screen smaller than 1200px */
@@ -1666,16 +1684,6 @@ where navbar will be hidden */
         width: 20rem;
     }
 
-    /* Tablet screens under 900px */
-    @media only screen and (max-device-width: 900px) {
-        .img-gallery {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            justify-items: center;
-        }
-
-    }
-
 
     /* Aside for review listings, styling for screens under 1200px */
     /* Reformats aside menu to new dimensions, so it takes up less space */
@@ -1688,13 +1696,13 @@ where navbar will be hidden */
         padding-bottom: 1rem;
         margin-bottom: 10px;
         display: grid;
-        grid-template-columns: 1fr!important;
+        grid-template-columns: 1fr !important;
         grid-template-rows: auto;
         align-content: center;
         justify-content: center;
     }
 
-    #aside-reviews > ul {
+    #aside-reviews>ul {
         text-align: center;
         display: grid;
         grid-template-columns: 1fr;
@@ -1702,7 +1710,7 @@ where navbar will be hidden */
         justify-items: center;
     }
 
-    #aside-reviews > ul > li {
+    #aside-reviews>ul>li {
         display: block;
         padding: 3rem;
     }
@@ -1720,23 +1728,27 @@ where navbar will be hidden */
         justify-items: start;
         margin-top: -1vw;
     }
+
     /* Styling for individual article/review page's aside section */
     #aside-single-review {
         color: var(--white-color);
         font-weight: bolder;
         min-height: 60%;
-        min-width: 98%;
-        justify-self: start;
+        width: 70vw;
+        justify-self: center;
         margin-top: 50px;
         margin-bottom: 50px;
+        padding-bottom: 0px;
     }
+
     #aside-single-review > ul {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
         grid-gap: 10px;
         align-items: start;
     }
+
     #aside-single-review>ul>li {
         margin-top: 20px;
     }
@@ -1748,6 +1760,7 @@ where navbar will be hidden */
     .travel-not-hidden {
         padding-bottom: 1rem;
     }
+
     .travel-location-image {
         width: 20rem;
     }

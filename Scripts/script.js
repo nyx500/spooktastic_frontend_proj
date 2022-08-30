@@ -1,26 +1,87 @@
+// GENERAL FUNCTIONS
+// When detects a click on the menu button, opens or closes the dropdown menu
+function toggleDropdown() {
+  document.getElementById('menu-button').addEventListener("click", function (event) {
+      /* Must account for the empty string, sometimes the display does not set
+      to 'none' automatically when the page is loaded for some reason! */
+      if (dropdown.style.display == 'none' || dropdown.style.display.length == 0)
+      {
+        dropdown.style.display = 'inline-block';
+      }
+      else
+      {
+        dropdown.style.display = 'none';
+      } 
+  })
+}
+
+// https://www.w3schools.com/howto/howto_js_lightbox.asp
+// ADDS AND EVENT LISTENER TO IMAGES IN THE SINGLE REVIEW PAGE
+// If an image is clicked on, expand it and add a message saying to click again to close
+function expandImages() {
+  // Gets arrays of images
+  // Images that are in a gallery
+  let galleryImages;
+  // Single images in a line
+  let singleImages;
+  if (document.getElementsByClassName('gallery-img-container')) {
+    galleryImages = document.getElementsByClassName('gallery-img-container');
+  }
+  if (document.getElementsByClassName('review-single-image-container')) {
+    singleImages = document.getElementsByClassName('review-single-image-container');
+  }
+  galleryImages = Array.from(galleryImages);
+  singleImages = Array.from(singleImages);
+
+  // Adds event listeners to images that changes the size by adding a class
+  galleryImages.forEach(image => {
+    image.addEventListener('click', () => {
+      if (image.classList.contains('opened-image')) {
+        document.getElementById('close-message').style.display = 'none';
+      }
+      else {
+        document.getElementById('close-message').style.display = 'block';
+      }
+      image.classList.toggle('opened-image');
+    })
+  })
+  // Expansion for an image that is on a review page but is NOT in a gallery
+  singleImages.forEach(image => {
+    image.addEventListener('click', () => {
+      if (image.classList.contains('opened-image')) {
+        document.getElementById('close-message').style.display = 'none';
+      }
+      else {
+        document.getElementById('close-message').style.display = 'block';
+      }
+      image.classList.toggle('opened-image');
+    })
+  })
+}
+
+
 // WINDOW/DOCUMENT EVENT LISTENER FUNCTIONS
 window.onload = function () {
+  // Dropdown menu functionality on clicking the menu button --> opens/collapses dropdown menu
+  toggleDropdown();
 
   // SETS IMAGE DIMENSIONS DEPENDING ON PAGE BEING VISITED
   // Books/Films/Music page
   let currentPage = window.location.href;
-  if (currentPage.includes('Reviews'))
-  {
-    kindsOfImageObject =  setReviewIconsParameters()
+  if (currentPage.includes('Reviews')) {
+    kindsOfImageObject = setReviewIconsParameters()
   }
   // Travel/Events pages
-  else if (currentPage.includes('travel') || currentPage.includes('events'))
-  {
+  else if (currentPage.includes('travel') || currentPage.includes('events')) {
     kindsOfImageObject = setTravelEventsIconsImageParameters();
   }
   // Individual reviews
-  else if (currentPage.includes('Article') || currentPage.includes('review'))
-  {
+  else if (currentPage.includes('Article') || currentPage.includes('review')) {
     kindsOfImageObject = setSingleReviewImageParameters();
   }
 
   // Updates image size based on screen size/font-size chosen by user
-  changeImageSize() 
+  changeImageSize()
   // Rotates the menu bars on menu button onclick and turns them into an 'X' symbol
   rotateMenuButton();
   // Implements functionality for Light/Dark mode
@@ -31,9 +92,6 @@ window.onload = function () {
   expandImages();
   // Let user navigate to index.html page when clicks on main heading
   makeHeadingClickable();
-  // Dropdown menu functionality on clicking the menu button
-  openDropdown();
-  closeDropdownOnOutsideClick();
 
   // If on the Form web page, run the form validation code
   if (document.getElementById('subscribe-form') != undefined) {
@@ -59,7 +117,7 @@ window.onload = function () {
   else {
     darkColorSettings();
   }
-  
+
 
 }
 
@@ -203,73 +261,4 @@ if (document.getElementById('scroll-up-arrow') != null) {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
-}
-
-// When click on menu button, open the dropdown menu
-function openDropdown() {
-  document.getElementById('menu-button').onclick = function () {
-    if (dropdown.style.display == 'inline-block') {
-      dropdown.style.display = 'none';
-    }
-    else {
-      dropdown.style.display = 'inline-block';
-    }
-  }
-}
-
-
-// Closes dropdown if clicked outside it
-function closeDropdownOnOutsideClick() {
-  document.getElementsByTagName('html')[0].addEventListener("click", function (event) {
-    if (event.target.id != "menu-button" && event.target.className != "dropdown-link-div") {
-      if (dropdown.style.display != 'none') {
-        dropdown.style.display = 'none';
-      }
-    }
-  }
-  )
-}
-
-// https://www.w3schools.com/howto/howto_js_lightbox.asp
-// ADDS AND EVENT LISTENER TO IMAGES IN THE SINGLE REVIEW PAGE
-// If an image is clicked on, expand it and add a message saying to click again to close
-function expandImages() {
-  // Gets arrays of images
-  // Images that are in a gallery
-  let galleryImages;
-  // Single images in a line
-  let singleImages;
-  if (document.getElementsByClassName('gallery-img-container')) {
-    galleryImages = document.getElementsByClassName('gallery-img-container');
-  }
-  if (document.getElementsByClassName('review-single-image-container')) {
-    singleImages = document.getElementsByClassName('review-single-image-container');
-  }
-  galleryImages = Array.from(galleryImages);
-  singleImages = Array.from(singleImages);
-
-  // Adds event listeners to images that changes the size by adding a class
-  galleryImages.forEach(image => {
-    image.addEventListener('click', () => {
-      if (image.classList.contains('opened-image')) {
-        document.getElementById('close-message').style.display = 'none';
-      }
-      else {
-        document.getElementById('close-message').style.display = 'block';
-      }
-      image.classList.toggle('opened-image');
-    })
-  })
-
-  singleImages.forEach(image => {
-    image.addEventListener('click', () => {
-      if (image.classList.contains('opened-image')) {
-        document.getElementById('close-message').style.display = 'none';
-      }
-      else {
-        document.getElementById('close-message').style.display = 'block';
-      }
-      image.classList.toggle('opened-image');
-    })
-  })
 }

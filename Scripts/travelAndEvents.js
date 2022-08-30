@@ -7,8 +7,8 @@ function setTravelEventsIconsImageParameters() {
     let imageObject = {
         className: 'travel-location-image',
         largeTextSize : {
-            smallScreenWidth: '10rem',
-            smallScreenHeight: '8rem',
+            smallScreenWidth: '70vw',
+            smallScreenHeight: '32vw',
             midScreenWidth: '21rem',
             midScreenHeight: '15rem',
             largeScreenWidth: '20rem',
