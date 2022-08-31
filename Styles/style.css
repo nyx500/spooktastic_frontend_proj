@@ -839,8 +839,9 @@ as the red arrow which when clicked takes user to the top of the page */
     width: 100%;
     height: fit-content;
     border-radius: 10px;
-    margin-bottom: 100px;
     text-align: center;
+    margin-top: 5%;
+    margin-bottom: 4%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -1032,53 +1033,43 @@ as the red arrow which when clicked takes user to the top of the page */
     border-radius: 4px;
     background-color: var(--this-light-grey);
     border: 4px solid var(--this-mid-grey);
-    width: fit-content;
     /* Makes sure content doesn't overflow from the container */
-    width: fit-content;
-    height: fit-content;
     /* Makes sure content stretches to the bottom of the page, so that
     the containers look proportional */
-    align-self: stretch;
-    align-content: stretch;
-    align-items: stretch;
     font-weight: bolder;
-    /* Makes sure that doesn't overflow over the main articles container */
-    max-width: 40%;
-    min-height: 100%;
-    justify-self: end;
-    padding: 1rem;
-    padding-bottom: 60rem;
-    margin-bottom: 10rem !important;
     margin-top: 50px;
-    margin-right: 20px;
+    margin-right: 5px;
+    height: fit-content;
+    max-width: 60%;
+    min-height: 120%;
     display: grid;
-    grid-template-columns: 100%;
-    min-height: 60%;
+    grid-template-columns: 1fr;
+    justify-self: end;
+    justify-content: start;
+    justify-items: start;
+    align-self: start;
+    align-content: space-between;
 }
 
 
-/* List of items in review aside container */
+/* List of links in the review page aside container */
 
-#aside-single-review>h4 {
-    text-align: center;
+#aside-single-review > h4 {
     margin-left: 20px;
+    align-self: start;;
+    font-size: 1.8rem;
 }
 
-#aside-single-review>ul {
+#aside-single-review > ul {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
-    grid-gap: 2px;
-    align-items: start;
 }
 
-#aside-single-review>ul>h4 {
-    font-size: 2rem;
-}
 
-#aside-single-review>ul>li {
-    padding-top: 50px;
-    padding-bottom: 50px;
+#aside-single-review > ul > li {
+    font-size: 0.8rem;
+    margin-bottom: 5rem;
 }
 
 /* Review section */
@@ -1095,13 +1086,13 @@ as the red arrow which when clicked takes user to the top of the page */
     grid-gap: 0.5rem;
     align-items: center;
     justify-content: start;
-    justify-items: start;
 }
 
 /* Heading/title of review */
-.review>h3 {
+.review > h3 {
     text-align: left !important;
-    margin-top: 0.2rem;
+    /* Give some space at the beginning of the page */
+    margin-top: 4rem;
     padding: 20px;
     font-size: 1.3rem;
     grid-area: reviewtitle;
@@ -1222,7 +1213,7 @@ as the red arrow which when clicked takes user to the top of the page */
     border: 4px solid grey;
 }
 
-.opened-image>img {
+.opened-image > img {
     position: absolute;
     top: 10%;
     left: 10%;
@@ -1230,8 +1221,8 @@ as the red arrow which when clicked takes user to the top of the page */
     /* Use the important! keyword (although should be used sparingly) to override
     any other styling the image might have had before it was expanded with expandImage()
     in the script and a new opened-image class was added to the container */
-    width: 90vw !important;
-    height: auto;
+    width: 80vw!important;
+    height: 60vw!important;
     border: none;
 }
 

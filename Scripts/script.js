@@ -69,7 +69,9 @@ window.onload = function () {
   // Books/Films/Music page
   let currentPage = window.location.href;
   if (currentPage.includes('Reviews')) {
-    kindsOfImageObject = setReviewIconsParameters()
+    kindsOfImageObject = setReviewIconsParameters();
+    // For Reviews pages, the "Load More..."/"Hide" button needs more space around it, for some reason
+    loadMoreButton.style.marginBottom = '4rem';
   }
   // Travel/Events pages
   else if (currentPage.includes('travel') || currentPage.includes('events')) {

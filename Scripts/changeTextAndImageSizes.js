@@ -90,6 +90,29 @@ function changeImageSize() {
       if (window.innerWidth > 768) {
         changeMainHeadingSize('5.2rem');
       }
+
+      // For large screens when font-size is large, resize the aside
+      // Otherwise, it spills over to the left onto the main article
+      if (window.innerWidth > 1200)
+      {
+        // If the aside for a single review exists, then do this...
+        if (document.getElementById('aside-single-review'))
+        { 
+          let aside = document.getElementById('aside-single-review');
+          // Cap the width to always be 400px
+          aside.style.width = '400px';
+          // Decrease the size of the heading so it always fits into the aside (tested this)
+          let asideHeading = aside.getElementsByTagName('h4')[0];
+          asideHeading.style.fontSize = '1.2rem';
+          // Changes size of links in the asides
+          let links = aside.getElementsByTagName('li');
+          links = Array.from(links);
+          links.forEach((link) => {
+            link.style.fontSize = '0.9rem!important';
+          })
+        }
+      }
+      
       /* For small screens, change the formatting and grid layout of the bottom area
       (where the Load button and the Scroll up arrow are)
       so that it is all in one column when screen not large enough to display a row*/
