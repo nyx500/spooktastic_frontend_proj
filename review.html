@@ -130,10 +130,10 @@
                         <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
                         <!-- Changes the menu three bars icon to a cross when clicked -->
                         <!-- Only appears on smaller screens of 768px or less -->
-                        <div area-label="menu with three bars which change to an X on open" id="menu-button">
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
+                        <div aria-label="menu with three bars which change to an X on open" id="menu-button">
+                            <div aria-label="first horizontal bar" class="bar1"></div>
+                            <div aria-label="second horizontal bar" class="bar2"></div>
+                            <div aria-label="third horizontal bar" class="bar3"></div>
                         </div>
                         <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
                             <div class="dropdown-link-div">
@@ -197,10 +197,15 @@
                     </a>
                 </li>
             </ul>
+            <!-- Main container for the article AND the asid-->
             <div class="main-review-container">
+                <!-- Article container -->
                 <article class="review">
+                    <!-- Title of article -->
                     <h3>Title of Review</h3>
+                    <!-- Text of article -->
                     <div id="article-text" class="article-body">
+                        <!-- Sections of article -->
                         <section class="review-article-section" id="review-section-1">
                             The standard Lorem Ipsum passage, used since the 1500s
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -282,11 +287,13 @@
                             molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
                         </section>
                     </div>
+                    <!-- Container with read-more button and scroll-up arrow -->
                     <div class="reviews-expand">
                         <button id="read-more" class="load-more">Read More...</button>
                         <a aria-label="red arrow that scrolls up when pressed" alt="red arrow pointing up" id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
                     </div>
                 </article>
+                <!-- Aside: on the right on desktops, at bottom of the article on smaller screens -->
                 <aside id="aside-single-review">
                     <h4>Other 'Horrifying' Content...</h4>
                     <ul>

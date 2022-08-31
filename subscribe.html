@@ -130,10 +130,10 @@
                         <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
                         <!-- Changes the menu three bars icon to a cross when clicked -->
                         <!-- Only appears on smaller screens of 768px or less -->
-                        <div area-label="menu with three bars which change to an X on open" id="menu-button">
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
+                        <div aria-label="menu with three bars which change to an X on open" id="menu-button">
+                            <div aria-label="first horizontal bar" class="bar1"></div>
+                            <div aria-label="second horizontal bar" class="bar2"></div>
+                            <div aria-label="third horizontal bar" class="bar3"></div>
                         </div>
                         <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
                             <div class="dropdown-link-div">
@@ -197,9 +197,14 @@
                     </a>
                 </li>
             </ul>
+            <!-- Main container for form -->
             <div class="main-part-of-page" id="subscribe-form-container">
-                <h2 id="subscribe-form-heading">Subscribe to Our Newsletter!</h2>
+                <!-- Form title -->
+                <h3 id="subscribe-form-heading">Subscribe to Our Newsletter!</h3>
+                <!-- Form containing first name, last name, email, interest checkbox input fields -->
                 <form id="subscribe-form">
+                    <!-- Container for first name form element -->
+                    <!-- Error message gets inserted here if input field empty on submit -->
                     <div id="first-name-input-container" class="form-row">
                         <label class="form-text-label" for="first-name">
                             First Name:
@@ -207,6 +212,8 @@
                         <input type="text" id="first-name" class="form-text-input" name="first-name"
                             placeholder="Your first name...">
                     </div>
+                    <!-- Container for last name form element -->
+                    <!-- Error message gets inserted here if input field empty on submit -->
                     <div id="last-name-input-container" class="form-row">
                         <label class="form-text-label" for="last-name">
                             Last Name:
@@ -214,6 +221,8 @@
                         <input type="text" id="last-name" class="form-text-input" name="last-name"
                             placeholder="Your last name...">
                     </div>
+                    <!-- Container for email address form element -->
+                    <!-- Error message gets inserted here if input field empty on submit -->
                     <div id="email-input-container" class="form-row">
                         <label class="form-text-label" for="email">
                             Email address:
@@ -221,8 +230,11 @@
                         <input type="email" id="email" class="form-text-input" name="email"
                             placeholder="Email address...">
                     </div>
+                    <!-- Container for checkbox options -->
                     <div id="checkbox-interest-options" class="checkbox-interest-options">
+                        <!-- Checkboxes header/user instructions telling them what to do -->
                         <h4>Please tick which news you're most interested in!</h4>
+                        <!-- Each checkbox input and label is wrapped in a div -->
                         <div id="checkbox-container-1" class="form-row checkbox-container">
                             <input class="form-checkbox" type="checkbox" id="interest-1" name="interest-1"
                                 value="Books">
@@ -265,6 +277,10 @@
                                 Medicine</label>
                         </div>
                     </div>
+                    <!-- On submit, either generate error messages and insert them before the
+                    divs with the class name 'form-row' or hide the form and fill the center
+                    of the main container with a thank you message.
+                    Functions can be found in form.js -->
                     <div class="form-row">
                         <input id="form-submit" type="submit" value="Submit">
                     </div>

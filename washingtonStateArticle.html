@@ -130,10 +130,10 @@
                         <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
                         <!-- Changes the menu three bars icon to a cross when clicked -->
                         <!-- Only appears on smaller screens of 768px or less -->
-                        <div area-label="menu with three bars which change to an X on open" id="menu-button">
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
+                        <div aria-label="menu with three bars which change to an X on open" id="menu-button">
+                            <div aria-label="first horizontal bar" class="bar1"></div>
+                            <div aria-label="second horizontal bar" class="bar2"></div>
+                            <div aria-label="third horizontal bar" class="bar3"></div>
                         </div>
                         <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
                             <div class="dropdown-link-div">
@@ -197,9 +197,13 @@
                     </a>
                 </li>
             </ul>
+            <!-- Main container for the article AND the aside-->
             <div class="main-review-container">
+                <!-- Article container -->
                 <article class="review">
+                    <!-- Title of article -->
                     <h3>5 Spooky Locations in Washington State, USA</h3>
+                    <!-- Text of article -->
                     <div id="article-text" class="article-body">
                         <section class="review-article-section" id="review-section-1">
                             <p>Many, many fabulous tales and artworks in the horror,
@@ -228,7 +232,11 @@
                             </p>
                         </section>
                         <section class="hidden review-article-section" id="review-section-3">
+                            <!-- Image gallery: on desktops, three inline images that
+                                expand when the text-size expands. On smaller screens,
+                                images are all stacked on top of each other in a column -->
                             <div class="img-gallery">
+                                <!-- On clicking the image, expand/close image (in script.js) -->
                                 <div class="gallery-img-container">
                                     <img class="gallery-img" src="./Assets/WashingtonArticle/hoh1.jpg" alt="
                                 Bridges and Waterfalls in Hoh National Rainforest">
@@ -250,7 +258,9 @@
                             <h4>
                                 2. MoPOP Museum
                             </h4>
+                            <!-- Single image, fills up 100% of article container, expands when clicked -->
                             <div class="review-single-image-container">
+                                <!-- Image itself 60vw -->
                                 <img alt="MoPOP in Seattle" src="/Assets/WashingtonArticle/mopop1.jpg"
                                     class="review-single-image">
                             </div>
