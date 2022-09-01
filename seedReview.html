@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Reviews</title>
-    <!-- Attribution: https://www.w3schools.com/html/html_favicon.asp -->
-    <!-- Attribution: https://www.flaticon.com/premium-icon/pentagram_3600252?term=pentagram&page=1&position=2&page=1&position=2&related_id=3600252&origin=search -->
-    <link rel="icon" type="image/x-icon" href="/assets/star.svg">
+    <title>'Seed' by Ania Ahlborn Review</title>
     <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="icon" type="image/x-icon" href="./Assets/star.svg">
 </head>
 
 <body>
@@ -21,14 +18,14 @@
         <!-- Becomes sticky if user scrolls down on a large screen +1200px -->
         <header aria-label="header including accessibility options, navbar and headings">
             <!--Attribution: tip for making CSS background-img accessible 
-                    https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
+                https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
             <!-- Includes the img tag but visually hide it with .screenreader-only -->
             <img class="screenreader-only" alt="Background photograph of dark greyscale forest"
                 src="./Assets/forestVanillaFilter.jpg">
             <!-- Left-side navbar containing acessibility options, links and social media icons -->
             <nav aria-label="main navbar" id="main-navbar">
                 <!-- List of accessibility options: text size options and dark/light mode button
-                    (as well as logo) -->
+                (as well as logo) -->
                 <ul aria-label="list of accessibility options" id="accessibility-options">
                     <li>
                         <!-- Logo disappears on smaller screens less than 768px -->
@@ -45,7 +42,7 @@
                     <li>
                         <!-- Text options, change font size in whole page on click -->
                         <!-- Used a 'span' semantic tag because the buttons always need to 
-                                always be in a horizontal line -->
+                            always be in a horizontal line -->
                         <span aria-label="text size options span container" id="text-size-options">
                             <!-- Buttons styled to look like links -->
                             <button id="large-text">
@@ -169,7 +166,6 @@
             </div>
         </header>
         <main>
-            <!-- Inline row list displaying social media links -->
             <ul id="main-container-media-links">
                 <li>
                     <!-- Gave aria labels as no text inside the component for screenreaders to access -->
@@ -200,105 +196,150 @@
                             width="20px" height="auto">
                     </a>
                 </li>
-                </ul>
-                <!-- In three columns on large screens, two columns on tablets, one column on mobiles -->
-                <div class="main-part-of-page main-reviews-container">
-                    <!-- Left hand section (about 70% of screen): container with review icons -->
-                    <section aria-label="section with images of books to click on" class="reviews">
-                        <h3 class="reviews-title">Book Reviews</h3>
-                        <div id="review-articles-books" class="reviews-content">
-                            <!-- I just created example book reviews with Lorem Ipsum text when
-                            you click on the review in order to demonstrate how the Load More/Hide
-                            button would work on a lot of content on different screen sizes -->
-                            <!-- Clicking anywhere on the image, title, author of the review
-                            directs you to the review page -->
-                            <a aria-label="first book review link" href="hideReview.html" class="not-hidden">
-                                <article class="review-box">
-                                    <!-- Image of the book cover -->
-                                    <img alt="yellow book cover with creepy ferris wheel" class="media-icon" src="Assets/hideWhite.jpg">
-                                    <!-- Title of the book -->
-                                    <h5 class="media-title">'Hide' - Kiersten White</h5>
-                                    <!-- Author of the review -->
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
-                            <a aria-label="second book review link"  href="seedReview.html" class="not-hidden">
-                                <article class="review-box">
-                                    <img alt="book cover" class="media-icon" src="Assets/seedAhlborn.jpg">
-                                    <h5 class="media-title">'Seed' - Ania Ahlborn</h5>
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
-                            <a aria-label="third book review link"  href="review.html" class="not-hidden">
-                                <article class="review-box">
-                                    <img alt="book cover" class="media-icon" src="Assets/no-image.jpg">
-                                    <h5 class="media-title">Book Title</h5>
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
-                            <a aria-label="fourth book review link"  href="review.html" class="not-hidden">
-                                <article class="review-box">
-                                    <img alt="book cover" class="media-icon" src="Assets/no-image.jpg">
-                                    <h5 class="media-title">Book Title</h5>
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
-                            <a aria-label="fifth book review link"  href="review.html" class="not-hidden">
-                                <article class="review-box">
-                                    <img alt="book cover" class="media-icon" src="Assets/no-image.jpg">
-                                    <h5 class="media-title">Book Title</h5>
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
-                            <a aria-label="sixth book review link"  href="review.html" class="not-hidden">
-                                <article class="review-box">
-                                    <img alt="book cover" class="media-icon" src="Assets/no-image.jpg">
-                                    <h5 class="media-title">Book Title</h5>
-                                    <p class="media-caption">Ophelia Lavey</p>
-                                </article class="review-box">
-                            </a>
-                        </div>
-                        <!-- A section at the bottom of the reviews section that displays the
-                        Load More/Hide button and the scroll-up arrow that takes user to top of page -->
-                        <div  class="reviews-expand">
-                            <button id="load-more-books" class="load-more">Load More...</button>
-                            <a aria-label="arrow button to go
-                            to top of the page" id="scroll-up-arrow"><img
-                            alt="red arrow pointing up" src="Assets/upArrow.png"></a>
-                        </div>
-                    </section>
-                    <!-- An aside section with external links, takes up approximately 20% of page -->
-                    <!-- Is positioned in one column under the reviews container on smaller screens -->
-                    <aside id="aside-reviews">
-                        <ul>
-                            <li><h4>New Horror Books</h4></li>
-                            <li><a href="https://www.goodreads.com/book/show/53620541-just-like-mother?from_search=true&from_srp=true&qid=mTyQHsCiCm&rank=1">
-                                "Just Like Mother"
-                            <br>
-                            - Anne Hetzel</a></li>
-                            <li><a href="https://www.goodreads.com/book/show/55959421-the-cherry-robbers?from_search=true&from_srp=true&qid=y6EXw1J0SG&rank=1">
-                                "The Cherry Robbers"
+            </ul>
+            <!-- Main container for the article AND the asid-->
+            <div class="main-review-container">
+                <!-- Article container -->
+                <article class="review">
+                    <!-- Title of article -->
+                    <h3>A Bleak Take on the Classic Possession Trope: SEED by Ania Ahlborn</h3>
+                    <!-- Text of article -->
+                    <div id="article-text" class="article-body">
+                        <!-- Sections of article -->
+                        <section class="review-article-section" id="review-section-1">
+                            This is a story with no redemption. This is a story where the bad guy wins. This is a story
+                            where no matter what you do or how hard you try, fate (or genetics) is impossible to outrun.
+                            Seed can be read as soul-crushing parallel to incompatibilist determinism in the
+                            philosophical sense (in a nutshell, in modern philosophy, incompatibilism means that a
+                            belief in determinism is mutually exclusive to any sense of free will an individual might
+                            possess).
+                        </section>
+                        <section class="review-article-section" id="review-section-2">
+                            Jack seems like an ordinary guy from a poor background, struggling to get by in a suburban
+                            backwater in the deep south of the US. As someone who strongly believes that there should be
+                            more horror novels set in hot, humid, tropical environments and is weirdly fascinated by
+                            anything set in New Orleans/Louisiana/Florida in general (all that luscious hanging moss!) I
+                            absolutely loved the landscape and the setting here. The descriptions of run-down suburbia,
+                            as some reviews have already commented, is reminiscent of early Stephen King (think Salem’s
+                            Lot, IT, etc.). However, it’s a pale shadow of what can be (tongue-in-cheek) said to be the
+                            Platonic ideal of King’s acute observations of the rhythm and beat of the quotidian in
+                            small-town America.
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-3">
+                            Jack and his wife Aimee have two kids, Charlie and Abby. Despite their financial problems,
+                            we get the impression that before the events in the book start rolling, they have a steady
+                            and comfortable family life, the kind that the majority of people aspire to. This is despite
+                            the main chasm between Aimee and Jack that roars open as the plot progresses: Jack is
+                            balancing his low-paid, dull job with his passion for music. Aimee resents his commitment to
+                            his band, particularly when he goes to play gigs in different towns and is away for the
+                            weekend. The novel is partly a homage to Rosemary’s Baby too – Aimee’s isolation when her
+                            child becomes possessed by a demon and Jack’s consistent refusal to address this reality is
+                            one of the most disturbing aspects of the book.
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-4">
+                            It all goes wrong with a car crash. Jack veers off the road and hits a tree because, while
+                            driving home, he comes face to face with a set of demonic, glaring eyes. After the accident,
+                            his favourite, younger daughter Charlie begins acting peculiar: there are scenes of
+                            projectile vomiting (a reference to The Exorcist) and sadistically taunting her mother and
+                            her older sister, Abby. For the majority of the plot, Jack and Aimee try to pretend that
+                            nothing is wrong. Jack’s denial continues even when he is certain that Charlie is possessed
+                            by the same demon that haunted him during his childhood in rural Georgia – a demon whom he
+                            ran away from to try to establish a wholesome, ordinary life. He puts down Aimee’s attempts
+                            to find the answer to the problem and gaslights her worries, never confessing the truth
+                            until the novel reaches its painful denouement. There are attempts to seek religious and
+                            psychiatric help, all of which fall flat and lead to nothing but frustration. Jack’s refusal
+                            to tell Aimee what he thinks is really happening becomes extremely irritating as the novel
+                            goes on. It is ambiguous whether it is the demon restraining him from telling the truth, or
+                            whether he truly believes he can solve the problem all on his own. The complete and utter
+                            breakdown in communication between the couple is especially haunting – a nod to the kind of
+                            alienation which often occurs in a marriage following some kind of trauma or loss.
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-5">
+                            <!-- Attribution: https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+                            <div class="slideshow-container">
+                                <div class="mySlides fade">
+                                    <div class="numbertext"> 1 / 3</div>
+                                    <img alt="picture of Louisiana swamp with hanging moss on trees"
+                                        src="Assets/seedImages/swamp.jpg" style="width:100%">
+                                    <div class="text">Louisiana swamp</div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img alt="picture of author ania ahlborn" src="Assets/seedImages/ahlborn.jpg"
+                                        style="width:100%">
+                                    <div class="text">Ania Ahlborn, author</div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img alt="the exorcist possessed girl" src="Assets/seedImages/exorcist.jpg"
+                                        style="width:100%">
+                                    <div class="text">Photo from 'The Exorcist' Movie</div>
+                                </div>
+                                <!-- Next and previous buttons -->
+                                <a id="prev" class="prev">&#10094;</a>
+                                <a id="next" class="next">&#10095;</a>
                                 <br>
-                                - Sarai Walker
-                            </a></li>
-                            <li><a href="https://www.goodreads.com/book/show/53153152-lullabies-for-suffering?from_search=true&from_srp=true&qid=AbmtnOg65b&rank=1">
-                                "Lullabies for Suffering"
-                                <br>
-                                - ed. Caroline Kepnes
-                            </a></li>
-                            <li><a href="https://www.goodreads.com/book/show/59314692-the-pallbearers-club?from_search=true&from_srp=true&qid=pK1rLgohzn&rank=1">
-                                "The Pallbearers Club"
-                                <br>
-                                - Paul Tremblay
-                            </a></li>
-                            <li><a href="https://www.goodreads.com/book/show/60050233-helpmeet?from_search=true&from_srp=true&qid=4TDIulbKnh&rank=1">
-                                "Helpmeet"
-                                <br>
-                                - Naben Ruthnum
-                            </a></li>
-                        </ul>
-                    </aside>
-                </div>
+                            </div>
+                            <!-- The dots/circles -->
+                            <div class="dots" style="text-align:center">
+                                <span id="dot-1" class="dot"></span>
+                                <span id="dot-2" class="dot"></span>
+                                <span id="dot-3" class="dot"></span>
+                            </div>
+                            As the demon controls Charlie more and more, we as readers discover more about Jack’s past
+                            and the origin of this infernal malaise. The novel clearly exemplifies the concept that no
+                            matter how far you run, you cannot outrun your past – or genetics. Jack’s attempts to flee
+                            his demonic and tragic past prove to be an exercise in futility. You can escape for some
+                            time, but sooner or later, the past will catch up to you. By showing how any kind of
+                            religious, moral, or medical attempt to explain the changes in Charlie’s personality are
+                            completely useless, Ahlborn seems to want to convey a sense of absolute evil that is
+                            irreducible to any kind of acceptable, everyday explanation – whether through the dictates
+                            of conventional religion or science. This raises the question of whether there is such an
+                            evil, inexplainable by either medicine or traditional, small-town morality – a question
+                            which Stephen King has apparently contemplated for most of his life. Is evil a result of the
+                            observable and empirical, factors such as upbringing, chemical misfiring in the brain or
+                            trauma, or is it something essential and valid in itself? Either way, the harrowing ending
+                            of Seed confirms that there are some things that have no way out, no solution, that the past
+                            is impossible to break free form, therefore echoing Nietsche’s concept of eternal
+                            repetition.
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-6">
+                            Perhaps not an uplifting message, but one that may be topically astute: despite the utopias
+                            of the 1960s and 1970s and the cultural drills against exclusionary political rhetoric, the
+                            ghost of identitarian dogmatism seems to have been impossible to exorcise from the
+                            occidental world. Following the events of the past ten years, history is neither at its end
+                            as Francis Fukuyama proclaimed, nor is it a linear progress towards greater freedom and
+                            individual rights as the positivists of the 19th century believed. It is a vicious cycle, a
+                            snake biting its own tail, and an eternity of repetition. It is a periodic sine wave where
+                            totalitarian and communitarian destruction alternates with periods of illusory individualism
+                            and freedom. The inexplicable instinct to murder and to maim keeps rearing its ugly head
+                            despite any kind of attempt to start afresh, despite the lessons of the brutality of the
+                            1930s and ‘40s. Although Seed doesn’t have any redemptive or positive message, it is
+                            testament to the air of hopelessness in modern Western society that nothing (despite the
+                            optimism of the late 20th century) has changed at all. And the cause of this cyclic
+                            repetition? Like Jack’s refusal to acknowledge the truth of what is happening to his wife,
+                            it is clearly the lack of will to communicate, to confess, to address the shadow of sadistic
+                            exclusionary impulses that can possess us all.
+                        </section>
+                    </div>
+                    <!-- Container with read-more button and scroll-up arrow -->
+                    <div class="reviews-expand">
+                        <button id="read-more" class="load-more">Read More...</button>
+                        <a aria-label="red arrow that scrolls up when pressed" alt="red arrow pointing up"
+                            id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                    </div>
+                </article>
+                <!-- Aside: on the right on desktops, at bottom of the article on smaller screens -->
+                <aside id="aside-single-review">
+                    <h4>Other 'Horrifying' Content...</h4>
+                    <ul>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                        <li><a>5 Best (Something)...</a></li>
+                    </ul>
+                </aside>
+            </div>
         </main>
         <!-- Footer in 3 columns on larger screens -->
         <!-- Footer with 1 column on small screens -->
@@ -353,8 +394,9 @@
     <script src="./Scripts/script.js"></script>
     <script src="./Scripts/darkLightModeFunctions.js"></script>
     <script src="./Scripts/hideShowElements.js"></script>
-    <script src="./Scripts/reviewListings.js"></script>
+    <script src="./Scripts/individualReview.js"></script>
     <script src="./Scripts/changeTextAndImageSizes.js"></script>
+    <script src="./Scripts/slideshow.js"></script>
 </body>
 
 </html>

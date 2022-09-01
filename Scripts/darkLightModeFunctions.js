@@ -22,17 +22,6 @@ function checkForStickyNavBarAndChangeStyle(navbarBackground, textColor, rightMe
         // Light mode: myBlack
         stickyNav.style.color = textColor;
 
-        // Light mode navbar border
-        if (textColor == myBlack)
-        {
-             stickyNav.style.border = '2px solid var(--this-mid-grey)';
-        }
-        // Dark mode navbar border
-        else
-        {
-            stickyNav.style.border = '2px solid var(--this-dark-red)';
-        }
-
         // Changes color of the links in the header if a sticky navbar is open
         for (var i = 0; i < leftHandMenuLinks.length; i++) {
             leftHandMenuLinks[i].style.color = textColor;
@@ -76,11 +65,10 @@ function lightColorSettings() {
         })
     }
 
-    // If there exists an aside element, make its background lighter
+    // If there exists an aside element, make its background lighter (grey)
     if (aside != null) {
-        aside.style.backgroundColor = myLightGrey;
+        aside.style.backgroundColor = myMidGrey;
         aside.style.color = myBlack;
-        aside.style.border = '4px solid var(--this-mid-grey)';
     }
 
     // Changes color of dropdown menu's background to light grey
