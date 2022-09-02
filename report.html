@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/star.svg">
+</head>
+
+<body>
+    <!-- Container for all the visible HTML -->
+    <div aria-label="container for all the body html" class="parent-container">
+        <!-- Loader appears only if document is not ready yet (functionality in JS) -->
+        <div aria-label="circular loader in red, grey, and black" class="loader"></div>
+        <!-- Header containing logo, navbars, titles, subtitles and dropdown -->
+        <!-- Becomes sticky if user scrolls down on a large screen +1200px -->
+        <header aria-label="header including accessibility options, navbar and headings">
+            <!--Attribution: tip for making CSS background-img accessible 
+                https://stackoverflow.com/questions/48913759/how-to-add-alt-text-to-background-images-making-background-images-accessible-->
+            <!-- Includes the img tag but visually hide it with .screenreader-only -->
+            <img class="screenreader-only" alt="Background photograph of dark greyscale forest"
+                src="./Assets/forestVanillaFilter.jpg">
+            <!-- Left-side navbar containing acessibility options, links and social media icons -->
+            <nav aria-label="main navbar" id="main-navbar">
+                <!-- List of accessibility options: text size options and dark/light mode button
+                (as well as logo) -->
+                <ul aria-label="list of accessibility options" id="accessibility-options">
+                    <li>
+                        <!-- Logo disappears on smaller screens less than 768px -->
+                        <h2 id="navbar-logo-text">
+                            <a role="logo" href="index.html">SPOOKTASTIC</a>
+                        </h2>
+                    </li>
+                    <li>
+                        <!-- Button to switch between dark and light mode -->
+                        <button id="dark-mode">
+                            Dark Mode
+                        </button>
+                    </li>
+                    <li>
+                        <!-- Text options, change font size in whole page on click -->
+                        <!-- Used a 'span' semantic tag because the buttons always need to 
+                            always be in a horizontal line -->
+                        <span aria-label="text size options span container" id="text-size-options">
+                            <!-- Buttons styled to look like links -->
+                            <button id="large-text">
+                                <b aria-label="large text option">A</b>
+                            </button>
+                            <button id="medium-text">
+                                <b aria-label="medium text option">a</b>
+                            </button>
+                            <button id="small-text">
+                                <b aria-label="small text option">a</b>
+                            </button>
+                            <button id="extra-small-text">
+                                <b aria-label="extra small text option">a</b>
+                            </button>
+                        </span>
+                    </li>
+                </ul>
+                <!-- Right-side navbar. Shows links within website and social media icons -->
+                <!-- Hidden on smaller screens with less than 768px -->
+                <ol aria-label="navbar with social media links and site links" id="main-navbar-list">
+                    <ol aria-lavel="internal links within this website" id="links-to-this-site">
+                        <li>
+                            <a class="main-nav-link" id="main-nav-home-link" href="index.html">HOME</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-books-link" href="bookReviews.html">BOOKS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-films-link" href="filmReviews.html">MOVIES</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-music-link" href="music.html">MUSIC</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-travel-link" href="travel.html">TRAVEL</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-events-link" href="events.html">EVENTS</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-write-link" href="subscribe.html">SUBSCRIBE</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link" id="main-nav-write-link" href="report.html">REPORT</a>
+                        </li>
+                    </ol>
+                    <!-- Hidden on smaller screens and displayed in <main/> -->
+                    <ol aria-label="list of links to social media" id="social-links">
+                        <li>
+                            <a aria-label="link to facebook" class="social-media-link" href="https://www.facebook.com">
+                                <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to twitter" class="social-media-link" href="https://www.twitter.com">
+                                <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to instagram" class="social-media-link"
+                                href="https://www.instagram.com">
+                                <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="link to pinterest" class="social-media-link"
+                                href="https://www.pinterest.com">
+                                <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
+                                    width="20px" height="auto">
+                            </a>
+                        </li>
+                    </ol>
+                </ol>
+            </nav>
+            <!-- Title of website, subheading section -->
+            <div aria-label="main headings area" class="header-headings-area">
+                <h1 id="main-heading">
+                    SPOOKTASTIC
+                </h1>
+                <div id="main-subheading-and-dropdown-container">
+                    <h2 id="main-subheading">
+                        Your Go-To Site for Horror News and Reviews
+                    </h2>
+                    <div class="dropdown-container">
+                        <!-- Attribution: https://www.w3schools.com/howto/howto_css_menu_icon.asp -->
+                        <!-- Changes the menu three bars icon to a cross when clicked -->
+                        <!-- Only appears on smaller screens of 768px or less -->
+                        <div aria-label="menu with three bars which change to an X on open" id="menu-button">
+                            <div aria-label="first horizontal bar" class="bar1"></div>
+                            <div aria-label="second horizontal bar" class="bar2"></div>
+                            <div aria-label="third horizontal bar" class="bar3"></div>
+                        </div>
+                        <div aria-label="dropdown menu" id="dropdown" class="dropdown-menu">
+                            <div class="dropdown-link-div">
+                                <a href="index.html">Home</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="bookReviews.html">Book Reviews</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="filmReviews.html">Film Reviews</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="travel.html">Travel Suggestions</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="events.html">Events</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="subscribe.html">Subscribe</a>
+                            </div>
+                            <hr>
+                            <div class="dropdown-link-div">
+                                <a href="report.html">Report</a>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <ul id="main-container-media-links">
+                <li>
+                    <!-- Gave aria labels as no text inside the component for screenreaders to access -->
+                    <a aria-label="on small screens link to facebook" class="social-media-link"
+                        href="https://www.facebook.com">
+                        <img alt="Facebook icon" class="social-media-icon" src="./Assets/facebookIcon.svg" width="20px"
+                            height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a aria-label="on small screens link to twitter" class="social-media-link"
+                        href="https://www.twitter.com">
+                        <img alt="Twitter icon" class="social-media-icon" src="./Assets/twitterIcon.svg" width="20px"
+                            height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a aria-label="on small screens link to instagram" class="social-media-link"
+                        href="https://www.instagram.com">
+                        <img alt="Instagram icon" class="social-media-icon" src="./Assets/instagramIcon.svg"
+                            width="20px" height="auto">
+                    </a>
+                </li>
+                <li>
+                    <a aria-label="on small screens link to pinterest" class="social-media-link"
+                        href="https://www.pinterest.com">
+                        <img alt="Pinterest icon" class="social-media-icon" src="./Assets/pinterestIcon.svg"
+                            width="20px" height="auto">
+                    </a>
+                </li>
+            </ul>
+            <!-- Main container for the article AND the asid-->
+            <div class="main-review-container">
+                <!-- Article container -->
+                <article class="review">
+                    <!-- Title of article -->
+                    <h3>Report</h3>
+                    <!-- Text of article -->
+                    <div id="article-text" class="article-body">
+                        <!-- Sections of article -->
+                        <section class="review-article-section" id="review-section-1">
+                            <h4>Introduction: What is the essential story being told by your site and what type of
+                                structure did you choose to implement?</h4>
+                            <p>My website is a lifestyle blog containing news for anyone interested in the
+                                alternative/goth
+                                subculture. I created this website because while I found many websites online either
+                                about
+                                horror and fantasy books and movies, or about metal music, there weren’t that many
+                                websites
+                                that would link together a diverse range of interests that a large proportion of people
+                                in
+                                this subculture find interesting. The aim of the site is to collect information about
+                                different cultural areas that are interesting to a lot of people who belong to this
+                                subculture: e.g. there are separate pages displaying horror and dark fantasy book
+                                reviews,
+                                horror movie reviews, unusual and spooky travel locations, and upcoming goth/music
+                                events.
+                                The structure is modelled on a typical review/news website where there are separate
+                                ‘listings’ pages for the different areas of culture such as movies, books or travel.
+                                These
+                                pages display a list of review titles together with clickable images; for instance, with
+                                book covers for the Book Reviews pages. Clicking on these images directs you to an
+                                article/review page. Some of the reviews pages and articles also contain and aside bar
+                                where
+                                there are links to external resources about popular gothic books, movies, or holidays.
+                                There
+                                is also a form page where you can subscribe to a newsletter.
+                            </p>
+                        </section>
+                        <section class="review-article-section" id="review-section-2">
+                            <h4>State 3 things that have inspired you when creating your website. These could include
+                                guest speakers, other
+                                websites, artists, developers etc.</h4>
+                            <p>
+                                1. I was inspired by the website for Pacific Northwest Stories. This is a website for a
+                                group of horror and dark
+                                fantasy podcasts made by the Canadian artist Terry Miles. While this website is made
+                                with Squarespace, which
+                                contains ready-made templates for websites, I like the appearance and layout for the
+                                website and drew upon some
+                                of
+                                the styling ideas I found effective in it, such as the use of a dark forest background
+                                for the header, high
+                                contrast
+                                settings that make for ease of readability, and a clear division of each page into a
+                                large header, main area
+                                (with
+                                icons for the podcast listings) and footer. I also really liked how the color palette of
+                                blacks, greys and
+                                mauves
+                                reflects the mysterious and atmospheric content of the art that the website is
+                                promoting. However, the one thing
+                                I
+                                decided I would change is that the images for the icons of the podcasts on the ‘Our
+                                Shows’ page on this website
+                                take
+                                forever to load, which is really off-putting for the user. As such, I made a note to use
+                                smaller icons for the
+                                books
+                                and movies listings in my website.
+                            </p>
+                            <p>
+                                2. Additionally, I was motivated to make this website because I have been attending an
+                                online horror book club
+                                for
+                                the last couple of years whichs also organizes movie events in person and in real life;
+                                I found the club on
+                                Meetup.com. I have noticed that many of the members of the book club have similar
+                                interests when it comes to not
+                                only books, but films, and music as well, and that having a website combining
+                                suggestions of these different
+                                forms
+                                of entertainment media in the goth/horror genre would be something that a lot of members
+                                would enjoy.
+                            </p>
+                            <p>
+                                3. Finally, one of my inspirations was the book review website called <a
+                                    href="www.lithub.com"></a>Literary
+                                Hub</a> What I like
+                                about this website in particular is the listing of new novels or poetry books on this
+                                page:
+                                <a href="https://lithub.com/category/fictionandpoetry/">Lithub</a> . There are clickable
+                                images of book covers
+                                in a grid layout that
+                                looks clean and is easy to navigate. Clicking on a cover takes you to more information
+                                about that book. I liked
+                                how
+                                there is not too much information on this page, making it very user friendly: there is
+                                no lengthy description
+                                underneath the book icons, just the image and the title, which makes it relaxing to
+                                scroll through these looking
+                                for
+                                suggestions. I have also often used this site on my mobile phone as well as on a desktop
+                                computer, and I have
+                                found
+                                that the images get resized and placed into one column instead of three on smaller
+                                screens, and this responsive
+                                layout makes this a favourite website of mine to scroll through on different devices.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-3">
+                            <h4>State 3 ways in which your site is accessible.</h4>
+                            <p>
+                                1. The most simple way I knew I had to make my site accessible was by including ‘alt’
+                                HTML tags to images, labels to input fields, and aria-labels on non-text HTML elements.
+                                For example, I used an aria-label on the dropdown menu button with three bars on it,
+                                which I made using three lines as CSS divs, as this button did not have any text inside
+                                the HTML element (unlike the Load More button, which says ‘Load More…’). Therefore, a
+                                disabled user using a screenreader would not be able to know what it looks out if the
+                                screenreader was reading out the HTML, thus highlighting the importance of adding an
+                                aria-label.
+                            </p>
+                            <p>
+                                2. The second way I made my site accessible to users is by implementing a Dark Mode
+                                toggle button. I personally know many people with light sensitivities chronic migraines,
+                                who dislike looking at bright lights and prefer reading with a dark mode. There is a
+                                Dark Mode button on the top-left of every page in the website, so the user does not have
+                                to search for this option in a settings menu, as it is positioned in a way to make it
+                                easily accessible.
+                            </p>
+                            <p>
+                                3. Finally, I implemented different text-size options in a span of buttons for large
+                                text, medium text, small text and extra-small text, for users with visual difficulties
+                                reading small text. On the click of one of these buttons, the text of the whole page is
+                                enlarged. I did this by setting the ‘root’ font-size of the HTML document to a certain
+                                number in pixels, and then setting the font-size of all the other text elements in rem
+                                units, so that it is easily resized when the absolute root font-size changes.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-4">
+                            <h4>
+                                State 3 ways in which you have considered usability in your site
+                            </h4>
+                            <p>
+                                1. I have tried to select colors for both the dark and the light modes on the site that
+                                have a high contrast
+                                ratio, so mainly black background with white text, and white background with black text.
+                                I also used red to
+                                change text color when hovering on important links or buttons, as this color is the
+                                brightest non-monochromatic
+                                color that will contrast with both black and white. For larger screens, I set the black
+                                and the white color to
+                                be slightly off from #000000 for black and #FFFFFF for white, as the contrast between
+                                pure black and pure white
+                                could seem too harsh on a large screen. However, when the screen size is reduced to a
+                                mobile-sized screen, I
+                                reset the root black and white variables to pure #000000 black and pure #FFFFFF white,
+                                as people are more likely
+                                to use a mobile screen outside in the sunlight, and therefore a higher contrast would be
+                                advantageous to the
+                                visibility in these settings.
+                            </p>
+                            <p>
+                                2. I have tried to follow conventions frequently used in websites, such as placing the
+                                SPOOKTASTIC logo on the
+                                top left of the site, and the contact and copyright/date information in the footer, as
+                                these are the places
+                                users usually look for this data. I know from my own experience that when I want to
+                                reference an online
+                                resource, I always scroll to the end of the page as this is where I expect to find the
+                                date, and understand the
+                                frustration when this is in the centre of the HTML or somewhere else.
+                            </p>
+                            <p>
+                                3. An important way in which I tried to make my website user-friendly was by creating a
+                                simple navigation
+                                structure. By this, I mean that for every page in the website, there need not be more
+                                than 2 clicks to take the
+                                user to any other page. For example, if I am on the page for the travel review of
+                                Washington State, USA, to get
+                                to a Book Review, I need to navigate once to go to the Book Reviews page, and once more
+                                to click on the selected
+                                book review. I think that having too many clicks to get between pages on the website
+                                makes for an exhausting
+                                user experience, which is why I tried to eliminate this problem.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-5">
+                            <h4>
+                                State 3 things you had to learn/find out by yourself when creating your site, and
+                                describe how you did that
+                            </h4>
+                            <p>
+                                1. I had to work out how to store a setting on the website, so that it was applied to
+                                the whole style when the user navigated through the different pages. This was necessary
+                                for setting the text size and the Dark Mode, as I didn’t want the user to have to select
+                                the right option every time they went to a new page. I read about using the localStorage
+                                JS property to do this on here:
+                                https://blog.logrocket.com/localstorage-javascript-complete-guide/ I then had to create
+                                some functions to adapt this feature to storing the right data to keep the preferred
+                                text-size stored in the user’s browser, and decide to create a localStorage variable
+                                called ‘textSize’ and a string with ‘22px’ or ‘14px’ stored in it.
+                            </p>
+                            <p>
+                                2. I had to create a Subscribe to Our Newsletter form, and
+                                I wanted to make sure it would be responsive. However, I had a problem getting the label
+                                for the text inputs to be ‘inline’ with the input boxes, so I set a responsive grid
+                                layout on the container for each label and input, which I had to play around with before
+                                it worked.
+                            </p>
+                            <p>
+                                3. The most challenging thing I had to do was create an image gallery inside the
+                                articles I wrote. I wanted to increase and decrease the image size of the images in the
+                                gallery when the text size was changed, as the tiny images together with a large text
+                                size might reduce the user’s attention, as there could seem to be too much text and too
+                                few images splitting it up. Therefore, I made a global variable in globals.js
+                                to store the properties (the sizes for each text-size) of the images in the responsive
+                                gallery for each screen size, and then call a function that would change these sizes
+                                whenever the text-size was changed by the user.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-6">
+                            <h4>
+                                What aspect(s) of your work could be improved, and how might you do things differently
+                                another time?
+                            </h4>
+                            <p>
+                                My main issue is that I couldn’t manage to get the aside menus to look like the links
+                                were evenly spread out with the header. I wish I had spent more time on the asides as I
+                                always find it so difficult to get them to be aligned neatly with the rest of the text.
+                                I spent a lot of time adjusting lots of CSS properties, so that the long aside on the
+                                right of the article on large screens wouldn’t look ridiculous. I also had this problem
+                                during the midterm, so I worked more on it, but still need to research more about how to
+                                make the aside element look good.
+                            </p>
+                            <p>
+                                I also have a problem with the fact that when the user clicks to load/hide the reviews,
+                                or the article sections, the expansion and contraction of the content looks clunky and
+                                makes the user lose their position on the page. I would like to implement some functions
+                                that would enable the page to scroll up or down slowly when these buttons are clicked.
+                            </p>
+                            <p>
+                                I also tried to integrate an automated slideshow with a user-controlled slideshow in the
+                                Seed Review HTML page, in order to adapt the slideshow code I found on the W3 schools
+                                tutorial, but somehow whenever I tried to mix these two features nothing worked. The
+                                slideshow was a bit of a last moment decision, so if I’d had more time, I definitely
+                                would have worked more on giving the slideshow both these features.
+                            </p>
+                            <p>
+                                Furthermore, I wish that I had spent more time integrating video and audio into some
+                                pages about music and events, for example having an audio player that the user could
+                                control to listen to a particular song for a band being written about.
+                            </p>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-7">
+                            <h4>Resources</h4>
+                            <h5>
+                                Custom (dark red and grey gradient) Scrollbar
+                            </h5>
+                            <ul>
+                                <li>Changed the colors to black, grey, and red.</li>
+                                <li>Css-Tricks.com, ‘Custom Scrollbars in Webkit’, 2019. [Online]. Available:
+                                    <a
+                                        href="https://css-tricks.com/custom-scrollbars-in-webkit/">https://css-tricks.com/custom-scrollbars-in-webkit/</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+                                Loader
+                            </h5>
+                            <ul>
+                                <li>
+                                    <p>
+
+                                        I adapted the code to make a loading circle icon from the CSS in W3 schools by
+                                        making the
+                                        position fixed (always in the middle of the screen), giving it a high z-index to
+                                        make sure
+                                        it was always on top of all the other elements in the screen, and changing the
+                                        colors and
+                                        the time taken to spin round to make it spin more slowly.
+                                    </p>
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Css Loader, 2022. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/howto/howto_js_mobile_navbar.asp">https://www.w3schools.com/howto/howto_js_mobile_navbar.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    JSTips.co, ‘Detect document ready in pure JS’, 2016. [Online]. Available:
+                                    <a
+                                        href="https://www.jstips.co/en/javascript/detect-document-ready-in-pure-js/">https://www.jstips.co/en/javascript/detect-document-ready-in-pure-js/</a>
+                                    [Accessed:
+                                    02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+                                Sticky Header
+                            </h5>
+                            <ul>
+                                <li>I wanted to make the header appear the user scrolls down on large (desktop/large
+                                    laptop)
+                                    style screens. I implementing it using the following code in CSS and JavaScript. I
+                                    changed
+                                    the copied CSS to reduce the padding on the sticky header, as it was covering too
+                                    much of
+                                    the screen, and giving it a z-index to make it appear on top of other elements. I
+                                    then had
+                                    to increase the z-index of the navbar links and logo appearing on the sticky header,
+                                    otherwise they were hidden behind it when the user scrolled down. Again, instead of
+                                    using an
+                                    inline function I added a ‘scroll’ event listener in the script file to the entire
+                                    window
+                                    object and a conditional statement to only show the sticky header for screens over
+                                    768px,
+                                    otherwise it took up too much of the small screen.</li>l
+                                <li>
+
+                                    W3Schools.com, ‘How TO – On Scroll Header. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/howto/howto_js_sticky_header.asp">https://www.w3schools.com/howto/howto_js_sticky_header.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+
+
+                                Dropdown Button / Dropdown Menu
+                            </h5>
+                            <ul>
+                                <li>
+                                    I used the following tutorials to learn how to make a tribar mobile menu icon that
+                                    opens and
+                                    closes a dropdown menu when click. Obviously, I changed the color and the size of
+                                    the tribar
+                                    to make it fit into the aesthetic of my own site. For the tutorials from W3 schools,
+                                    I also
+                                    changed any inline event handlers by putting them as event listeners in the script.
+                                    I also
+                                    made the site conform to a responsive layout by hiding the menu-button on larger
+                                    screens,
+                                    and showing it (instead of the navbar menu links on the top-right corner of the
+                                    page) on
+                                    tablet and mobile screens. Furthermore, I found that the angles used to rotate/fade
+                                    the
+                                    three bars into a cross when the dropdown menu opens in the W3 schools tutorial made
+                                    the
+                                    cross look quite lopsided on the screen, so I had to fiddle with experimenting with
+                                    different angles and translations in the CSS ‘.changeIcon’ animation, more
+                                    specifically to
+                                    rotate the bars by 43 degrees instead of 45 and to translate them by different
+                                    numbers until
+                                    I found a specific number to 1 d.p. that gave a more balanced appearance.
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Mobile Navigation Menu’, 2022. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/howto/howto_js_mobile_navbar.asp">https://www.w3schools.com/howto/howto_js_mobile_navbar.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Menu Icon’, 2022. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/howto/howto_css_menu_icon.asp">https://www.w3schools.com/howto/howto_css_menu_icon.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+                                Dark Mode
+                            </h5>
+                            <ul>
+                                <li>
+                                    W3Schools.com, ‘How TO – Toggle Dark Mode, 2022. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp">https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+
+                                Hiding and Showing Elements
+                            </h5>
+                            <ul>
+                                <li>
+                                    W3Schools.com, ‘How TO – Toggle Hide and Show, 2022. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp">https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                    Really useful for adding and removing a ‘hidden’ class from various elements. I
+                                    adapted this
+                                    in lots of ways.
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘HTML DOM Element classList’, 2022. [Online]. Available:
+                                    <a
+                                        href="https://www.w3schools.com/jsref/prop_element_classlist.asp">https://www.w3schools.com/jsref/prop_element_classlist.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    GeeksForGeeks.com, ‘HTML Collection for Loop’, 2022. [Online]. Available:
+                                    <a href="https://www.geeksforgeeks.org/htmlcollection-for-loop/">
+                                        https://www.geeksforgeeks.org/htmlcollection-for-loop/</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+                                Text Size Options
+                                <ul>
+                                    <li>
+                                        Needed to learn the difference between children and childNodes of a div to
+                                        iterate through
+                                        them.
+                                    </li>
+                                    <li>
+                                        W3Schools.com, ‘HTML DOM Element children’, 2022. [Online]. Available:
+                                        <a
+                                            href="https://www.w3schools.com/jsref/prop_element_children.asp">https://www.w3schools.com/jsref/prop_element_children.asp</a>
+                                        [Accessed: 02-Sep-2022]
+                                    </li>
+                                </ul>
+                            </h5>
+                            <h5>
+                                Reviews Pages: Shake and Tilt Animation when Click on Image
+                            </h5>
+                            <ul>
+                                <li>I basically just copied the CSS on how to make an HTML element shake when the user
+                                    hovers on
+                                    it and applied it to the images for each book/film etc. listed on the reviews page.
+                                    I also
+                                    highlighted the border of the image in red when the user does this.
+                                </li>
+                                <li>
+                                    Unused-CSS.com, ‘CSS Shake Animation’, 2022. [Online]. Available:
+                                    <a
+                                        href="https://unused-css.com/blog/css-shake-animation/">https://unused-css.com/blog/css-shake-animation/</a>
+                                    [Accessed 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+                                Single Review Page: Image Gallery
+                            </h5>
+                            <ul>
+                                <li>
+                                    I wanted to create a responsive image gallery with a caption below each image. This
+                                    code let
+                                    me position the div as a caption underneath the image, however, I changed the code
+                                    by making
+                                    this caption div appear with a black translucent background and white text over the
+                                    image
+                                    itself for better contrast. I also used the CSS opacity tutorial to make the image
+                                    translucent until the user hovers over it. Instead of using floats, I used a grid
+                                    layout
+                                    that was responsive based on the screen size when it came to the number of images
+                                    displayed
+                                    in a single row instead of the positioning used in the CSS code that I copied.
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘CSS Image Gallery’, 2022. [Online]. Available:
+                                    <a href="https://www.w3schools.com/css/css_image_gallery.asp ">https://www.w3schools.com/css/css_image_gallery.asp
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘CSS Opacity / Transparency, 2022. [Online]. Available:
+                                    <a href="https://www.w3schools.com/css/css_image_transparency.asp ">https://www.w3schools.com/css/css_image_transparency.asp
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+
+                                Single Review Page: Lightbox
+                            </h5>
+                            <ul>
+                                <li>
+                                    On my article pages, I created the possibility to expand the image when the user
+                                    clicks on
+                                    it by using this code. However, I didn’t use the float position properties like in
+                                    the
+                                    original CSS, but made the image container fixed when the user clicks on the image
+                                    and the
+                                    image in the container have an absolute position property. Furthermore, I didn’t use
+                                    an exit
+                                    button with an ‘X’ like in the CSS but I created a div at the bottom of the larger
+                                    image
+                                    telling the user to click again to close the image and revert back to the normal
+                                    page. I
+                                    also made the image caption div positioned over the image disappear when the image
+                                    was
+                                    expanded.
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Lightbox’, 2022. [Online]. Available:
+                                    <a href="https://www.w3schools.com/howto/howto_js_lightbox.asp">
+                                        https://www.w3schools.com/howto/howto_js_lightbox.asp
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                            <h5>
+                                Single Review Page: Slideshow
+                            </h5>
+                            <ul>
+                                <li>
+                                    I changed the max-width property of the slideshow images to stop them overflowing
+                                    from the
+                                    page and changed the color of the navigation dots. I also changed the speed of the
+                                    transition animation.
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Slideshow’, 2022. [Online]. Available:
+                                    <a href="https://www.w3schools.com/howto/howto_js_slideshow.asp">
+                                        https://www.w3schools.com/howto/howto_js_slideshow.asp
+                                        [Accessed: 02-Sep-2022]
+                                    </a>
+                                </li>
+                            </ul>
+                            <h5>Form</h5>
+                            <ul>
+                                <li>
+                                    I used the W3 schools lessons to learn about how to create labels and input fields,
+                                    but I
+                                    changed the layout of the responsive form by using grid instead of float because I
+                                    find that
+                                    it’s easier to control and make the resizing more precise. However, also didn’t
+                                    display text
+                                    when a checkbox was checked, but made it bold instead. Also, I implemented most of
+                                    the
+                                    JavaScript validation functionality and thank you/error messages myself.
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Sign Up Form, 2022. [Online]. Available:
+                                    <a href=" https://www.w3schools.com/howto/howto_css_signup_form.asp">
+                                        https://www.w3schools.com/howto/howto_css_signup_form.asp
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO – Responsive Form’, 2022. [Online]. Available:
+                                    <a href="https://www.w3schools.com/howto/howto_css_responsive_form.asp">
+                                        https://www.w3schools.com/howto/howto_css_responsive_form.asp
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘HTML <input type="checkbox">’, 2022. [Online].
+                                    <a href="https://www.w3schools.com/tags/att_input_type_checkbox.asp ">
+                                        https://www.w3schools.com/tags/att_input_type_checkbox.asp 
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    W3Schools.com, ‘How TO - Display Text when Checkbox is Checked’, 2022. [Online].
+                                    <a href="https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp">https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp</a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                                <li>
+                                    StackOverflow.com, ‘JavaScript validation for empty input field’, 2021. [Online].
+                                    <a href="https://stackoverflow.com/questions/3937513/javascript-validation-for-empty-input-field">
+                                        https://stackoverflow.com/questions/3937513/javascript-validation-for-empty-input-field
+                                    </a>
+                                    [Accessed: 02-Sep-2022]
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-8">
+                            <div class="wireframe">
+                                <h5>Site Map</h5>
+                                <img src="./Mockups/siteMap.png">
+                            </div>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-9">
+                            <div class="wireframe-container">
+                            <h4>Wireframes</h4>
+                            <h5>Click to enlarge and close them</h5>
+                            <div class="wireframe">
+                                <h5>Home: Desktop</h5>
+                                <img src="./Wireframes/slide1.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Home: Tablet</h5>
+                                <img src="./Wireframes/slide2.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Home: Mobile</h5>
+                                <img src="./Wireframes/slide3.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Reviews: Desktop</h5>
+                                <img src="./Wireframes/slide4.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Reviews: Tablet</h5>
+                                <img src="./Wireframes/slide5.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Reviews: Mobile</h5>
+                                <img src="./Wireframes/slide6.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Travel/Events: Desktop</h5>
+                                <img src="./Wireframes/slide7.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Travel/Events: Tablet and Mobile</h5>
+                                <img src="./Wireframes/slide8.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Single Article / Review: Desktop</h5>
+                                <img src="./Wireframes/slide9.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Single Article / Review: Tablet / Mobile</h5>
+                                <img src="./Wireframes/slide10.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Single Article / Image Gallery</h5>
+                                <img src="./Wireframes/slide11.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Subscribe: Desktop</h5>
+                                <img src="./Wireframes/slide12.png">
+                            </div>
+                            <div class="wireframe">
+                                <h5>Subscribe: Tablet and Mobile Screens</h5>
+                                <img src="./Wireframes/slide13.png">
+                            </div>
+                        </div>
+                        </section>
+                        <section class="hidden review-article-section" id="review-section-8">
+                            <div class="mockups-container">
+                            <h4>Mockups</h4>
+                            <h4>Desktop Mockups</h4>
+                            <div class="mockups-desktop">
+                                <div class="mockup">   
+                                    <h5>Homepage</h5>
+                                    <img src="./Mockups/homeDesktop.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Reviews Page</h5>
+                                <img src="./Mockups/reviewsDesktop.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Travel/Events Page</h5>
+                                <img src="./Mockups/travelEventsDesktop.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Individual Reviews</h5>
+                                <img src="./Mockups/mallorcaArticleDesktop.png">
+                                </div>
+                                <div class="mockup">  
+                                <img src="./Mockups/washingtonDesktop.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Form page</h5>
+                                <img src="./Mockups/formMockupDesktop.png">
+                                </div>
+                            </div>
+                            <hr>
+                            <h4>Tablet Mockups</h4>
+                            <div class="mockups-tablet">
+                                <div class="mockup">  
+                                <h5>Homepage</h5>
+                                <img src="./Mockups/homeTablet.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Reviews Page</h5>
+                                </div>
+                                <div class="mockup">  
+                                <img src="./Mockups/reviewsTabletAndMobile.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Travel/Events Page</h5>
+                                </div>
+                                <div class="mockup">  
+                                <img src="./Mockups/travelEventsTablet.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Individual Reviews</h5> 
+                                <img src="./Mockups/mallorcaArticleTablet.png">
+                                </div>
+                                <div class="mockup">  
+                                <img src="./Mockups/washingtonTabletAndMobile.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Form page</h5>
+                                <img src="./Mockups/formMockupTabletAndMobile.png">
+                                </div>
+                            </div>
+                            <hr>
+                            <h4>Mobile Mockups</h4>
+                            <div class="mockups-mobile">
+                                <div class="mockup">  
+                                <h5>Homepage</h5>
+                                </div>
+                                <div class="mockup">  
+                                <img src="./Mockups/homeMobile.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Travel/Events Page</h5>
+                                <img src="./Mockups/travelEventsMobile.png">
+                                </div>
+                                <div class="mockup">  
+                                <h5>Individual Review</h5>
+                                <img src="./Mockups/mallorcaArticleMobile.png">
+                                </div>
+                            </div>
+                        </div>
+                        </section>
+                    </div>
+                    <!-- Container with read-more button and scroll-up arrow -->
+                    <div class="reviews-expand">
+                        <button id="read-more" class="load-more">Read More...</button>
+                        <a aria-label="red arrow that scrolls up when pressed" alt="red arrow pointing up"
+                            id="scroll-up-arrow"><img src="Assets/upArrow.png"></a>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <!-- Footer in 3 columns on larger screens -->
+        <!-- Footer with 1 column on small screens -->
+        <footer aria-label="footer containing copyright, contact details and links to other pages in
+            the site">
+            <div id="copyright">
+                Ophelia Lavey 2022
+            </div>
+            <div id="contact">
+                <h4>Contact:</h4>
+                <h5>Email Address:</h5>
+                <email id="footer-email-contact">
+                    ophelia.lavey2@gmail.com
+                </email>
+                <h5>Snail Mail:</h5>
+                <address id="footer-address-contact">
+                    23 Will-O-the-Wisp Road
+                    Salem
+                    DV6 666
+                    UK
+                </address>
+            </div>
+            <!-- Another navbar with all links within site -->
+            <nav aria-label="links within this site" id="site-map">
+                <ol>
+                    <li>
+                        <a id="footer-nav-home-link" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-books-link" href="bookReviews.html">Book Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-films-link" href="filmReviews.html">Film Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-music-link" href="music.html">Music Reviews</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-travel-link" href="travel.html">Spooky Travel</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-events-link" href="events.html">Mysterious Events</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-write-link" href="subscribe.html">Subscribe to Newsletter!</a>
+                    </li>
+                    <li>
+                        <a id="footer-nav-report-link" href="report.html">Report</a>
+                    </li>
+                </ol>
+            </nav>
+        </footer>
+    </div>
+    <script src="./Scripts/globals.js"></script>
+    <script src="./Scripts/script.js"></script>
+    <script src="./Scripts/darkLightModeFunctions.js"></script>
+    <script src="./Scripts/hideShowElements.js"></script>
+    <script src="./Scripts/individualReview.js"></script>
+    <script src="./Scripts/changeTextAndImageSizes.js"></script>
+    <script>
+        let wireframes = document.getElementsByClassName('wireframe');
+        wireframes = Array.from(wireframes);
+        wireframes.forEach((wireframe) => {
+            wireframe.addEventListener('click', function(){
+                wireframe.classList.toggle('opened-wireframe');
+            })
+        })
+    </script>
+</body>
+
+</html>
