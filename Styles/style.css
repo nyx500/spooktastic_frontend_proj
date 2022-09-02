@@ -1,3 +1,34 @@
+/*  REFERENCES (please see explanations of how they were adapted in the Report)
+
+Fixed loader:
+•	W3Schools.com, ‘How TO – Css Loader, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp. [Accessed: 02-Sep-2022]
+Custom Scrollbar:
+•	Css-Tricks.com, ‘Custom Scrollbars in Webkit’, 2019. [Online]. Available: https://css-tricks.com/custom-scrollbars-in-webkit/ [Accessed: 02-Sep-2022]
+Sticky header:
+•	W3Schools.com, ‘How TO – On Scroll Header. [Online]. Available: https://www.w3schools.com/howto/howto_js_sticky_header.asp [Accessed: 02-Sep-2022]
+Menu Button:
+•	W3Schools.com, ‘How TO – Mobile Navigation Menu’, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp. [Accessed: 02-Sep-2022]
+•	W3Schools.com, ‘How TO – Menu Icon, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_css_menu_icon.asp  [Accessed: 02-Sep-2022]
+Tilt and Shake Animation:
+•	Unused-CSS.com, ‘CSS Shake Animation’, 2022. [Online]. Available: https://unused-css.com/blog/css-shake-animation/ [Accessed 02-Sep-2022]
+
+Article Page References
+Image Gallery
+•	W3Schools.com, ‘CSS Image Gallery’, 2022. [Online]. Available: https://www.w3schools.com/css/css_image_gallery.asp [Accessed: 02-Sep-2022]
+•	W3Schools.com, ‘CSS Opacity / Transparency, 2022. [Online]. Available: https://www.w3schools.com/css/css_image_transparency.asp  [Accessed: 02-Sep-2022]
+Expand image option:
+•	W3Schools.com, ‘How TO – Lightbox, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_css_menu_icon.asp  [Accessed: 02-Sep-2022]
+Slideshow:
+•	W3Schools.com, ‘How TO – Slideshow’, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_js_slideshow.asp [Accessed: 02-Sep-2022]
+
+Form Styling:
+•	W3Schools.com, ‘How TO – Sign Up Form, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_css_signup_form.asp [Accessed: 02-Sep-2022]
+•	W3Schools.com, ‘How TO – Responsive Form’, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_css_responsive_form.asp [Accessed: 02-Sep-2022]
+•	W3Schools.com, ‘HTML <input type="checkbox">’, 2022. [Online]. Available: h https://www.w3schools.com/tags/att_input_type_checkbox.asp  [Accessed: 02-Sep-2022]
+•	W3Schools.com, ‘How TO - Display Text when Checkbox is Checked’, 2022. [Online]. Available: https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp [Accessed: 02-Sep-2022]
+
+*/
+
 @font-face {
     font-family: "Oxygen Regular";
     src: url(../Fonts/Oxygen/Oxygen-Regular.ttf)
@@ -43,7 +74,10 @@
 to this base font size.
 This allows the user to easily change the text-size of the whole document
 with JavaScript
- */
+
+/*Appearance of scrollbar in Chrome is slightly different but still has the same color scheme and works*/
+/*Attribution: https://css-tricks.com/custom-scrollbars-in-webkit/*/
+
 html {
     font-family: "Oxygen Regular", Verdana, Tahoma, sans-serif;
     font-size: 16px;
@@ -57,12 +91,10 @@ html,
 body {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
-/*Appearance of scrollbar in Chrome is slightly different but still has the same color scheme and works*/
-/*Attribution: https://css-tricks.com/custom-scrollbars-in-webkit/*/
-
-/* Firefox scrollbars */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 1rem;
     background: var(--this-mid-grey);
@@ -78,12 +110,13 @@ body {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    /* For mozilla browser compatibility */
+    /* Use webkit; Mozilla browser compatibility */
     -webkit-box-shadow: inset 4px 4px 6px var(--off-black);
     /* Other browsers */
     box-shadow: inset 4px 4px 6px var(--off-black);
     background: var(--this-red);
 }
+
 
 /* Container that fits in everything you can see on the web pages */
 .parent-container {
@@ -106,7 +139,7 @@ body {
 .loader {
     text-align: center;
     /* Makes sure the loader is on on top of every other HTML element on the page */
-    z-index: 999;
+    z-index: 10;
     border: 16px solid #f3f3f3;
     /* Four different sections of loader circle in different colors */
     border-top: 16px solid var(--this-lightest-grey);
@@ -157,8 +190,8 @@ describing background image: "Background photograph of dark greyscale forest" */
 
 
 /*Attribution: https://www.w3schools.com/howto/howto_js_sticky_header.asp */
-/*Sticky formatting for main navbar*/
-/* JavaScript files have code for when user scrolls down on Large screens, the sticky
+/*Sticky formatting for the header*/
+/* JavaScript files have code for when user scrolls down on large screens, the sticky
 changes display from 'none' to 'block' */
 .sticky1 {
     position: fixed;
@@ -190,7 +223,6 @@ changes display from 'none' to 'block' */
 }
 
 /*********** Navigation panel for accessibility options ***********/
-
 /* Includes three groups: logo, dark-light mode button, and array of text-size buttons */
 #accessibility-options {
     list-style-type: none;
@@ -738,9 +770,9 @@ the website */
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     column-gap: 1rem;
-    align-self: start!important;
-    align-items: start!important;
-    align-content: start!important;
+    align-self: start !important;
+    align-items: start !important;
+    align-content: start !important;
     justify-content: center;
     justify-items: center;
     width: 100%;
@@ -906,39 +938,38 @@ as the red arrow which when clicked takes user to the top of the page */
 
 
 /* List of links in aside menu */
-#aside-reviews > ul {
+#aside-reviews>ul {
     display: grid;
     align-items: space-between;
     list-style-type: none;
-    justify-items: start!important;
+    justify-items: start !important;
     justify-content: start;
     color: var(--off-white);
 }
 
 /* Aside heading */
-#aside-reviews > ul > li > h4 {
+#aside-reviews>ul>li>h4 {
     font-size: 1.6rem;
     font-weight: bolder;
 }
 
 
-#aside-reviews > ul > li 
-{
+#aside-reviews>ul>li {
     margin-bottom: 4rem;
     text-align: start;
 }
 
 /* Separates the links in the aside menu */
-#aside-reviews > ul > li > a {
+#aside-reviews>ul>li>a {
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 1rem;
     margin-bottom: 2rem;
-    text-align: start!important;
+    text-align: start !important;
     color: var(--off-white);
 }
 
-#aside-reviews > ul > li > a:visited{
+#aside-reviews>ul>li>a:visited {
     color: var(--this-red);
 }
 
@@ -986,10 +1017,11 @@ as the red arrow which when clicked takes user to the top of the page */
     grid-column-gap: 20px;
 }
 
-/* Title for one specific article */
+/* Title for one specific travel or event article */
 .travel-event-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
+    margin-left: 20px;
 }
 
 /* Title for image in the article */
@@ -998,13 +1030,14 @@ as the red arrow which when clicked takes user to the top of the page */
     height: 16rem;
     border: 6px solid black;
     margin-top: 10px;
-    margin: 20px;
+    margin-left: 10%!important;
 }
 
 /* Article caption */
 .travel-location-caption {
     font-size: 0.8rem;
     text-align: left;
+    padding: 20px;
 }
 
 /* Article beginning description... */
@@ -1053,7 +1086,7 @@ as the red arrow which when clicked takes user to the top of the page */
     margin-top: 50px;
     margin-right: 10px;
     margin-bottom: 10px;
-    height: fit-content!important;
+    height: fit-content !important;
     max-width: 60%;
     display: grid;
     grid-template-columns: 1fr;
@@ -1067,14 +1100,15 @@ as the red arrow which when clicked takes user to the top of the page */
 
 /* List of links in the review page aside container */
 
-#aside-single-review > h4 {
+#aside-single-review>h4 {
     margin-left: 20px;
-    align-self: start;;
+    align-self: start;
+    ;
     font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
-#aside-single-review > ul {
+#aside-single-review>ul {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
@@ -1082,12 +1116,11 @@ as the red arrow which when clicked takes user to the top of the page */
 }
 
 
-#aside-single-review > ul > li {
+#aside-single-review>ul>li {
     margin-bottom: 5rem;
 }
 
-#aside-single-review > ul > li > a
-{
+#aside-single-review>ul>li>a {
     font-size: 0.7rem;
     text-align: left;
 }
@@ -1109,7 +1142,7 @@ as the red arrow which when clicked takes user to the top of the page */
 }
 
 /* Heading/title of review */
-.review > h3 {
+.review>h3 {
     text-align: left !important;
     /* Give some space at the beginning of the page */
     margin-top: 4rem;
@@ -1138,6 +1171,7 @@ as the red arrow which when clicked takes user to the top of the page */
 }
 
 /* For a single review page: option of including responsive image gallery */
+/* Attribution to create image gallery in CSS: https://www.w3schools.com/css/css_image_gallery.asp */
 .img-gallery {
     display: grid;
     width: 100%;
@@ -1154,8 +1188,8 @@ as the red arrow which when clicked takes user to the top of the page */
     margin: 10px;
 }
 
-/* Make image brighter/more 'opaque' when user hovers over it */
-/* Make image clickable, so add a pointer --> when click, expand the image (in JS) */
+/* Makes image brighter/more 'opaque' when user hovers over it */
+/* Makes image clickable, so add a pointer --> when click, expand the image (in JS) */
 .gallery-img {
     opacity: 0.8;
     cursor: pointer;
@@ -1233,7 +1267,7 @@ as the red arrow which when clicked takes user to the top of the page */
     border: 4px solid grey;
 }
 
-.opened-image > img {
+.opened-image>img {
     position: absolute;
     top: 10%;
     left: 10%;
@@ -1241,8 +1275,8 @@ as the red arrow which when clicked takes user to the top of the page */
     /* Use the important! keyword (although should be used sparingly) to override
     any other styling the image might have had before it was expanded with expandImage()
     in the script and a new opened-image class was added to the container */
-    width: 80vw!important;
-    height: 60vw!important;
+    width: 80vw !important;
+    height: 40vw !important;
     border: none;
 }
 
@@ -1278,15 +1312,16 @@ telling the user to click on the image again to close it */
     max-width: 50vw;
     position: relative;
     margin: auto;
-  }
-  
-  /* Hide the images by default */
-  .mySlides {
+}
+
+/* Hide the images by default */
+.mySlides {
     display: none;
-  }
-  
-  /* Next & previous buttons */
-  .prev, .next {
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -1299,22 +1334,23 @@ telling the user to click on the image again to close it */
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
+}
+
+/* Position the "next button" to the right */
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  /* Changed the color from the copied CSS to not just be white, as not enough contrast */
-  .text {
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+/* Changed the color from the copied CSS to not just be white, as not enough contrast */
+.text {
     color: var(--this-red);
     /* Made sure there was a black background to contrast */
     background-color: var(--off-black);
@@ -1328,25 +1364,24 @@ telling the user to click on the image again to close it */
     text-align: center;
     /* Added some top space */
     padding-top: 6px;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
     top: 0;
-  }
-  
-  /* Made bigger margin between text and slideshow */
-  .dots
-  {
-    margin-bottom: 20px;
-  }
+}
 
-  /* The dots/bullets/indicators */
-  .dot {
+/* Made bigger margin between text and slideshow */
+.dots {
+    margin-bottom: 20px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -1358,23 +1393,30 @@ telling the user to click on the image again to close it */
     display: inline-block;
     /* Changed from 0.6s to 1s as it was too fast */
     transition: background-color 1s ease;
-  }
-  
-  .active, .dot:hover {
+}
+
+.active,
+.dot:hover {
     background-color: var(--this-light-grey);
-  }
-  
-  /* Fading animation */
-  .fade {
+}
+
+/* Fading animation */
+.fade {
     animation-name: fade;
     animation-duration: 1.5s;
-  }
-  
-  @keyframes fade {
+}
+
+@keyframes fade {
+
     /* Made opacity lower from 0.4 to 0.1 */
-    from {opacity: 0.1}
-    to {opacity: 1}
-  }
+    from {
+        opacity: 0.1
+    }
+
+    to {
+        opacity: 1
+    }
+}
 
 /****************************END STYLING FOR ARTICLE PAGE**********************************************/
 
@@ -1453,7 +1495,7 @@ telling the user to click on the image again to close it */
     border-radius: 2px;
 }
 
-#form-submit:hover{
+#form-submit:hover {
     box-shadow: 5px 5px 10px var(--this-dark-red);
 }
 
@@ -1475,7 +1517,7 @@ telling the user to click on the image again to close it */
     text-align: center;
 }
 
-#back-link > a:hover {
+#back-link>a:hover {
     color: var(--this-red);
 }
 
@@ -1538,7 +1580,7 @@ telling the user to click on the image again to close it */
         width: 80vw;
     }
 
-    #aside-reviews > ul {
+    #aside-reviews>ul {
         grid-template-columns: 1fr !important;
     }
 
@@ -1627,8 +1669,8 @@ telling the user to click on the image again to close it */
 }
 
 
-/* 768px and less */
-@media only screen and (max-device-width: 768px) {
+/* 900px and less */
+@media only screen and (max-device-width: 900px) {
 
     /* Display the dropdown menu button */
     .dropdown-container {
@@ -1693,15 +1735,6 @@ telling the user to click on the image again to close it */
         padding-bottom: 2.5rem;
     }
 
-    .travel-events-content {
-        grid-template-columns: 1fr;
-    }
-
-    .travel-location-image {
-        width: 70vw;
-        height: auto;
-    }
-
     /* Changes size of load-more button to fit the screen */
     .load-more,
     #load-more-travel,
@@ -1730,18 +1763,6 @@ telling the user to click on the image again to close it */
     }
 }
 
-
-/* LAPTOP SCREENS */
-/* 768px+ screens */
-@media only screen and (min-device-width: 768px) {
-
-    /* Display dropdown menu button only on smaller screens,
-where navbar will be hidden */
-    /* Screens above tablet size */
-    .dropdown-container {
-        display: none;
-    }
-}
 
 
 /* Small laptop screens */
@@ -1813,6 +1834,17 @@ where navbar will be hidden */
         width: 20rem;
     }
 
+    /* Puts articles in one column instead of two */
+    .travel-events-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* If only one column, need more margins from the left to center the image */
+    .travel-location-image {
+        height: auto;
+        margin-left: 5vw!important;
+    }
+
 
     /* Aside for review listings, styling for screens under 1200px */
     /* Reformats aside menu to new dimensions, so it takes up less space */
@@ -1830,8 +1862,8 @@ where navbar will be hidden */
         align-content: center;
         justify-content: center;
     }
-
-    #aside-reviews > ul {
+    /* List of links in the aside */
+    #aside-reviews>ul {
         text-align: center;
         display: grid;
         grid-template-columns: 1fr;
@@ -1870,7 +1902,7 @@ where navbar will be hidden */
         padding-bottom: 0px;
     }
 
-    #aside-single-review > ul {
+    #aside-single-review>ul {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;

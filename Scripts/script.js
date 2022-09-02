@@ -120,7 +120,6 @@ window.onload = function () {
     darkColorSettings();
   }
 
-
 }
 
 

@@ -5,38 +5,39 @@ toggleHidden(mainContentContainer, 'not-hidden');
 function setTravelEventsIconsImageParameters() {
     let array = [];
     let imageObject = {
+        // Set width using view width units which adapts to the screen size to prevent overflowing
         className: 'travel-location-image',
         largeTextSize : {
-            smallScreenWidth: '70vw',
-            smallScreenHeight: '32vw',
-            midScreenWidth: '21rem',
-            midScreenHeight: '15rem',
-            largeScreenWidth: '20rem',
-            largeScreenHeight: '14rem'
+            smallScreenWidth: '80vw',
+            smallScreenHeight: '60vw',
+            midScreenWidth: '90vw',
+            midScreenHeight: '50vw',
+            largeScreenWidth: '42vw',
+            largeScreenHeight: '30vw'
         },
         midTextSize : {
-            smallScreenWidth: '14rem',
-            smallScreenHeight: '10rem',
-            midScreenWidth: '22rem',
-            midScreenHeight: '18rem',
-            largeScreenWidth: '22rem',
-            largeScreenHeight: '12rem',
+            smallScreenWidth: '70vw',
+            smallScreenHeight: '40vw',
+            midScreenWidth: '75vw',
+            midScreenHeight: '45vw',
+            largeScreenWidth: '40vw',
+            largeScreenHeight: '25vw',
         },
         smallTextSize: {
             smallScreenWidth: '80vw',
             smallScreenHeight: 'auto',
-            midScreenWidth: '30rem',
-            midScreenHeight: '16rem',
-            largeScreenWidth: '27rem',
-            largeScreenHeight: '15rem',
+            midScreenWidth: '70vw',
+            midScreenHeight: '40vw',
+            largeScreenWidth: '40vw',
+            largeScreenHeight: '20vw',
         },
         extraSmallTextSize: {
             smallScreenWidth: '18rem',
             smallScreenHeight: '8rem',
-            midScreenWidth: '28rem',
-            midScreenHeight: '18rem',
-            largeScreenWidth: '25rem',
-            largeScreenHeight: '16rem',
+            midScreenWidth: '65vw',
+            midScreenHeight: '35vw',
+            largeScreenWidth: '40vw',
+            largeScreenHeight: '18vw',
         }
     }
     array.push(imageObject);

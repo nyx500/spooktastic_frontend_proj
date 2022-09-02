@@ -65,7 +65,6 @@ function showItems() {
     }
 }
 
-
 // Attribution: https://stackoverflow.com/questions/52570291/scrollintoview-20px-above-element
 // Scrolls to a position on the screen just above a selected element
 function scrollToJustAboveElement(element, marginAbove) {
@@ -100,4 +99,3 @@ function createEventListenerForShowMoreButton() {
         }
     })
 }
-

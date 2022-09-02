@@ -47,18 +47,15 @@ function changeImageSize() {
         on the values of the properties stored in the sizeObject in the image Object
         that is stored in the global kindsOfImageObject array */
         for (var j = 0; j < imgs.length; j++) {
-          if (window.innerWidth > 900) {
-            console.log('XXXX');
+          if (window.innerWidth >= 1200) {
             imgs[j].style.width = sizeObject.largeScreenWidth;
             imgs[j].style.height = sizeObject.largeScreenHeight;
           }
-          else if (window.innerWidth <= 900 && window.innerWidth >= 500) {
-            console.log('YYY');
+          else if (window.innerWidth < 1200 && window.innerWidth >= 700) {
             imgs[j].style.width = sizeObject.midScreenWidth;
             imgs[j].style.height = sizeObject.midScreenHeight;
           }
           else {
-            console.log('ZZZ');
             imgs[j].style.width = sizeObject.smallScreenWidth;
             imgs[j].style.height = sizeObject.smallScreenHeight;
           }
@@ -87,8 +84,8 @@ function changeImageSize() {
     // LARGE TEXT SIZE
     if (pixels == '22px') {
       // Change main heading size for large screens
-      if (window.innerWidth > 768) {
-        changeMainHeadingSize('5.2rem');
+      if (window.innerWidth > 900) {
+        changeMainHeadingSize('5rem');
       }
 
       // For large screens when font-size is large, resize the aside
@@ -117,7 +114,7 @@ function changeImageSize() {
       (where the Load button and the Scroll up arrow are)
       so that it is all in one column when screen not large enough to display a row*/
       else {
-        changeMainHeadingSize('2rem');
+        changeMainHeadingSize('3rem');
         if (document.getElementsByClassName('reviews-expand')[0]) {
           let bottomArea = document.getElementsByClassName('reviews-expand')[0];
           bottomArea.style.gridTemplateColumns = '1fr';
